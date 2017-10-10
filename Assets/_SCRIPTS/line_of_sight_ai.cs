@@ -42,8 +42,7 @@ public class line_of_sight_ai : MonoBehaviour {
         Physics.Raycast(transform.position, _player.transform.position - transform.position, out hit, MAX_DISTANCE);
 
         if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.CompareTag("Player")) {
-            _agent.SetDestination(_player.transform.position);
-            _targeting_player = true;
+            SetTargetToPlayer();
         }
         else if (!_agent.pathPending && _agent.remainingDistance < MIN_DISTANCE) {
             if (_targeting_player) {

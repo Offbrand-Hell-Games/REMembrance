@@ -15,9 +15,9 @@ public class PatrolManager : MonoBehaviour {
 		{
 			if (!_patrol_groups.ContainsKey(p.PATROL_GROUP)) {
 				_patrol_groups.Add(p.PATROL_GROUP, new List<PatrolPoint>());
-			
-			((List<PatrolPoint>)_patrol_groups[p.PATROL_GROUP]).Add(p);
 			}
+
+			((List<PatrolPoint>)_patrol_groups[p.PATROL_GROUP]).Add(p);
 		}
 	}
 	
