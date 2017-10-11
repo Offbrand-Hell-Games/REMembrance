@@ -83,10 +83,13 @@ public class PlayerController : MonoBehaviour {
                 if (_isDashing)
                 {
                     hitColliders[i].SendMessage("Disable_Collision");
-                    print("Disable collision");
-
-                }
-                
+                    //print("Disable collision");
+                } 
+            }
+            if(hitColliders[i].tag == "Memory")
+            {
+                if (_isDashing)
+                    hitColliders[i].SendMessage("Drop");
             }
             i++;
             yield return null;

@@ -24,7 +24,6 @@ public class FadeWalls : MonoBehaviour
 
     public IEnumerator DisableWalls()
     {
-        print("GOT HERE");
         WallColider.enabled = false;
         yield return new WaitForSeconds(2.0f);
         WallColider.enabled = true;
