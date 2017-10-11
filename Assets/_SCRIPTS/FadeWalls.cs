@@ -6,6 +6,7 @@ public class FadeWalls : MonoBehaviour
 {
     public Material Wall_Material;
     Material mat;
+    public BoxCollider WallColider;
 
     float alpha = 0.0f;
     void Start()
@@ -14,12 +15,24 @@ public class FadeWalls : MonoBehaviour
     }
     void Fade()
     {
-
         StartCoroutine(FadeAway());
+    }
+    void Disable_Collision()
+    {
+        StartCoroutine(DisableWalls());
+    }
+
+    public IEnumerator DisableWalls()
+    {
+        print("GOT HERE");
+        WallColider.enabled = false;
+        yield return new WaitForSeconds(2.0f);
+        WallColider.enabled = true;
+        yield return null;
     }
     public IEnumerator FadeAway()
     {
-        print("MADE IT HERE");
+
         mat.CopyPropertiesFromMaterial(Wall_Material);
         mat.SetFloat("_Mode", 3f);
         //mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
@@ -30,8 +43,8 @@ public class FadeWalls : MonoBehaviour
 
         mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
         mat.renderQueue = 3000;
-        yield return new WaitForSeconds(3.0f);
-        print("Made it here");
+        yield return new WaitForSeconds(2.0f);
+        
         mat.CopyPropertiesFromMaterial(Wall_Material);
         yield return null;
     }
