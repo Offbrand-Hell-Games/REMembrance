@@ -12,6 +12,7 @@ public class FadeWalls : MonoBehaviour
     void Start()
     {
         mat = GetComponent<Renderer>().material;
+		WallColider = GetComponent<BoxCollider>();
     }
     void Fade()
     {

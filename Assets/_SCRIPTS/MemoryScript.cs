@@ -43,19 +43,17 @@ public class MemoryScript : MonoBehaviour {
         }
 		
 	}
-    void Drop()
-    {
-        print("I SHOULD DROP THE BALL");
-        _isheld = false;
-        _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
-        _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
-    }
     void OnCollisionEnter(Collision collision)
     {
-        //print(collision.gameObject.name);
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player" && Player.GetComponent<PlayerController>()._isDashing == false)
         {
             _isheld = true;
         }
+		if (collision.gameObject.tag == "Wall" && Player.GetComponent<PlayerController>()._isDashing == true){
+			_isheld = false;
+			_maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
+			_lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
+		}
+			
     }
 }
