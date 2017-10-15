@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MemoryScript : MonoBehaviour {
+    
+    PlayerController _player;
+    Transform _target; //The current holder of this memento
+    
+    public enum HeldBy //Enum in case we want to know what type of entity is holding this memento
+    {
+        None,
+        Player,
+        Enemy,
+        MementoPoint,
+        Cooldown
+    }
+    private HeldBy _heldBy = HeldBy.None;
 
-    public GameObject Player;
-    bool _isheld = false;
     bool _up = true;
     float _baseHeight, step;
     Vector3 targetPosition, _maxHeight, _lowerHeight;
+    private MementoPoint _memento_point = null;
+
+    private PhaseManager _phase_manager;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +30,14 @@ public class MemoryScript : MonoBehaviour {
         _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
         _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
         step = 0.25f * Time.deltaTime;
+
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _phase_manager = GameObject.Find("GameManager").GetComponent<PhaseManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(_isheld == false)
+        if(_heldBy == HeldBy.None || _heldBy == HeldBy.Cooldown || _heldBy == HeldBy.MementoPoint)
         {
             if (_up)
             {
@@ -38,22 +55,71 @@ public class MemoryScript : MonoBehaviour {
         }
         else
         {
-            targetPosition = new Vector3(Player.transform.position.x - 1f, _baseHeight, Player.transform.position.z - 1f);
+            targetPosition = new Vector3(_target.position.x - 1f, _baseHeight, _target.position.z - 1f);
             transform.position = targetPosition;
         }
 		
 	}
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player" && Player.GetComponent<PlayerController>()._isDashing == false)
+        //If we collide without a current owner, then check the collider
+        if(_heldBy == HeldBy.None || _heldBy == HeldBy.MementoPoint)
         {
-            _isheld = true;
+            string touchedBy = collision.gameObject.tag;
+            /*
+                Currently the player can only take the ball if they are not dashing.
+                
+                Changing this could allow for dashing through the ball to pick it up,
+                  or even dashing through the enemy to steal the ball.
+            */
+            if(touchedBy == "Player" && !_player._isDashing)
+            {
+                Debug.Log("Memento: Following Player");
+                _phase_manager.SetGameState(PhaseManager.GameState.Escape);
+                _heldBy = HeldBy.Player;
+                _target = collision.gameObject.transform;
+                if(_memento_point != null) {
+                    _memento_point.HAS_MEMENTO = false;
+                    _memento_point = null;
+                }
+            } else if (touchedBy == "Enemy")
+            {
+                Debug.Log("Memento: Following Enemy");
+                _heldBy = HeldBy.Enemy;
+                _target = collision.gameObject.transform;
+                if(_memento_point != null) {
+                    _memento_point.HAS_MEMENTO = false;
+                    _memento_point = null;
+                }
+            }
         }
-		if (collision.gameObject.tag == "Wall" && Player.GetComponent<PlayerController>()._isDashing == true){
-			_isheld = false;
-			_maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
-			_lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
-		}
-			
+        //If the player is the current owner, check if we're colliding with a wall
+        else if (_heldBy == HeldBy.Player)
+        {
+            if (collision.gameObject.tag == "Wall" && _player._isDashing){
+                StartCoroutine(Release(null));
+            }            
+        }
+    }
+
+    public IEnumerator Release(MementoPoint point)
+    {
+        _heldBy = HeldBy.Cooldown;
+        _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
+        _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
+
+        yield return new WaitForSeconds(10.0f);
+        if (point != null) {
+            _heldBy = HeldBy.MementoPoint;
+            _memento_point = point;
+        } else
+            _heldBy = HeldBy.None;
+
+        yield return null;
+    }
+
+    public HeldBy GetHeldBy()
+    {
+        return _heldBy;
     }
 }
