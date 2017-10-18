@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent( typeof( BoxCollider ), typeof( Rigidbody ) )]
+[RequireComponent( typeof( CapsuleCollider ), typeof( Rigidbody ) )]
 public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private Rigidbody _rb;
 	public float speed;
     public float jumpThrust = 1850;
     public bool _isDashing = false;
+	public Transform SAFEROOM_TRANSFORM;
     Vector3 dashForce;
     Transform[] array;
 
     // Use this for initialization
-    void Start () {
+    void Start () 
+	{
 		
 	}
 
@@ -81,4 +83,14 @@ public class PlayerController : MonoBehaviour {
 		_isDashing = false;
         StopCoroutine(FadeWalls(this.gameObject.transform.position, 4.0f));
     }
+	
+	void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.tag == "Enemy")
+		{
+			transform.position = SAFEROOM_TRANSFORM.position;
+		}
+	}
+	
+	
 }
