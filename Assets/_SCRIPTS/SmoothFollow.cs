@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SmoothFollow : MonoBehaviour
 	{
-	
+
 	[SerializeField]
 	private float _xMin = 0f;
 	[SerializeField]
@@ -25,6 +25,7 @@ public class SmoothFollow : MonoBehaviour
 	void Start(){
 		_yOffset = transform.position.y - playerTransform.position.y;
 		_zOffset = transform.position.z - playerTransform.position.z;
+		PrefsPaneManager.instance.AddLivePreferenceFloat ("Camera Speed", 0f, 10f, _cameraSpeed, cameraSpeedChanged);
 	}
 		
 
@@ -45,4 +46,9 @@ public class SmoothFollow : MonoBehaviour
 			Mathf.Clamp(transform.position.z, _zMin, _zMax)
 		);
 	}
+
+	public void cameraSpeedChanged(float value) {
+		_cameraSpeed = value;
+	}
+
 }
