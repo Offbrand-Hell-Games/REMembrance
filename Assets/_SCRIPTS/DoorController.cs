@@ -19,9 +19,9 @@ public class DoorController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        startingRotation = door.transform.rotation.y;
-        openOutwardsTo = startingRotation - 0.3f;
-        openInwardsTo = startingRotation + 0.3f;
+        startingRotation = door.transform.localEulerAngles.y;
+        openOutwardsTo = startingRotation - 90f;
+        openInwardsTo = startingRotation - 90f;
         
         doorState = DoorStates.closed;
 	}
@@ -33,28 +33,27 @@ public class DoorController : MonoBehaviour {
         {
             if(doorState == DoorStates.closed)
             {
-                if (door.transform.rotation.y < openInwardsTo)
-                {
-                    door.transform.RotateAround(pivot.transform.position, Vector3.up, -40 * Time.deltaTime);
-                }
-                else
+                door.transform.RotateAround(pivot.transform.position, Vector3.up, -50f * Time.deltaTime);
+                if((door.transform.localEulerAngles.y != 0) && (door.transform.localEulerAngles.y < 270))
                 {
                     touched = false;
                     doorState = DoorStates.open;
+                    print(door.transform.localEulerAngles.y);
                 }
+                //
             }
             if (doorState == DoorStates.open)
             {
-                if (door.transform.rotation.y  > startingRotation)
-                {
-                    door.transform.RotateAround(pivot.transform.position, Vector3.up, 40 * Time.deltaTime);
-                }
-                else
+                door.transform.RotateAround(pivot.transform.position, Vector3.up, 50f * Time.deltaTime);
+                if ((door.transform.localEulerAngles.y != 0) && (door.transform.localEulerAngles.y < 270))
                 {
                     touched = false;
                     doorState = DoorStates.closed;
+                    print(door.transform.localEulerAngles.y);
                 }
+                //
             }
+
         }
     }
 
