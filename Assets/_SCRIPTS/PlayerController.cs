@@ -12,11 +12,15 @@ public class PlayerController : MonoBehaviour {
     public Transform SAFEROOM_TRANSFORM;
     Vector3 dashForce;
     Transform[] array;
+    bool dashReady = true;
+    float dashCooldown = 3f;
+
 
     // Use this for initialization
     void Start()
     {
-
+        PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, speed, playerSpeedChanged);
+        PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, dashCooldown, updateDashCooldown);
     }
 
     // Update is called once per frame
@@ -45,11 +49,17 @@ public class PlayerController : MonoBehaviour {
             {
                 StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
-            if (Input.GetKeyDown("space"))
+            if (dashReady)
             {
-                _isDashing = true;
-                dashForce = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
+                if (Input.GetKeyDown("space"))
+                {
+                    _isDashing = true;
+                    dashForce = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+                    StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
+                    dashReady = false;
+                    StartCoroutine(DashCountdown());
+                }
+
             }
             if (Input.GetKeyDown("f"))
             {
@@ -104,6 +114,14 @@ public class PlayerController : MonoBehaviour {
         yield return null;
         StopCoroutine(OpenDoors(center, radius));
     }
+
+    public IEnumerator DashCountdown()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        dashReady = true;
+        print("Dash is ready after waiting " + dashCooldown);
+        yield return null;
+    }
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Enemy")
@@ -112,5 +130,14 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	
-	
+    public void playerSpeedChanged(float value)
+    {
+        speed = value;
+    }
+    public void updateDashCooldown(float value)
+    {
+        dashCooldown = value;
+    }
+
+
 }
