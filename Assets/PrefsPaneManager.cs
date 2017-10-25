@@ -8,7 +8,7 @@ public class PrefsPaneManager : MonoBehaviour {
 	public GameObject prefs_container;
 	public GameObject slider_prefab;
 //	public delegate void valueChangedDelegate(float newvalue);
-	float importantValue = .7f;
+	//float importantValue = .7f;
 	// Use this for initialization
 	void Start () {
 		instance = this;
