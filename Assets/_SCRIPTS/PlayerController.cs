@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     [SerializeField]
     private Rigidbody _rb;
-    public float speed;
-    public float jumpThrust = 1850;
+    public float SPEED;
+    public float JUMP_THRUST = 1850;
     public bool _isDashing = false;
     public Transform SAFEROOM_TRANSFORM;
+	
+	public MemoryScript MEMENTO; //TEMPORARY QUICK FIX DO NOT KEEP FOREVER
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
@@ -29,26 +31,16 @@ public class PlayerController : MonoBehaviour {
         if (_isDashing == false)
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), false);
-            if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                _rb.velocity = new Vector3(speed, 0, _rb.velocity.z);
-            }
-            if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                _rb.velocity = new Vector3(-speed, 0, _rb.velocity.z);
-            }
-            if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                _rb.velocity = new Vector3(_rb.velocity.x, 0, speed);
-            }
-            if (Input.GetAxisRaw("Vertical") < 0)
-            {
-                _rb.velocity = new Vector3(_rb.velocity.x, 0, -speed);
-            }
-            if (Input.GetKeyDown("e"))
+			Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"),0f,Input.GetAxisRaw("Vertical"));
+			
+			direction = direction.normalized;
+			_rb.velocity = new Vector3(SPEED * direction.x, 0, SPEED * direction.z);
+			
+            if (Input.GetButton("Vision"))
             {
                 StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
+
             if (dashReady)
             {
                 if (Input.GetKeyDown("space"))
@@ -60,8 +52,14 @@ public class PlayerController : MonoBehaviour {
                     StartCoroutine(DashCountdown());
                 }
 
+            if (Input.GetButton("Dash"))
+            {
+                _isDashing = true;
+                dashForce = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+				dashForce = dashForce.normalized;
+                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
-            if (Input.GetKeyDown("f"))
+            if (Input.GetButton("Interact"))
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
             }
@@ -69,10 +67,19 @@ public class PlayerController : MonoBehaviour {
         else
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), true);
-            _rb.AddForce(dashForce * jumpThrust);
+            _rb.AddForce(dashForce * JUMP_THRUST);
         }
+		if(Input.GetKey("r"))
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
 
     }
+	
+	void FixedUpdate()
+	{
+		
+	}
 
     public IEnumerator FadeWalls(Vector3 center, float radius)
     {
@@ -97,6 +104,7 @@ public class PlayerController : MonoBehaviour {
         _isDashing = false;
         StopCoroutine(FadeWalls(this.gameObject.transform.position, 2.0f));
     }
+	
     public IEnumerator OpenDoors(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
@@ -138,6 +146,16 @@ public class PlayerController : MonoBehaviour {
     {
         dashCooldown = value;
     }
-
-
+	
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+			if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
+			{
+				MEMENTO.SetHeldBy(MemoryScript.HeldBy.None);
+			}
+            transform.position = SAFEROOM_TRANSFORM.position;
+        }
+    }
 }

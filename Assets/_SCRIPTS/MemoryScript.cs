@@ -23,6 +23,8 @@ public class MemoryScript : MonoBehaviour {
     private MementoPoint _memento_point = null;
 
     private PhaseManager _phase_manager;
+	
+	public GameObject WIN; //Canvas image that shows you won
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,11 @@ public class MemoryScript : MonoBehaviour {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _phase_manager = GameObject.Find("GameManager").GetComponent<PhaseManager>();
     }
+	
+	public void SetHeldBy(HeldBy state)
+	{
+		_heldBy = state;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -101,6 +108,14 @@ public class MemoryScript : MonoBehaviour {
             }            
         }
     }
+	
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "Saferoom")
+		{
+			WIN.SetActive(true);
+		}
+	}
 
     public IEnumerator Release(MementoPoint point)
     {
