@@ -8,7 +8,7 @@ public class FadeWalls : MonoBehaviour
     Material mat;
     public BoxCollider WallColider;
 
-    float alpha = 0.0f;
+    //float alpha = 0.0f;
     void Start()
     {
         mat = GetComponent<Renderer>().material;

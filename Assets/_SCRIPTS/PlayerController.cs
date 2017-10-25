@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CapsuleCollider), typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour {
         }
 		if(Input.GetKey("r"))
 		{
-			Application.LoadLevel(Application.loadedLevel);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 
     }

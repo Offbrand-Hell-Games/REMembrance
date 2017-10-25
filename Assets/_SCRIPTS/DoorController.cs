@@ -10,18 +10,17 @@ public class DoorController : MonoBehaviour {
     string touchedBy;
 
     //The starting rotation of the door in the Y direction
-    float startingRotation;
-    float openInwardsTo;
-    float openOutwardsTo;
-
+    //float startingRotation;
+    //float openInwardsTo;
+    //float openOutwardsTo;
     enum DoorStates { closed, open };
     DoorStates doorState;
     // Use this for initialization
     void Start ()
     {
-        startingRotation = door.transform.localEulerAngles.y;
-        openOutwardsTo = startingRotation - 90f;
-        openInwardsTo = startingRotation - 90f;
+        //startingRotation = door.transform.localEulerAngles.y;
+        //openOutwardsTo = startingRotation - 90f;
+        //openInwardsTo = startingRotation - 90f;
         
         doorState = DoorStates.closed;
 	}
