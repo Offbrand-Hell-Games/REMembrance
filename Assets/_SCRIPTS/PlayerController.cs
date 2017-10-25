@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, speed, playerSpeedChanged);
+        PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, dashCooldown, updateDashCooldown);
     }
 
@@ -43,22 +43,17 @@ public class PlayerController : MonoBehaviour {
 
             if (dashReady)
             {
-                if (Input.GetKeyDown("space"))
+                if (Input.GetButton("Dash"))
                 {
                     _isDashing = true;
                     dashForce = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+					dashForce = dashForce.normalized;
                     StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
                     dashReady = false;
                     StartCoroutine(DashCountdown());
                 }
-
-            if (Input.GetButton("Dash"))
-            {
-                _isDashing = true;
-                dashForce = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-				dashForce = dashForce.normalized;
-                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
-            }
+			}
+			
             if (Input.GetButton("Interact"))
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
@@ -75,11 +70,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
     }
-	
-	void FixedUpdate()
-	{
-		
-	}
 
     public IEnumerator FadeWalls(Vector3 center, float radius)
     {
@@ -130,17 +120,10 @@ public class PlayerController : MonoBehaviour {
         print("Dash is ready after waiting " + dashCooldown);
         yield return null;
     }
-	void OnCollisionEnter(Collision collision)
-	{
-		if(collision.gameObject.tag == "Enemy")
-		{
-			transform.position = SAFEROOM_TRANSFORM.position;
-		}
-	}
 	
     public void playerSpeedChanged(float value)
     {
-        speed = value;
+        SPEED = value;
     }
     public void updateDashCooldown(float value)
     {
