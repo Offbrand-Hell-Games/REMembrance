@@ -40,8 +40,6 @@ public class line_of_sight_ai : MonoBehaviour {
         } else {
             //Debug.Log("<color=blue>AI Error: This AI does not have a patrol set!</color>");
         }
-        
-        //_agent.autoBraking = false;
 	}
 	
 	// Update is called once per frame

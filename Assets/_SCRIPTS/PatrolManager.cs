@@ -5,6 +5,7 @@ using UnityEngine;
 public class PatrolManager : MonoBehaviour {
 
 	private Dictionary<int,List<PatrolPoint>> _patrol_groups;
+	private GameObject[] _enemies;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,9 @@ public class PatrolManager : MonoBehaviour {
 
 			((List<PatrolPoint>)_patrol_groups[p.PATROL_GROUP]).Add(p);
 		}
+
+		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, enemySpeedChanged);
 	}
 	
 	// Update is called once per frame
@@ -29,4 +33,12 @@ public class PatrolManager : MonoBehaviour {
 	public List<PatrolPoint> GetPatrolPointsByGroupID(int groupID) {
 		return (List<PatrolPoint>)_patrol_groups[groupID];
 	}
+
+	public void enemySpeedChanged(float value)
+    {
+		foreach (GameObject enemy in _enemies)
+		{
+			(enemy.GetComponent<UnityEngine.AI.NavMeshAgent>()).speed = value;
+		}
+    }
 }
