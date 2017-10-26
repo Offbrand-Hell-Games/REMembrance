@@ -62,13 +62,25 @@ public class MemoryScript : MonoBehaviour {
         }
         else
         {
-            targetPosition = new Vector3(_target.position.x - 1f, _baseHeight, _target.position.z - 1f);
+            targetPosition = new Vector3(_target.position.x, _baseHeight+.5f, _target.position.z);
             transform.position = targetPosition;
         }
 		
 	}
     void OnCollisionEnter(Collision collision)
     {
+		//Temporary fuck it fix
+		if(collision.gameObject.tag == "Player" && _heldBy != HeldBy.Player)
+		{
+			Debug.Log("Memento: Following Player");
+			_phase_manager.SetGameState(PhaseManager.GameState.Escape);
+			_heldBy = HeldBy.Player;
+			_target = collision.gameObject.transform;
+			if(_memento_point != null) {
+				_memento_point.HAS_MEMENTO = false;
+				_memento_point = null;
+			}
+		}
         //If we collide without a current owner, then check the collider
         if(_heldBy == HeldBy.None || _heldBy == HeldBy.MementoPoint)
         {
@@ -79,7 +91,7 @@ public class MemoryScript : MonoBehaviour {
                 Changing this could allow for dashing through the ball to pick it up,
                   or even dashing through the enemy to steal the ball.
             */
-            if(touchedBy == "Player" && !_player._isDashing)
+            /* if(touchedBy == "Player" && !_player._isDashing)
             {
                 Debug.Log("Memento: Following Player");
                 _phase_manager.SetGameState(PhaseManager.GameState.Escape);
@@ -88,8 +100,8 @@ public class MemoryScript : MonoBehaviour {
                 if(_memento_point != null) {
                     _memento_point.HAS_MEMENTO = false;
                     _memento_point = null;
-                }
-            } else if (touchedBy == "Enemy")
+                } 
+            }*/ /* else */ if (touchedBy == "Enemy")
             {
                 Debug.Log("Memento: Following Enemy");
                 _heldBy = HeldBy.Enemy;

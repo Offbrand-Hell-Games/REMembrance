@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23352314914232034}
   - component: {fileID: 95254548272518626}
   - component: {fileID: 65266207121795598}
+  - component: {fileID: 114323330661157474}
   m_Layer: 8
   m_Name: 10x10x1wall
   m_TagString: Wall
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480416240296878}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.51, y: 0.5239999, z: 11.71}
-  m_LocalScale: {x: 0.036114372, y: 0.0328084, z: 0.032808416}
+  m_LocalPosition: {x: 4.58, y: 0.5239999, z: 0.9899998}
+  m_LocalScale: {x: 0.036565546, y: 0.0328084, z: 0.032808416}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,3 +112,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114323330661157474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480416240296878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae505e3b16733d045a8b303e79247be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wall_Material: {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
+  WallColider: {fileID: 0}

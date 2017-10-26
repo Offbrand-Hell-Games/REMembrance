@@ -41,7 +41,7 @@ public class line_of_sight_ai : MonoBehaviour {
             //Debug.Log("<color=blue>AI Error: This AI does not have a patrol set!</color>");
         }
         
-        _agent.autoBraking = false;
+        //_agent.autoBraking = false;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +55,7 @@ public class line_of_sight_ai : MonoBehaviour {
             //Check for any memento's out of MementoPoints
             GameObject memento = _memento_manager.GetClosestMemento(transform.position);
             MemoryScript ms = memento.GetComponent<MemoryScript>();
-            if(ms != null && ms.GetHeldBy() == MemoryScript.HeldBy.None || ms.GetHeldBy() == MemoryScript.HeldBy.Player) {
+            if(ms != null && ms.GetHeldBy() == MemoryScript.HeldBy.None /* || ms.GetHeldBy() == MemoryScript.HeldBy.Player */) {
                 //Debug.Log("<color=blue>AI: Setting Target To Memento</color>");
                 _agent.SetDestination(memento.transform.position);
             }

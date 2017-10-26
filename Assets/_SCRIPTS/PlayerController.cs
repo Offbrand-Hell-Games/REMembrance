@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody _rb;
     public float SPEED;
     public float JUMP_THRUST = 1850;
+	public float JUMP_DURATION;
     public bool _isDashing = false;
     public Transform SAFEROOM_TRANSFORM;
 	
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
-    float dashCooldown = 3f;
+    public float DASH_COOLDOWN = 3f;
 	
 	enum VIEW {TD,OTS}; //Top-down, Over-the-shoulder
 	private VIEW _view;
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
-        PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, dashCooldown, updateDashCooldown);
+        PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
 		EnterViewTD();
     }
 	
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (_isDashing == false)
         {
@@ -126,6 +127,10 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButton("Interact"))
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
+				if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
+				{
+					MEMENTO.SetHeldBy(MemoryScript.HeldBy.None);
+				}
             }
         }
         else
@@ -174,7 +179,7 @@ public class PlayerController : MonoBehaviour {
             i++;
             yield return null;
         }
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(JUMP_DURATION);
         _isDashing = false;
         StopCoroutine(FadeWalls(this.gameObject.transform.position, 2.0f));
     }
@@ -199,10 +204,10 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator DashCountdown()
     {
-        yield return new WaitForSeconds(dashCooldown);
+        yield return new WaitForSeconds(DASH_COOLDOWN);
         dashReady = true;
 		DASH_NOT_READY_ICON.SetActive(false);
-        print("Dash is ready after waiting " + dashCooldown);
+        print("Dash is ready after waiting " + DASH_COOLDOWN);
         yield return null;
     }
 	
@@ -210,9 +215,9 @@ public class PlayerController : MonoBehaviour {
     {
         SPEED = value;
     }
-    public void updateDashCooldown(float value)
+    public void updateDASH_COOLDOWN(float value)
     {
-        dashCooldown = value;
+        DASH_COOLDOWN = value;
     }
 	
     void OnCollisionEnter(Collision collision)
