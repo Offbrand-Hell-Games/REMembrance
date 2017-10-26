@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -485,22 +487,6 @@ Prefab:
     - target: {fileID: 1963799624358032, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
       propertyPath: m_Name
       value: 5x10x1wall_door (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691453401457000, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1963799624358032, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433477109715252, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1963799624358032, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
@@ -1544,26 +1530,6 @@ Prefab:
     - target: {fileID: 1610526760813652, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
       propertyPath: m_Name
       value: 5x10x1wall (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617156727352888, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617156727352888, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.044642918
-      objectReference: {fileID: 0}
-    - target: {fileID: 1610526760813652, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1610526760813652, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4617156727352888, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.032808416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b28d97d62f255004c866a1d32e2b0ba8, type: 2}
@@ -2659,26 +2625,6 @@ Prefab:
     - target: {fileID: 1480416240296878, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
       propertyPath: m_Name
       value: 10x10x1wall (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4991241524766614, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4991241524766614, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.036114372
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480416240296878, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480416240296878, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4991241524766614, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.032808416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 660fb911122c64048887e6a30e2e25b5, type: 2}
@@ -4055,6 +4001,40 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df16181f1daf22a4aa65b5d129dffaa7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1462567622 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1860281046539470, guid: df16181f1daf22a4aa65b5d129dffaa7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462567621}
+--- !u!1 &1462567623 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1585143759291768, guid: df16181f1daf22a4aa65b5d129dffaa7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462567621}
+--- !u!65 &1462567624
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462567622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.645152, y: 92.90302, z: 9.290304}
+  m_Center: {x: -0.0000009536743, y: 0, z: 0}
+--- !u!65 &1462567625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462567623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.645152, y: 92.90302, z: 9.290304}
+  m_Center: {x: 0.0000009536743, y: 0, z: 0}
 --- !u!1001 &1531657589
 Prefab:
   m_ObjectHideFlags: 0
@@ -4569,26 +4549,6 @@ Prefab:
     - target: {fileID: 1073304768303298, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
       propertyPath: m_Name
       value: 15x10x1wall (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677319287669930, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677319287669930, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.0410029
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073304768303298, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073304768303298, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677319287669930, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.032808416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ee9bed86a597846a33e807e3b19f83, type: 2}
