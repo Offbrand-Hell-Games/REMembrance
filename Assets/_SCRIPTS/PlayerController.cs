@@ -187,6 +187,10 @@ public class PlayerController : MonoBehaviour {
                     //print("Disable collision");
                 }
             }
+            if (hitColliders[i].tag == "Enemy")
+            {
+                hitColliders[i].SendMessage("ChangeMat");
+            }
             i++;
             yield return null;
         }
