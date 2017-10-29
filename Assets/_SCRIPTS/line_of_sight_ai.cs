@@ -22,6 +22,10 @@ public class line_of_sight_ai : MonoBehaviour {
     private MementoManager _memento_manager;
     private PhaseManager _phase_manager;
 
+	private float remaining_pause_time = 0f;
+	public float pause_time; // try not to change this in the editor, it's actually managed by patrolManager. I know there's 
+								// a scope keyword to make a public variable hide from the editor but i'll find it later.
+	private float min_pause_time = 1.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -40,44 +44,60 @@ public class line_of_sight_ai : MonoBehaviour {
         } else {
             //Debug.Log("<color=blue>AI Error: This AI does not have a patrol set!</color>");
         }
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, _player.transform.position - transform.position, out hit, MAX_DISTANCE);
-
-        if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.CompareTag("Player")) {
-            SetTargetToPlayer();
-        } else if (!_has_memento && _phase_manager.GetGameState() == PhaseManager.GameState.Escape && !MEMENTO_DROPOFF.HAS_MEMENTO) {
-            //Check for any memento's out of MementoPoints
-            GameObject memento = _memento_manager.GetClosestMemento(transform.position);
-            MemoryScript ms = memento.GetComponent<MemoryScript>();
-            if(ms != null && ms.GetHeldBy() == MemoryScript.HeldBy.None /* || ms.GetHeldBy() == MemoryScript.HeldBy.Player */) {
-                //Debug.Log("<color=blue>AI: Setting Target To Memento</color>");
-                _agent.SetDestination(memento.transform.position);
-            }
-        }
-        if (!_agent.pathPending && _agent.remainingDistance < MIN_DISTANCE) {
-
-            if (_targeting_player && !_has_memento) {
-                _targeting_player = false;
-                SetTargetToNearestPoint();
-            } else if (_has_memento) {
-                MemoryScript ms = _memento_manager.GetClosestMemento(transform.position).GetComponent<MemoryScript>();
-                StartCoroutine(ms.Release(MEMENTO_DROPOFF));
-                _has_memento = false;
-                MEMENTO_DROPOFF.HAS_MEMENTO = true;
-                SetTargetToNearestPoint();
-            } else if (_patrol_current != null) { // Otherwise, move to next patrol point
-                if (_patrol_current.NEXT != null)
-                    _patrol_current = _patrol_current.NEXT; // Move to next point
-                else
-                    _patrol_current = PATROL_START; // Restart the patrol
-                //Debug.Log("<color=blue>AI: Setting Target to Next Patrol Point " + _patrol_current.name + "</color>");
-                _agent.SetDestination(_patrol_current.transform.position);
-            }
-        }
+		RaycastHit hit;
+		Physics.Raycast (transform.position, _player.transform.position - transform.position, out hit, MAX_DISTANCE);
+		bool player_seen = false;
+		if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("Player")) {
+			player_seen = true;	
+		}
+		if (player_seen && (pause_time - remaining_pause_time >= min_pause_time)) {
+			remaining_pause_time = 0.0f;
+		}
+		if (remaining_pause_time <= 0.0f) {
+			if (player_seen) {
+				SetTargetToPlayer ();
+			} else if (!_has_memento && _phase_manager.GetGameState () == PhaseManager.GameState.Escape && !MEMENTO_DROPOFF.HAS_MEMENTO) {
+				//Check for any memento's out of MementoPoints
+				GameObject memento = _memento_manager.GetClosestMemento (transform.position);
+				MemoryScript ms = memento.GetComponent<MemoryScript> ();
+				if (ms != null && ms.GetHeldBy () == MemoryScript.HeldBy.None /* || ms.GetHeldBy() == MemoryScript.HeldBy.Player */) {
+					//Debug.Log("<color=blue>AI: Setting Target To Memento</color>");
+					_agent.SetDestination (memento.transform.position);
+				}
+			}
+			if (!_agent.pathPending && _agent.remainingDistance < MIN_DISTANCE) {
+			
+				if (_targeting_player && !_has_memento) {
+					_targeting_player = false;
+					remaining_pause_time = pause_time;
+//      	          SetTargetToNearestPoint();
+				} else if (_has_memento) {
+					MemoryScript ms = _memento_manager.GetClosestMemento (transform.position).GetComponent<MemoryScript> ();
+					StartCoroutine (ms.Release (MEMENTO_DROPOFF));
+					_has_memento = false;
+					MEMENTO_DROPOFF.HAS_MEMENTO = true;
+					SetTargetToNearestPoint ();
+				} else if (_patrol_current != null) { // Otherwise, move to next patrol point
+					if (_patrol_current.NEXT != null)
+						_patrol_current = _patrol_current.NEXT; // Move to next point
+        	        else
+						_patrol_current = PATROL_START; // Restart the patrol
+					//Debug.Log("<color=blue>AI: Setting Target to Next Patrol Point " + _patrol_current.name + "</color>");
+					_agent.SetDestination (_patrol_current.transform.position);
+				}
+			}
+		} else {
+			Debug.Log ("Enemy Paused, " + remaining_pause_time + " seconds remaining");
+			remaining_pause_time -= Time.deltaTime;
+			if (remaining_pause_time <= 0f) {
+				SetTargetToNearestPoint ();
+			}
+		}
 	}
 
     void OnCollisionEnter(Collision collision)

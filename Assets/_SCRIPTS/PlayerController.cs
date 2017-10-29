@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 		_view = VIEW.OTS;
 		OTS_CAMERA.gameObject.SetActive(true);
 		TD_CAMERA.gameObject.SetActive(false);
-		offset = new Vector3(-.5f,.8f,-4f);
+		offset = new Vector3(-.5f,.8f,-4f); //which one is the distance behind the player ?? D:
 		_offsetOffset = new Vector3(-.5f,0,0);
 	}
 	

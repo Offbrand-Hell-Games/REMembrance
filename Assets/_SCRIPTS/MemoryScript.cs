@@ -115,6 +115,7 @@ public class MemoryScript : MonoBehaviour {
         //If the player is the current owner, check if we're colliding with a wall
         else if (_heldBy == HeldBy.Player)
         {
+			// oh no
             if (collision.gameObject.tag == "Wall" && _player._isDashing){
                 StartCoroutine(Release(null));
             }            
