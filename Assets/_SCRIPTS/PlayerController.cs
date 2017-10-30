@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
     [SerializeField]
     private Rigidbody _rb;
-    public float SPEED;
-    public float JUMP_THRUST = 1850;
-	public float JUMP_DURATION;
+    public float SPEED; 				//Player speed
+    public float JUMP_THRUST = 1850; 	//Player jump thrust
+	public float JUMP_DURATION;			//Player jump duration
     public bool _isDashing = false;
     public Transform SAFEROOM_TRANSFORM;
 	
@@ -24,11 +24,8 @@ public class PlayerController : MonoBehaviour {
 	enum VIEW {TD,OTS}; //Top-down, Over-the-shoulder
 	private VIEW _view;
 	
-	public Camera OTS_CAMERA;
-	public Camera TD_CAMERA;
-	public Transform OTS_CAMERA_TARGET; //The camera won't be looking directly at the player, but a bit to the side, to keep the center of the screen clear to see. This is the object the camera will look at.
-	public Vector3 OTS_CAMERA_OFFSET;
-	private Vector3 _otsCameraTargetOffset;
+	public GameObject OTS_CAMERA;
+	public GameObject TD_CAMERA;
 
 
     // Use this for initialization
@@ -39,19 +36,20 @@ public class PlayerController : MonoBehaviour {
 		EnterViewTD();
     }
 	
+	// Switch from Topdown camera to Overthe soulder
 	void EnterViewOTS()
 	{
 		_view = VIEW.OTS;
-		OTS_CAMERA.gameObject.SetActive(true);
-		TD_CAMERA.gameObject.SetActive(false);
-		_otsCameraTargetOffset = new Vector3(OTS_CAMERA_OFFSET.x,0,0);
+		OTS_CAMERA.SetActive(true);
+		TD_CAMERA.SetActive(false);
 	}
 	
+	//Switch from Over the shoulder camera to top down
 	void EnterViewTD()
 	{
 		_view = VIEW.TD;
-		OTS_CAMERA.gameObject.SetActive(false);
-		TD_CAMERA.gameObject.SetActive(true);
+		OTS_CAMERA.SetActive(false);
+		TD_CAMERA.SetActive(true);
 	}
 
     // Update is called once per frame
@@ -66,7 +64,7 @@ public class PlayerController : MonoBehaviour {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), false);
 			
 			
-			
+			//Get "forward" and "right" from the perspective of the camera. Used by OTS Camera.
 			Vector3 cameraForward = OTS_CAMERA.transform.forward;
 			Vector3 cameraRight = OTS_CAMERA.transform.right;
 			cameraForward.y = 0f;
@@ -77,24 +75,13 @@ public class PlayerController : MonoBehaviour {
 			switch(_view)
 			{
 				case VIEW.OTS:
+					//If the player presses W / Left analog up, the player should move forward relative to the camera.
 					Vector3 direction = cameraForward*inputVertical+cameraRight*inputHorizontal;
 					direction = direction.normalized;
 					_rb.velocity = new Vector3(SPEED * direction.x, 0, SPEED * direction.z);
-					
-					
-					// Update the offsets of the camera and its target.
-					OTS_CAMERA_OFFSET = Quaternion.AngleAxis(inputRHorizontal*2f,Vector3.up) * OTS_CAMERA_OFFSET;
-					_otsCameraTargetOffset= Quaternion.AngleAxis(inputRHorizontal*2f,Vector3.up) * _otsCameraTargetOffset;
-					
-					// Move the camera and its target by their offset amounts.
-					OTS_CAMERA.gameObject.transform.position = transform.position+OTS_CAMERA_OFFSET;
-					OTS_CAMERA_TARGET.position = transform.position+_otsCameraTargetOffset;
-					
-					// Have the camera look at the offset position.
-					Vector3 targetPosition = new Vector3(OTS_CAMERA_TARGET.position.x, OTS_CAMERA.gameObject.transform.position.y,OTS_CAMERA_TARGET.position.z);
-					OTS_CAMERA.gameObject.transform.LookAt(targetPosition);
 					break;
 				case VIEW.TD:
+					//If the player presses W / Left Ananlog UP, the player should move north.
 					direction = new Vector3(inputHorizontal,0f,inputVertical);
 					direction = direction.normalized;
 					_rb.velocity = new Vector3(SPEED * direction.x, 0, SPEED * direction.z);
@@ -140,18 +127,6 @@ public class PlayerController : MonoBehaviour {
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), true);
             _rb.AddForce(dashForce * JUMP_THRUST);
-			
-			// Update the offsets of the camera and its target.
-			OTS_CAMERA_OFFSET = Quaternion.AngleAxis(inputRHorizontal*2f,Vector3.up) * OTS_CAMERA_OFFSET;
-			_otsCameraTargetOffset= Quaternion.AngleAxis(inputRHorizontal*2f,Vector3.up) * _otsCameraTargetOffset;
-			
-			// Move the camera and its target by their offset amounts.
-			OTS_CAMERA.gameObject.transform.position = transform.position+OTS_CAMERA_OFFSET;
-			OTS_CAMERA_TARGET.position = transform.position+_otsCameraTargetOffset;
-			
-			// Have the camera look at the offset position.
-			Vector3 targetPosition = new Vector3(OTS_CAMERA_TARGET.position.x, OTS_CAMERA.gameObject.transform.position.y,OTS_CAMERA_TARGET.position.z);
-			OTS_CAMERA.gameObject.transform.LookAt(targetPosition);
         }
 		
 		

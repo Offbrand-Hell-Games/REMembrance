@@ -1,41 +1,78 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SmoothFollowOTS : MonoBehaviour
-	{
-
+{
 	[SerializeField]
-	private float _cameraSpeed = 0f;
+	private float _cameraSpeed = 5f;	//The rate at which the camera moves forwards and backwards when following the player.
+	[SerializeField]
+	private float _cameraTurnRate = 20f; // The rate at which the camera rotates by the mouse/right analog stick.
+	public Transform CAMERA_HOLDER;	//The camera's parent. We use a camera holder so the camera itself can always be offset.
+	public Transform TARGET; // What the camera holder will look at. This should be the player in most cases.
 	
-	private float _xOffset;
-	private float _yOffset;
-	private float _zOffset;
+	private bool _isTouchingWall = false;
+	[SerializeField]
+	private float _minDistance;	// The closest the camera should get to the target.
+	[SerializeField]
+	private float _maxDistance; // The farthest the camera should be from the target.
+	[SerializeField]
+	private Vector3 _offset; // Offset of the camera. Edit the X value in the editor to move the camera left/right of the target.
 	
+	//public Text distance;
 	
-	// The transforms of the players. Used to determine their midpoint.
-	public Transform playerTransform;
-	
+	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
-		_xOffset = 2f;
-		_yOffset = transform.position.y - playerTransform.localPosition.y;
-		_zOffset = transform.position.z - playerTransform.localPosition.z;
-		//PrefsPaneManager.instance.AddLivePreferenceFloat ("Camera Speed", 0f, 10f, _cameraSpeed, cameraSpeedChanged);
+		CAMERA_HOLDER.position = TARGET.position;
+		transform.position = new Vector3(CAMERA_HOLDER.position.x+_offset.x,CAMERA_HOLDER.position.y+_offset.y,CAMERA_HOLDER.position.z+_offset.z);
 	}
-		
-
-	void Update(){
-		Vector3 target = new Vector3(
-			playerTransform.position.x+_xOffset,
-			playerTransform.position.y+_yOffset,
-			playerTransform.position.z+_zOffset
-		);
+	
+	void FixedUpdate()
+	{
+		//distance.text = Vector3.Distance(CAMERA_HOLDER.position,TARGET.position).ToString();
+		float inputRXAxis = Input.GetAxisRaw("RHorizontal");
+		float inputRYAxis = Input.GetAxisRaw("RVertical");
 		
 		float step = _cameraSpeed * Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, target, step);
+		
+		
+		if(_isTouchingWall && Vector3.Distance(CAMERA_HOLDER.position,TARGET.position) > _minDistance)
+		{
+			//Move towards the player
+			CAMERA_HOLDER.position = Vector3.Lerp(CAMERA_HOLDER.position, TARGET.position, step);
+		}
+		else if(Vector3.Distance(CAMERA_HOLDER.position,TARGET.position) < _maxDistance || Vector3.Distance(CAMERA_HOLDER.position,TARGET.position) > _maxDistance)
+		{
+			//Move away from the player
+			Vector3 backwardsVector = new Vector3(CAMERA_HOLDER.position.x-TARGET.position.x,CAMERA_HOLDER.position.y-TARGET.position.y,CAMERA_HOLDER.position.z-TARGET.position.z).normalized * _maxDistance;
+			Vector3 inverseTarget = TARGET.position + backwardsVector;
+			CAMERA_HOLDER.position = Vector3.Lerp(CAMERA_HOLDER.position, inverseTarget, step);
+		}
+		
+		//Rotate around the player according to the right analog.
+		float rotationStep = _cameraTurnRate * Time.deltaTime;
+		CAMERA_HOLDER.RotateAround(TARGET.position, Vector3.up, inputRXAxis * rotationStep);
+		CAMERA_HOLDER.RotateAround(TARGET.position, Vector3.right, inputRYAxis * rotationStep);
+		CAMERA_HOLDER.LookAt(TARGET.position);
 	}
-
-	public void cameraSpeedChanged(float value) {
-		_cameraSpeed = value;
+	
+	void OnColliderEnter(Collision coll)
+	{
+		_isTouchingWall = true;
 	}
-
+	
+	void OnColliderExit(Collision coll)
+	{
+		_isTouchingWall = false;
+	}
+	
+	void OnTriggerEnter(Collider coll)
+	{
+		_isTouchingWall = true;
+	}
+	
+	void OnTriggerExit(Collider coll)
+	{
+		_isTouchingWall = false;
+	}
 }
