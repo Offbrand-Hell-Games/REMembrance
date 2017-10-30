@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class line_of_sight_ai : MonoBehaviour {
 
-    public int MAX_DISTANCE = 10; /* Maximum distance raycast should travel */
+    public float FOV_CONE_LENGTH = 10.0f; /* Maximum distance raycast should travel */
+    public float FOV_CONE_RADIUS = 30.0f; /* Maximum angle between enemy's forward vector and the player */
+    public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
 
@@ -49,12 +51,11 @@ public class line_of_sight_ai : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RaycastHit hit;
-		Physics.Raycast (transform.position, _player.transform.position - transform.position, out hit, MAX_DISTANCE);
-		bool player_seen = false;
-		if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("Player")) {
-			player_seen = true;	
-		}
+        bool player_seen = false;
+        if(CanSeePlayer())
+        {
+			player_seen = true;
+        }
 		if (player_seen && (pause_time - remaining_pause_time >= min_pause_time)) {
 			remaining_pause_time = 0.0f;
 		}
@@ -107,6 +108,19 @@ public class line_of_sight_ai : MonoBehaviour {
             _has_memento = true;
             _agent.SetDestination(MEMENTO_DROPOFF.transform.position);
         }
+    }
+
+    public bool CanSeePlayer()
+    {
+		RaycastHit hit;
+		Physics.Raycast (transform.position, _player.transform.position - transform.position, out hit, FOV_CONE_LENGTH);
+		if (hit.collider != null && hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("Player"))
+        {
+            if (Vector3.Distance(transform.position, _player.transform.position) <= FOV_RADIUS
+                || Vector3.Angle(_player.transform.position - transform.position, transform.forward) <= FOV_CONE_RADIUS)
+                return true;
+        }
+        return false;
     }
 
     public void SetTargetToPlayer() {
