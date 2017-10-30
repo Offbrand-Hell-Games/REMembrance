@@ -86,7 +86,7 @@ public class line_of_sight_ai : MonoBehaviour {
 				} else if (_patrol_current != null) { // Otherwise, move to next patrol point
 					if (_patrol_current.NEXT != null)
 						_patrol_current = _patrol_current.NEXT; // Move to next point
-        	        else
+        	        else if (_patrol_current != PATROL_START) // Return to initial patrol point (unless we only have one)
 						_patrol_current = PATROL_START; // Restart the patrol
 					//Debug.Log("<color=blue>AI: Setting Target to Next Patrol Point " + _patrol_current.name + "</color>");
 					_agent.SetDestination (_patrol_current.transform.position);
