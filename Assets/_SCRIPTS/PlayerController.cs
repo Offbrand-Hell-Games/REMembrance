@@ -27,13 +27,16 @@ public class PlayerController : MonoBehaviour {
 	public GameObject OTS_CAMERA;
 	public GameObject TD_CAMERA;
 
+	public GameObject xRayVisionA;
+	public GameObject xRayVisionB;
+
 
     // Use this for initialization
     void Start()
     {
         PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
-		EnterViewTD();
+		EnterViewOTS();
     }
 	
 	// Switch from Topdown camera to Overthe soulder
@@ -88,9 +91,11 @@ public class PlayerController : MonoBehaviour {
 					break;
 			}
 			
-            if (Input.GetButton("Vision"))
+            if (Input.GetButtonDown("Vision"))
             {
-                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
+				xRayVisionA.SetActive (!xRayVisionA.activeSelf);
+				xRayVisionB.SetActive (!xRayVisionB.activeSelf);
+//                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
 
             if (dashReady && Input.GetButton("Dash"))
