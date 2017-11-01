@@ -5,60 +5,66 @@ using UnityEngine;
 public class DoorController : MonoBehaviour {
     public GameObject door;
     public GameObject pivot;
+    
 
     bool touched = false;
     string touchedBy;
-
-    //The starting rotation of the door in the Y direction
-    //float startingRotation;
-    //float openInwardsTo;
-    //float openOutwardsTo;
     enum DoorStates { closed, open };
-    DoorStates doorState;
+
+    
+
+    float closedRotation, openRotation;
+    DoorStates doorState = DoorStates.closed;
     // Use this for initialization
     void Start ()
     {
-        //startingRotation = door.transform.localEulerAngles.y;
-        //openOutwardsTo = startingRotation - 90f;
-        //openInwardsTo = startingRotation - 90f;
-        
-        doorState = DoorStates.closed;
+        closedRotation = door.transform.localEulerAngles.y;
+        if(closedRotation > 270f)
+        {
+            openRotation = 360 - closedRotation;
+        }
+        else
+        {
+            openRotation = closedRotation + 90f;
+        }
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        if (touched)
+        if(touched)
         {
-            if(doorState == DoorStates.closed)
+            float currentRotation = door.transform.localEulerAngles.y;
+            if (touched)
             {
-                door.transform.RotateAround(pivot.transform.position, Vector3.up, -50f * Time.deltaTime);
-                if((door.transform.localEulerAngles.y != 0) && (door.transform.localEulerAngles.y < 270))
+                if (doorState == DoorStates.closed)
                 {
-                    touched = false;
-                    doorState = DoorStates.open;
-                    print(door.transform.localEulerAngles.y);
+                    door.transform.RotateAround(pivot.transform.position, Vector3.up, 1f);
+                    
+                    if (Mathf.Floor(currentRotation) == openRotation)
+                    {
+                        touched = false;
+                        doorState = DoorStates.open;
+                    }
+                    //
                 }
-                //
-            }
-            if (doorState == DoorStates.open)
-            {
-                door.transform.RotateAround(pivot.transform.position, Vector3.up, 50f * Time.deltaTime);
-                if ((door.transform.localEulerAngles.y != 0) && (door.transform.localEulerAngles.y < 270))
+                if (doorState == DoorStates.open)
                 {
-                    touched = false;
-                    doorState = DoorStates.closed;
-                    print(door.transform.localEulerAngles.y);
+                    door.transform.RotateAround(pivot.transform.position, Vector3.up, -1f);
+                    if (Mathf.Floor(currentRotation) == closedRotation)
+                    {
+                        touched = false;
+                        doorState = DoorStates.closed;
+                    }
+                    //
                 }
-                //
-            }
 
+            }
         }
     }
 
     void ChangeDoorState()
     {
-
         touched = true;
     }
 }
