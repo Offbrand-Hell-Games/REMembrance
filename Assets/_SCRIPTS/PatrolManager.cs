@@ -26,7 +26,7 @@ public class PatrolManager : MonoBehaviour {
 		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		foreach (GameObject enemy in _enemies)
 		{
-			(enemy.GetComponent<line_of_sight_ai>()).pause_time = pause_time_seconds;
+			(enemy.GetComponent<EnemyController>()).pause_time = pause_time_seconds;
 		}
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, enemySpeedChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, pause_time_seconds, PauseTimeChanged);
@@ -53,7 +53,7 @@ public class PatrolManager : MonoBehaviour {
 	{
 		foreach (GameObject enemy in _enemies)
 		{
-			(enemy.GetComponent<line_of_sight_ai>()).pause_time = value;
+			(enemy.GetComponent<EnemyController>()).pause_time = value;
 		}
 	}
 }

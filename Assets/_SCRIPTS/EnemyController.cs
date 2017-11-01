@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class line_of_sight_ai : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     public float FOV_CONE_LENGTH = 10.0f; /* Maximum distance raycast should travel */
     public float FOV_CONE_RADIUS = 30.0f; /* Maximum angle between enemy's forward vector and the player */
