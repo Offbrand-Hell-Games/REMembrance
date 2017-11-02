@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour {
             _agent.SetDestination(PATROL_START.transform.position);
             _patrol_current = PATROL_START;
         } else {
-            //Debug.Log("<color=blue>AI Error: This AI does not have a patrol set!</color>");
+            //Debug.Log("<color=blue>AI Warning: This AI does not have a patrol set! (" + gameObject.name + ")</color>");
         }
 
 	}
@@ -60,14 +60,17 @@ public class EnemyController : MonoBehaviour {
 			remaining_pause_time = 0.0f;
 		}
 		if (remaining_pause_time <= 0.0f) {
+            //Debug.Log("<color=blue>AI Log: hasMemento=" + _has_memento
+                        //+ "nestHasMemento=" + MEMENTO_DROPOFF.HAS_MEMENTO + "</color>");
 			if (player_seen) {
 				SetTargetToPlayer ();
 			} else if (!_has_memento && _phase_manager.GetGameState () == PhaseManager.GameState.Escape && !MEMENTO_DROPOFF.HAS_MEMENTO) {
 				//Check for any memento's out of MementoPoints
+                //Debug.Log("<color=blue>AI Log: Checking for near memento</color>");
 				GameObject memento = _memento_manager.GetClosestMemento (transform.position);
 				MemoryScript ms = memento.GetComponent<MemoryScript> ();
 				if (ms != null && ms.GetHeldBy () == MemoryScript.HeldBy.None /* || ms.GetHeldBy() == MemoryScript.HeldBy.Player */) {
-					//Debug.Log("<color=blue>AI: Setting Target To Memento</color>");
+				//Debug.Log("<color=blue>AI: Setting Target To Memento</color>");
 					_agent.SetDestination (memento.transform.position);
 				}
 			}
@@ -78,6 +81,7 @@ public class EnemyController : MonoBehaviour {
 					remaining_pause_time = pause_time;
 //      	          SetTargetToNearestPoint();
 				} else if (_has_memento) {
+                   //Debug.Log("<color=blue>AI Log: Enemy arrived at nest. Releasing memento </color>");
 					MemoryScript ms = _memento_manager.GetClosestMemento (transform.position).GetComponent<MemoryScript> ();
 					StartCoroutine (ms.Release (MEMENTO_DROPOFF));
 					_has_memento = false;
@@ -93,7 +97,7 @@ public class EnemyController : MonoBehaviour {
 				}
 			}
 		} else {
-			Debug.Log ("Enemy Paused, " + remaining_pause_time + " seconds remaining");
+			//Debug.Log ("Enemy Paused, " + remaining_pause_time + " seconds remaining");
 			remaining_pause_time -= Time.deltaTime;
 			if (remaining_pause_time <= 0f) {
 				SetTargetToNearestPoint ();
@@ -101,10 +105,18 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "Memento" && collision.gameObject.GetComponent<MemoryScript>().GetHeldBy() != MemoryScript.HeldBy.Cooldown) {
-            //Debug.Log("<color=blue>AI: Has Memento</color>");
+        /* This code feels dirty.
+            Memento's trigger collider is on the child object, so we need
+              to access its parent through its transform
+        */
+        Transform parent = collider.gameObject.transform.parent;
+        if (parent == null)
+            return;
+       //Debug.Log("<color=blue>AI Log: Enemy triggered " + parent.name + "'s trap card!</color>");
+        if (parent.tag == "Memento" && parent.GetComponent<MemoryScript>().GetHeldBy() != MemoryScript.HeldBy.Cooldown) {
+           //Debug.Log("<color=blue>AI: Has Memento</color>");
             _has_memento = true;
             _agent.SetDestination(MEMENTO_DROPOFF.transform.position);
         }
@@ -127,7 +139,7 @@ public class EnemyController : MonoBehaviour {
         //If we have the memento, drop it
         if (_has_memento)
         {
-            //Debug.Log("<color=blue>AI: Dropping Memento</color>");
+           //Debug.Log("<color=blue>AI: Dropping Memento</color>");
             MemoryScript ms = _memento_manager.GetClosestMemento(transform.position).GetComponent<MemoryScript>();
             StartCoroutine(ms.Release(null));
             _has_memento = false;
