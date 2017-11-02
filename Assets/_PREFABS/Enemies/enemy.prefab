@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1673350116986660}
   m_IsPrefabParent: 1
+--- !u!1 &1111493585740550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4895029622727738}
+  - component: {fileID: 108237410423577480}
+  m_Layer: 12
+  m_Name: vision_light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1443017051210408
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,7 +37,7 @@ GameObject:
   - component: {fileID: 4783758232094074}
   - component: {fileID: 198586301949142182}
   - component: {fileID: 199923444695311900}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +58,7 @@ GameObject:
   - component: {fileID: 114804042447769216}
   - component: {fileID: 114392707761917792}
   - component: {fileID: 65229662468642840}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -58,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4789850941670760}
   - component: {fileID: 108329468667620542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330368836282048}
   - component: {fileID: 108039385524973908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,13 +116,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673350116986660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4783758232094074}
   - {fileID: 4789850941670760}
   - {fileID: 4330368836282048}
+  - {fileID: 4895029622727738}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,6 +153,19 @@ Transform:
   m_Father: {fileID: 4449746144096392}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4895029622727738
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111493585740550}
+  m_LocalRotation: {x: 0.46582046, y: -0.024084764, z: 0.1519636, w: 0.87140024}
+  m_LocalPosition: {x: 0.5, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4449746144096392}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 55, y: 10, z: 25}
 --- !u!23 &23408714699842014
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -223,6 +253,42 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!108 &108237410423577480
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111493585740550}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 1, g: 0, b: 0.634, a: 1}
+  m_Intensity: 15
+  m_Range: 8
+  m_SpotAngle: 60
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 1
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!108 &108329468667620542
 Light:
   m_ObjectHideFlags: 1
@@ -270,11 +336,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa8da54c7310d14eb09eb420b45cb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_DISTANCE: 10
+  FOV_CONE_LENGTH: 10
+  FOV_CONE_RADIUS: 30
+  FOV_RADIUS: 3
   MIN_DISTANCE: 0.5
   PATROL_GROUP: 0
   PATROL_START: {fileID: 0}
   MEMENTO_DROPOFF: {fileID: 0}
+  pause_time: 2
 --- !u!114 &114804042447769216
 MonoBehaviour:
   m_ObjectHideFlags: 1

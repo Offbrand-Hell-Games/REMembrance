@@ -69,51 +69,8 @@ public class MemoryScript : MonoBehaviour {
 	}
     void OnCollisionEnter(Collision collision)
     {
-		//Temporary fuck it fix
-		if(collision.gameObject.tag == "Player" && _heldBy != HeldBy.Player)
-		{
-			Debug.Log("Memento: Following Player");
-			_phase_manager.SetGameState(PhaseManager.GameState.Escape);
-			_heldBy = HeldBy.Player;
-			_target = collision.gameObject.transform;
-			if(_memento_point != null) {
-				_memento_point.HAS_MEMENTO = false;
-				_memento_point = null;
-			}
-		}
-        //If we collide without a current owner, then check the collider
-        if(_heldBy == HeldBy.None || _heldBy == HeldBy.MementoPoint)
-        {
-            string touchedBy = collision.gameObject.tag;
-            /*
-                Currently the player can only take the ball if they are not dashing.
-                
-                Changing this could allow for dashing through the ball to pick it up,
-                  or even dashing through the enemy to steal the ball.
-            */
-            /* if(touchedBy == "Player" && !_player._isDashing)
-            {
-                Debug.Log("Memento: Following Player");
-                _phase_manager.SetGameState(PhaseManager.GameState.Escape);
-                _heldBy = HeldBy.Player;
-                _target = collision.gameObject.transform;
-                if(_memento_point != null) {
-                    _memento_point.HAS_MEMENTO = false;
-                    _memento_point = null;
-                } 
-            }*/ /* else */ if (touchedBy == "Enemy")
-            {
-                Debug.Log("Memento: Following Enemy");
-                _heldBy = HeldBy.Enemy;
-                _target = collision.gameObject.transform;
-                if(_memento_point != null) {
-                    _memento_point.HAS_MEMENTO = false;
-                    _memento_point = null;
-                }
-            }
-        }
         //If the player is the current owner, check if we're colliding with a wall
-        else if (_heldBy == HeldBy.Player)
+        if (_heldBy == HeldBy.Player)
         {
 			// oh no
             if (collision.gameObject.tag == "Wall" && _player._isDashing){
@@ -124,6 +81,33 @@ public class MemoryScript : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+        //Temporary fuck it fix
+		if(other.gameObject.tag == "Player" && _heldBy != HeldBy.Player)
+		{
+			Debug.Log("Memento: Following Player");
+			_phase_manager.SetGameState(PhaseManager.GameState.Escape);
+			_heldBy = HeldBy.Player;
+			_target = other.gameObject.transform;
+			if(_memento_point != null) {
+				_memento_point.HAS_MEMENTO = false;
+				_memento_point = null;
+			}
+		}
+        //If we collide without a current owner, then check the collider
+        if(_heldBy == HeldBy.None || _heldBy == HeldBy.MementoPoint)
+        {
+            string touchedBy = other.gameObject.tag;
+            if (touchedBy == "Enemy")
+            {
+                Debug.Log("Memento: Following Enemy");
+                _heldBy = HeldBy.Enemy;
+                _target = other.gameObject.transform;
+                if(_memento_point != null) {
+                    _memento_point.HAS_MEMENTO = false;
+                    _memento_point = null;
+                }
+            }
+        }
 		if(other.gameObject.tag == "Saferoom")
 		{
 			WIN.SetActive(true);
