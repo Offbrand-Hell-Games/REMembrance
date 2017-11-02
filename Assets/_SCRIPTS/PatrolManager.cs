@@ -30,6 +30,8 @@ public class PatrolManager : MonoBehaviour {
 		}
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, enemySpeedChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, pause_time_seconds, PauseTimeChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, EnemySightLengthChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, EnemySightRadiusChanged);
 	}
 	
 	// Update is called once per frame
@@ -54,6 +56,24 @@ public class PatrolManager : MonoBehaviour {
 		foreach (GameObject enemy in _enemies)
 		{
 			(enemy.GetComponent<EnemyController>()).pause_time = value;
+		}
+	}
+
+	public void EnemySightLengthChanged(float value)
+	{
+		foreach (GameObject enemy in _enemies)
+		{
+			(enemy.GetComponent<EnemyController>()).FOV_CONE_LENGTH = value;
+			(enemy.GetComponent<EnemyController>()).visionLight.range = value;
+		}
+	}
+
+	public void EnemySightRadiusChanged(float value)
+	{
+		foreach (GameObject enemy in _enemies)
+		{
+			(enemy.GetComponent<EnemyController>()).FOV_CONE_RADIUS = value;
+			(enemy.GetComponent<EnemyController>()).visionLight.spotAngle = value;
 		}
 	}
 }

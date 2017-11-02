@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 108237410423577480}
   m_Layer: 12
   m_Name: vision_light
-  m_TagString: Untagged
+  m_TagString: EnemyVisionLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,13 +159,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111493585740550}
-  m_LocalRotation: {x: 0.46582046, y: -0.024084764, z: 0.1519636, w: 0.87140024}
-  m_LocalPosition: {x: 0.5, y: 2, z: 2}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4449746144096392}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 55, y: 10, z: 25}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!23 &23408714699842014
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -263,9 +263,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0.634, a: 1}
-  m_Intensity: 15
-  m_Range: 8
-  m_SpotAngle: 60
+  m_Intensity: 100
+  m_Range: 10
+  m_SpotAngle: 90
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -337,13 +337,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FOV_CONE_LENGTH: 10
-  FOV_CONE_RADIUS: 30
+  FOV_CONE_RADIUS: 90
   FOV_RADIUS: 3
   MIN_DISTANCE: 0.5
   PATROL_GROUP: 0
   PATROL_START: {fileID: 0}
   MEMENTO_DROPOFF: {fileID: 0}
   pause_time: 2
+  visionLight: {fileID: 0}
 --- !u!114 &114804042447769216
 MonoBehaviour:
   m_ObjectHideFlags: 1

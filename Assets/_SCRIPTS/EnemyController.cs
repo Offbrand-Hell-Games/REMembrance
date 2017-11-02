@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour {
 								// a scope keyword to make a public variable hide from the editor but i'll find it later.
 	private float min_pause_time = 1.5f;
 
+    [HideInInspector]
+    public Light visionLight;
+
 	// Use this for initialization
 	void Start () {
         _agent = GetComponent<NavMeshAgent>();
@@ -46,6 +49,14 @@ public class EnemyController : MonoBehaviour {
         } else {
             //Debug.Log("<color=blue>AI Warning: This AI does not have a patrol set! (" + gameObject.name + ")</color>");
         }
+
+        //Find and store a reference to the vision light
+        Light[] lights = gameObject.GetComponentsInChildren<Light>();
+		foreach (Light light in lights)
+		{
+			if (light.tag == "EnemyVisionLight")
+				visionLight = light;
+		}
 
 	}
 	
