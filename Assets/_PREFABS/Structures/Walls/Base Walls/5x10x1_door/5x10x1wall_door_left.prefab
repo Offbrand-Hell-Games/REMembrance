@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 65894283795098784}
   - component: {fileID: 23348805610393618}
   - component: {fileID: 114130658882741958}
+  - component: {fileID: 208395485962569472}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -105,8 +106,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667125386651744}
-  m_LocalRotation: {x: 0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.073, y: -0.8, z: -15.453035}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 11.019389, y: -4.0534782, z: -12.885683}
   m_LocalScale: {x: 2.164152, y: 1.6407678, z: 1.6407678}
   m_Children:
   - {fileID: 4158460338629110}
@@ -377,3 +378,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wall_Material: {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
   WallColider: {fileID: 65274637528965118}
+--- !u!208 &208395485962569472
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853757096326446}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

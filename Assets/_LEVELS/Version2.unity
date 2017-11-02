@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.3587272, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -236,6 +236,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4991241524766614, guid: 660fb911122c64048887e6a30e2e25b5,
     type: 2}
   m_PrefabInternal: {fileID: 838629620}
+--- !u!1 &44492880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 44492881}
+  m_Layer: 0
+  m_Name: Camera Return Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &44492881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 44492880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 130972384}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45212250
 Prefab:
   m_ObjectHideFlags: 0
@@ -788,6 +816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 649946169}
+  - {fileID: 44492881}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2743,7 +2772,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!135 &649946166
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2751,7 +2780,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649946164}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -2771,8 +2800,11 @@ MonoBehaviour:
   _cameraTurnRate: 20
   CAMERA_HOLDER: {fileID: 130972384}
   TARGET: {fileID: 93837418}
+  CAMERA_RETURN_POINT: {fileID: 44492881}
   _minDistance: 2
   _maxDistance: 5
+  _floorAngle: -15
+  _ceilingAngle: 85
   _offset: {x: 1, y: 1, z: 0}
   freezeCam: 1
 --- !u!4 &649946169 stripped

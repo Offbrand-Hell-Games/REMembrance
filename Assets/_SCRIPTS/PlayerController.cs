@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
 //                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
 
-            if (dashReady && Input.GetButton("Dash"))
+            if (dashReady && Input.GetButtonDown("Dash"))
             {
 				_isDashing = true;
 				switch(_view)
@@ -119,7 +119,12 @@ public class PlayerController : MonoBehaviour {
 				StartCoroutine(DashCountdown());
 			}
 			
-            if (Input.GetButton("Interact"))
+            if (Input.GetButtonDown("Door"))
+            {
+                StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
+            }
+			
+			if (Input.GetButtonDown("Drop"))
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
 				if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
