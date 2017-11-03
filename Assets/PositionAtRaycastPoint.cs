@@ -22,7 +22,6 @@ public class PositionAtRaycastPoint : MonoBehaviour {
 			// upon invalid objects. For now though, the mask will go wherever the raycast hits.
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				Debug.Log (hit.transform.name);
 				Vector3 newposition = hit.point;
 				transform.position = newposition;
 //				cam2.farClipPlane = Vector3.Distance (cam1.transform.position, transform.position);

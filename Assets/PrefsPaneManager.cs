@@ -25,7 +25,7 @@ public class PrefsPaneManager : MonoBehaviour {
 			}
 		}
 
-		OTS_camera.GetComponent<SmoothFollowOTS> ().freezeCam = prefs_container.activeSelf;
+		OTS_camera.GetComponent<SmoothFollowOTS_Jim> ().freezeCam = prefs_container.activeSelf;
 
 //		if (Input.GetKeyDown (KeyCode.I) && false) {
 //			GameObject newslider = Instantiate (slider_prefab);

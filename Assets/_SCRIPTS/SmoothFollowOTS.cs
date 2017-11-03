@@ -10,28 +10,23 @@ public class SmoothFollowOTS : MonoBehaviour
 	private float _cameraTurnRate = 20f; // The rate at which the camera rotates by the mouse/right analog stick.
 	public Transform CAMERA_HOLDER;	//The camera's parent. We use a camera holder so the camera itself can always be offset.
 	public Transform TARGET; // What the camera holder will look at. This should be the player in most cases.
-	public Transform CAMERA_RETURN_POINT; // When the camera gets pushed by walls, it loses it's original offset. We use this to move the camera back.
 	
 	private bool _isTouchingWall = false;
 	[SerializeField]
 	private float _minDistance;	// The closest the camera should get to the target.
 	[SerializeField]
-	private float _maxDistance; // The farthest the camera should be from the target. The camera will always try to be at max distance.
-	[SerializeField]
-	private float _floorAngle;	// The lowest the camera is allowed to go down.
-	[SerializeField]
-	private float _ceilingAngle; // The highest the camera is allowed to go up.
+	private float _maxDistance; // The farthest the camera should be from the target.
 	[SerializeField]
 	private Vector3 _offset; // Offset of the camera. Edit the X value in the editor to move the camera left/right of the target.
 
 
 	public bool freezeCam = true;
+	//public Text distance;
 	
 	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
 		CAMERA_HOLDER.position = TARGET.position;
-		CAMERA_RETURN_POINT.position = new Vector3(CAMERA_HOLDER.position.x+_offset.x,CAMERA_HOLDER.position.y+_offset.y,CAMERA_HOLDER.position.z+_offset.z);
-		transform.position = CAMERA_RETURN_POINT.position;
+		transform.position = new Vector3(CAMERA_HOLDER.position.x+_offset.x,CAMERA_HOLDER.position.y+_offset.y,CAMERA_HOLDER.position.z+_offset.z);
 	}
 	
 	void FixedUpdate()
@@ -41,20 +36,17 @@ public class SmoothFollowOTS : MonoBehaviour
 //		} 
 			
 		if (!freezeCam) {
-			
+			//distance.text = Vector3.Distance(CAMERA_HOLDER.position,TARGET.position).ToString();
 			float inputRXAxis = Input.GetAxisRaw ("RHorizontal");
 			float inputRYAxis = Input.GetAxisRaw ("RVertical");
 		
 			float step = _cameraSpeed * Time.deltaTime;
 		
 		
-			if (_isTouchingWall && Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) > _minDistance) 
-			{
+			if (_isTouchingWall && Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) > _minDistance) {
 				//Move towards the player
-				CAMERA_HOLDER.position = Vector3.Lerp(CAMERA_HOLDER.position, TARGET.position, step);
-			} 
-			else if (Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) < _maxDistance || Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) > _maxDistance) 
-			{
+//			CAMERA_HOLDER.position = Vector3.Lerp(CAMERA_HOLDER.position, TARGET.position, step);
+			} else if (Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) < _maxDistance || Vector3.Distance (CAMERA_HOLDER.position, TARGET.position) > _maxDistance) {
 				//Move away from the player
 				Vector3 backwardsVector = new Vector3 (CAMERA_HOLDER.position.x - TARGET.position.x, CAMERA_HOLDER.position.y - TARGET.position.y, CAMERA_HOLDER.position.z - TARGET.position.z).normalized * _maxDistance;
 				Vector3 inverseTarget = TARGET.position + backwardsVector;
@@ -63,30 +55,9 @@ public class SmoothFollowOTS : MonoBehaviour
 		
 			//Rotate around the player according to the right analog.
 			float rotationStep = _cameraTurnRate * Time.deltaTime;
-			
 			CAMERA_HOLDER.RotateAround (TARGET.position, Vector3.up, inputRXAxis * rotationStep);
-			
-			float localXEuler = CAMERA_HOLDER.localEulerAngles.x;
-			if(localXEuler > 180f)
-				localXEuler = localXEuler - 360f;
-				
-			if(localXEuler <= _ceilingAngle && localXEuler >= _floorAngle)
-			{
-				CAMERA_HOLDER.RotateAround(TARGET.position, transform.right, inputRYAxis * rotationStep);
-			}
-			else
-			{
-				if(localXEuler > _ceilingAngle && inputRYAxis < 0)
-					CAMERA_HOLDER.RotateAround(TARGET.position, transform.right, inputRYAxis * rotationStep);
-				else if(localXEuler < _floorAngle && inputRYAxis > 0)
-					CAMERA_HOLDER.RotateAround(TARGET.position, transform.right, inputRYAxis * rotationStep);
-			}
+			CAMERA_HOLDER.RotateAround (TARGET.position, Vector3.right, inputRYAxis * rotationStep);
 			CAMERA_HOLDER.LookAt (TARGET.position);
-			
-			if(!_isTouchingWall)
-			{
-				transform.position = Vector3.Lerp (transform.position, CAMERA_RETURN_POINT.position, step);
-			}
 		}
 	}
 
@@ -121,6 +92,16 @@ public class SmoothFollowOTS : MonoBehaviour
 	}
 	
 	void OnColliderExit(Collision coll)
+	{
+		_isTouchingWall = false;
+	}
+	
+	void OnTriggerEnter(Collider coll)
+	{
+		_isTouchingWall = true;
+	}
+	
+	void OnTriggerExit(Collider coll)
 	{
 		_isTouchingWall = false;
 	}
