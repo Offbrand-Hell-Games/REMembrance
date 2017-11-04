@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.3587272, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1644,12 +1644,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1085131949957740, guid: b3bee4e0dd850c744a37dc991d6d1523,
     type: 2}
   m_PrefabInternal: {fileID: 842709117}
---- !u!114 &372815858 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114482333568179406, guid: 98818bce3f63c64419462a85bc48b721,
-    type: 2}
-  m_PrefabInternal: {fileID: 1142228200}
-  m_Script: {fileID: 11500000, guid: e922e59e9a965ed4dbb83b98acba7bf5, type: 3}
 --- !u!1001 &373839090
 Prefab:
   m_ObjectHideFlags: 0
@@ -2355,6 +2349,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114407119270722578, guid: 68259823d1c0b9e4495d117ab3078a09,
+        type: 2}
+      propertyPath: NEST_TO_TAKE_FROM
+      value: 
+      objectReference: {fileID: 400876228}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68259823d1c0b9e4495d117ab3078a09, type: 2}
   m_IsPrefabParent: 0
@@ -3536,6 +3535,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114392707761917792, guid: 154950e1157f5df4ebd5b9497959b33b,
+        type: 2}
+      propertyPath: NEST
+      value: 
+      objectReference: {fileID: 1484755645}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 154950e1157f5df4ebd5b9497959b33b, type: 2}
   m_IsPrefabParent: 0
@@ -4024,6 +4028,11 @@ Prefab:
       propertyPath: pause_time_seconds
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114256749999636232, guid: 54cc092816c754f4a86aaee2fe5b479e,
+        type: 2}
+      propertyPath: WIN
+      value: 
+      objectReference: {fileID: 1382060157}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54cc092816c754f4a86aaee2fe5b479e, type: 2}
   m_IsPrefabParent: 0
@@ -8463,11 +8472,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114482333568179406, guid: 98818bce3f63c64419462a85bc48b721,
-        type: 2}
-      propertyPath: WIN
-      value: 
-      objectReference: {fileID: 1382060157}
+    - target: {fileID: 1022030606862854, guid: 98818bce3f63c64419462a85bc48b721, type: 2}
+      propertyPath: m_Name
+      value: Memento
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98818bce3f63c64419462a85bc48b721, type: 2}
   m_IsPrefabParent: 0
@@ -8535,6 +8543,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114392707761917792, guid: 154950e1157f5df4ebd5b9497959b33b,
+        type: 2}
+      propertyPath: NEST
+      value: 
+      objectReference: {fileID: 400876228}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 154950e1157f5df4ebd5b9497959b33b, type: 2}
   m_IsPrefabParent: 0
@@ -9682,7 +9695,6 @@ MonoBehaviour:
   _isDashing: 0
   SAFEROOM_TRANSFORM: {fileID: 1937104100}
   DASH_NOT_READY_ICON: {fileID: 1326485010}
-  MEMENTO: {fileID: 372815858}
   DASH_COOLDOWN: 1
   OTS_CAMERA: {fileID: 130972383}
   TD_CAMERA: {fileID: 360654581}

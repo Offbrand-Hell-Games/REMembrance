@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	
 	public GameObject DASH_NOT_READY_ICON;
 	
-	public MemoryScript MEMENTO; //TEMPORARY QUICK FIX DO NOT KEEP FOREVER
+	private Memento _memento = null;
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
@@ -127,9 +127,9 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetButtonDown("Drop"))
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
-				if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
+				if(_memento != null)
 				{
-					MEMENTO.SetHeldBy(MemoryScript.HeldBy.None);
+					_memento.Release();
 				}
             }
         }
@@ -224,11 +224,34 @@ public class PlayerController : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-			if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
+			if(_memento != null)
 			{
-				MEMENTO.SetHeldBy(MemoryScript.HeldBy.None);
+				_memento.Release();
 			}
             transform.position = SAFEROOM_TRANSFORM.position;
+        }
+    }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+         /* This code feels dirty.
+            Memento's trigger collider is on the child object, so we need
+              to access its parent through its transform
+        */
+        Transform parent = collider.gameObject.transform.parent;
+        if (parent != null && parent.tag == "Memento")
+        {
+            _memento = parent.gameObject.GetComponent<Memento>();
+            _memento.Bind(this.gameObject);
+        }
+    }
+
+    public void OnMementoCollisionWithWall(Memento memento)
+    {
+        if (_memento == memento)
+        {
+            _memento.Release();
+            _memento = null;
         }
     }
 }

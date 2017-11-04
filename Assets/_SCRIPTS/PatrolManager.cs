@@ -7,7 +7,7 @@ public class PatrolManager : MonoBehaviour {
 	private Dictionary<int,List<PatrolPoint>> _patrol_groups;
 	private GameObject[] _enemies;
 	[SerializeField]
-	public float pause_time_seconds = 5.0f;
+	public static float ENEMY_IDLE_TIME = 5.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +24,9 @@ public class PatrolManager : MonoBehaviour {
 		}
 
 		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
-		foreach (GameObject enemy in _enemies)
-		{
-			(enemy.GetComponent<EnemyController>()).pause_time = pause_time_seconds;
-		}
+
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, enemySpeedChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, pause_time_seconds, PauseTimeChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, ENEMY_IDLE_TIME, PauseTimeChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, EnemySightLengthChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, EnemySightRadiusChanged);
 	}
@@ -53,10 +50,7 @@ public class PatrolManager : MonoBehaviour {
 
 	public void PauseTimeChanged(float value)
 	{
-		foreach (GameObject enemy in _enemies)
-		{
-			(enemy.GetComponent<EnemyController>()).pause_time = value;
-		}
+		ENEMY_IDLE_TIME = value;
 	}
 
 	public void EnemySightLengthChanged(float value)

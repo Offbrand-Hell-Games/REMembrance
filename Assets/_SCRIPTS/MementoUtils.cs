@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MementoManager : MonoBehaviour {
+public class MementoUtils : MonoBehaviour {
 
 	private GameObject[] _mementos;
 

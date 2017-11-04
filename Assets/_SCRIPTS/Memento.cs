@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MemoryScript : MonoBehaviour {
+public class Memento : MonoBehaviour {
     
     PlayerController _player;
-    Transform _target; //The current holder of this memento
+    Transform _transformToFollow; //The current holder of this memento
     
     public enum HeldBy //Enum in case we want to know what type of entity is holding this memento
     {
         None,
         Player,
-        Enemy,
-        MementoPoint,
-        Cooldown
+        Enemy
     }
     private HeldBy _heldBy = HeldBy.None;
+    [HideInInspector]
+    public bool IN_NEST;
 
     bool _up = true;
     float _baseHeight, step;
     Vector3 targetPosition, _maxHeight, _lowerHeight;
-    private MementoPoint _memento_point = null;
 
-    private PhaseManager _phase_manager;
+    private GameInfo _gameInfo;
 	
-	public GameObject WIN; //Canvas image that shows you won
-
 	// Use this for initialization
 	void Start () {
         _baseHeight = transform.position.y;
@@ -34,17 +31,12 @@ public class MemoryScript : MonoBehaviour {
         step = 0.25f * Time.deltaTime;
 
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        _phase_manager = GameObject.Find("GameManager").GetComponent<PhaseManager>();
+        _gameInfo = GameObject.Find("GameManager").GetComponent<GameInfo>();
     }
-	
-	public void SetHeldBy(HeldBy state)
-	{
-		_heldBy = state;
-	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(_heldBy == HeldBy.None || _heldBy == HeldBy.Cooldown || _heldBy == HeldBy.MementoPoint)
+        if(_heldBy == HeldBy.None)
         {
             if (_up)
             {
@@ -62,7 +54,7 @@ public class MemoryScript : MonoBehaviour {
         }
         else
         {
-            targetPosition = new Vector3(_target.position.x, _baseHeight+.5f, _target.position.z);
+            targetPosition = new Vector3(_transformToFollow.position.x, _baseHeight+.5f, _transformToFollow.position.z);
             transform.position = targetPosition;
         }
 		
@@ -72,66 +64,60 @@ public class MemoryScript : MonoBehaviour {
         //If the player is the current owner, check if we're colliding with a wall
         if (_heldBy == HeldBy.Player)
         {
-			// oh no
             if (collision.gameObject.tag == "Wall" && _player._isDashing){
-                StartCoroutine(Release(null));
+                _player.OnMementoCollisionWithWall(this);
             }            
         }
     }
 	
 	void OnTriggerEnter(Collider other)
 	{
-        //Temporary fuck it fix
-		if(other.gameObject.tag == "Player" && _heldBy != HeldBy.Player)
-		{
-			Debug.Log("Memento: Following Player");
-			_phase_manager.SetGameState(PhaseManager.GameState.Escape);
-			_heldBy = HeldBy.Player;
-			_target = other.gameObject.transform;
-			if(_memento_point != null) {
-				_memento_point.HAS_MEMENTO = false;
-				_memento_point = null;
-			}
-		}
-        //If we collide without a current owner, then check the collider
-        if(_heldBy == HeldBy.None || _heldBy == HeldBy.MementoPoint)
-        {
-            string touchedBy = other.gameObject.tag;
-            if (touchedBy == "Enemy")
-            {
-                Debug.Log("Memento: Following Enemy");
-                _heldBy = HeldBy.Enemy;
-                _target = other.gameObject.transform;
-                if(_memento_point != null) {
-                    _memento_point.HAS_MEMENTO = false;
-                    _memento_point = null;
-                }
-            }
-        }
 		if(other.gameObject.tag == "Saferoom")
 		{
-			WIN.SetActive(true);
+			_gameInfo.SetGameState(GameInfo.GameState.Won);
 		}
 	}
 
-    public IEnumerator Release(MementoPoint point)
+    public void Bind(GameObject owner)
     {
-        _heldBy = HeldBy.Cooldown;
+        if (owner == null)
+        {
+            _heldBy = HeldBy.None;
+            _transformToFollow = null;
+        }
+        else
+        {
+            switch (owner.tag)
+            {
+                case "Enemy":
+                    _heldBy = HeldBy.Enemy;
+                    _transformToFollow = owner.transform;
+                    break;
+                case "Player":
+                    _heldBy = HeldBy.Player;
+                    _transformToFollow = owner.transform;
+                    _gameInfo.SetGameState(GameInfo.GameState.Escape);
+                    break;
+                default:
+                    Debug.Log("<color=blue>Memento Error: Memento told to bind to something other than Enemy or Player!</color>");
+                    _heldBy = HeldBy.None;
+                    _transformToFollow = null;
+                    break;
+            }
+        }
+    }
+
+    public void Release()
+    {
+        _heldBy = HeldBy.None;
+        _transformToFollow = null;
         _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
         _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
-
-        yield return new WaitForSeconds(10.0f);
-        if (point != null) {
-            _heldBy = HeldBy.MementoPoint;
-            _memento_point = point;
-        } else
-            _heldBy = HeldBy.None;
-
-        yield return null;
     }
 
     public HeldBy GetHeldBy()
     {
         return _heldBy;
     }
+
 }

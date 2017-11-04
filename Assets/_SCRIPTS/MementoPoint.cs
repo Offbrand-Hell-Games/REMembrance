@@ -4,14 +4,35 @@ using UnityEngine;
 
 public class MementoPoint : MonoBehaviour {
 
-	public bool HAS_MEMENTO;
+	[HideInInspector]
+	public Memento MEMENTO = null;
+
+	public MementoPoint NEST_TO_TAKE_FROM;
 	// Use this for initialization
 	void Start () {
-		HAS_MEMENTO = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.gameObject.tag == "Memento")
+		{
+			MEMENTO = collider.gameObject.GetComponent<Memento>();
+			MEMENTO.IN_NEST = true;
+		}
+	}
+
+	void OnTriggerExit(Collider collider)
+	{
+		if (collider.gameObject.tag == "Memento")
+		{
+			MEMENTO.IN_NEST = false;
+			MEMENTO = null;
+		}
 	}
 }

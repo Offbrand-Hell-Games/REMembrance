@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public bool _isDashing = false;
     public Transform SAFEROOM_TRANSFORM;
 	
-	public MemoryScript MEMENTO; //TEMPORARY QUICK FIX DO NOT KEEP FOREVER
+	public Memento MEMENTO; //TEMPORARY QUICK FIX DO NOT KEEP FOREVER
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
@@ -152,9 +152,9 @@ public class PlayerController : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-			if(MEMENTO.GetHeldBy() == MemoryScript.HeldBy.Player)
+			if(MEMENTO.GetHeldBy() == Memento.HeldBy.Player)
 			{
-				MEMENTO.SetHeldBy(MemoryScript.HeldBy.None);
+				MEMENTO.SetHeldBy(Memento.HeldBy.None);
 			}
             transform.position = SAFEROOM_TRANSFORM.position;
         }
