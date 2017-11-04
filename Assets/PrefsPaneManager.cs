@@ -8,6 +8,7 @@ public class PrefsPaneManager : MonoBehaviour {
 	public GameObject prefs_container;
 	public GameObject slider_prefab;
 	public GameObject OTS_camera;
+	public GameObject instructions;
 //	public delegate void valueChangedDelegate(float newvalue);
 	//float importantValue = .7f;
 	// Use this for initialization
@@ -20,8 +21,10 @@ public class PrefsPaneManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			if (prefs_container.activeSelf) {
 				prefs_container.SetActive (false);
+				instructions.SetActive(false);
 			} else {
 				prefs_container.SetActive (true);
+				instructions.SetActive(true);
 			}
 		}
 
