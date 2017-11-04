@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114407119270722578}
   - component: {fileID: 65772460885247306}
   m_Layer: 0
-  m_Name: MementoPoint
+  m_Name: Nest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb690cd416634860ad1afcc46718f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HAS_MEMENTO: 1
+  MEMENTO: {fileID: 0}
+  NEST_TO_TAKE_FROM: {fileID: 0}
 --- !u!198 &198237469722620796
 ParticleSystem:
   m_ObjectHideFlags: 1

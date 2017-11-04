@@ -113,7 +113,12 @@ public class EnemyController : MonoBehaviour {
                         SetTargetToNextPatrolPoint();
                     break;
                 case EnemyState.TransportingMemento:
-                    //Drop-off is handled in the collision detection
+                    if (_navAgent.remainingDistance < MIN_DISTANCE)
+                    {
+                        _memento.Release();
+                        _memento = null;
+                        SetTargetToNearestPoint();
+                    }
                     break;
                 default:
                     if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
