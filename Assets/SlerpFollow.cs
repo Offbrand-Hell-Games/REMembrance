@@ -20,5 +20,6 @@ public class SlerpFollow : MonoBehaviour {
 		Vector3 a = transform.position;
 		Vector3 b = target.position;
 		transform.position = Vector3.MoveTowards (a, b, Mathf.Max((Vector3.Distance(a, b) * followCoefficient), minDistance));
+//		transform.rotation = new Quaternion (0,0,0,0);
 	}
 }

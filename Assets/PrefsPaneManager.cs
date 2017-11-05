@@ -21,10 +21,10 @@ public class PrefsPaneManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			if (prefs_container.activeSelf) {
 				prefs_container.SetActive (false);
-				instructions.SetActive(false);
+//				instructions.SetActive(false);
 			} else {
 				prefs_container.SetActive (true);
-				instructions.SetActive(true);
+//				instructions.SetActive(true);
 			}
 		}
 

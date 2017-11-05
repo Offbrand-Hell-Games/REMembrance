@@ -15,7 +15,7 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 	public Transform target; // What the camera holder will look at. This should be the player in most cases. Could be a gameobject floating above rem's shoulder.
 	public Transform anchor; // When the camera gets pushed by walls, it loses it's original offset. We use this to move the camera back.
 	private Transform wrapper; // This is to the parent in Start(). It has its transform anchor on the player, which is used for simple rotation around the player, 
-
+	public Transform player;
 
 	[SerializeField]
 	private float _minDistance;	// The closest the camera should get to the target.
@@ -25,13 +25,11 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 	[SerializeField]
 	public LayerMask _myLayerMask; // A layer mask where only the game layers the camera will try to avoid being behind are checked off
 	[HideInInspector]
-	public bool freezeCam = true;
+	public bool freezeCam = false;
 
 	
 	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
-//		CAMERA_HOLDER.position = TARGET.position;
-//		CAMERA_RETURN_POINT.position = new Vector3(CAMERA_HOLDER.position.x+_offset.x,CAMERA_HOLDER.position.y+_offset.y,CAMERA_HOLDER.position.z+_offset.z);
 		wrapper = anchor.parent;
 		Debug.Log ("wha");
 	}
@@ -40,14 +38,14 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 	{
 		if (!freezeCam) { 
 			// freezeCam gets set by the prefsPane manager currently, but should later refer to a singleton input manager I wanna make
-			
+
 			float inputRXAxis = Input.GetAxisRaw ("RHorizontal");
 			float inputRYAxis = Input.GetAxisRaw ("RVertical");
 		
 			float rotation_step = _cameraTurnRate * Time.deltaTime;
 			Debug.Log (wrapper);
-			wrapper.RotateAround (target.position, Vector3.up, inputRXAxis * rotation_step);
-			wrapper.RotateAround (target.position, transform.right, -1f * inputRYAxis * rotation_step);
+			wrapper.RotateAround (player.position, Vector3.up, inputRXAxis * rotation_step);
+			wrapper.RotateAround (player.position, wrapper.right, -1f * inputRYAxis * rotation_step);
 
 
 			Vector3 target_to_cam = (anchor.position - target.position).normalized; // point toward the cam
@@ -85,7 +83,7 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 			}
 
 			transform.position = nextposition;
-//			transform.LookAt = anchor.transform.localRotation;
+			transform.rotation = anchor.transform.rotation;
 		} else {
 			Debug.Log ("Camera is frozen");
 		}
