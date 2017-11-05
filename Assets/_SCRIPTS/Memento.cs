@@ -17,10 +17,6 @@ public class Memento : MonoBehaviour {
     [HideInInspector]
     public bool IN_NEST;
 
-    public float PULSE_TIME = 25.0f;
-    public float PULSE_DELAY_AMOUNT = 5.0f;
-    public float MEMENTO_PULSE_RADIUS = 30.0f;
-    public float PLAYER_PULSE_RADIUS = 15.0f;
     private float _timeLeftBeforePulse = 25.0f;
 
     bool _up = true;
@@ -72,11 +68,11 @@ public class Memento : MonoBehaviour {
             _timeLeftBeforePulse -= Time.deltaTime;
             if (_timeLeftBeforePulse <= 0.0f)
             {
-                _mementoUtils.OnMementoPulse(this.gameObject, MEMENTO_PULSE_RADIUS);
-                _timeLeftBeforePulse = PULSE_TIME;
+                _mementoUtils.OnMementoPulse(this.gameObject, false);
+                _timeLeftBeforePulse = MementoUtils.PULSE_TIME;
             }
             // Update the UI
-            _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, PULSE_TIME);
+            _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
         }
 		
 	}
@@ -143,11 +139,13 @@ public class Memento : MonoBehaviour {
 
     public void OnPlayerAbilityUsed()
     {
-        _timeLeftBeforePulse += PULSE_DELAY_AMOUNT;
+        _timeLeftBeforePulse += MementoUtils.PULSE_DELAY_AMOUNT;
+        if (_timeLeftBeforePulse > MementoUtils.PULSE_TIME)
+            _timeLeftBeforePulse = MementoUtils.PULSE_TIME;
 
-        _mementoUtils.OnMementoPulse(this.gameObject, PLAYER_PULSE_RADIUS);
+        _mementoUtils.OnMementoPulse(this.gameObject, true);
         //Update UI
-        _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, PULSE_TIME);
+        _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
     }
 
 }
