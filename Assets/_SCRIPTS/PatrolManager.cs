@@ -36,6 +36,19 @@ public class PatrolManager : MonoBehaviour {
 
 	}
 
+	public EnemyController[] GetClosestEnemies(Vector3 source, float radius)
+	{
+		List<EnemyController> list = new List<EnemyController>();
+
+		foreach (GameObject enemy in _enemies)
+		{
+			if (Vector3.Distance(source, enemy.transform.position) <= radius)
+				list.Add(enemy.GetComponent<EnemyController>());
+		}
+
+		return list.ToArray();
+	}
+
 	public List<PatrolPoint> GetPatrolPointsByGroupID(int groupID) {
 		return (List<PatrolPoint>)_patrol_groups[groupID];
 	}

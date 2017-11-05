@@ -17,11 +17,18 @@ public class Memento : MonoBehaviour {
     [HideInInspector]
     public bool IN_NEST;
 
+    public float PULSE_TIME = 25.0f;
+    public float PULSE_DELAY_AMOUNT = 5.0f;
+    public float MEMENTO_PULSE_RADIUS = 30.0f;
+    public float PLAYER_PULSE_RADIUS = 15.0f;
+    private float _timeLeftBeforePulse = 25.0f;
+
     bool _up = true;
     float _baseHeight, step;
     Vector3 targetPosition, _maxHeight, _lowerHeight;
 
     private GameInfo _gameInfo;
+    private MementoUtils _mementoUtils;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,6 +39,7 @@ public class Memento : MonoBehaviour {
 
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _gameInfo = GameObject.Find("GameManager").GetComponent<GameInfo>();
+        _mementoUtils = GameObject.Find("GameManager").GetComponent<MementoUtils>();
     }
 	
 	// Update is called once per frame
@@ -56,6 +64,19 @@ public class Memento : MonoBehaviour {
         {
             targetPosition = new Vector3(_transformToFollow.position.x, _baseHeight+.5f, _transformToFollow.position.z);
             transform.position = targetPosition;
+        }
+
+        /* Memento Pulse Code */
+        if (_heldBy == HeldBy.Player && !IN_NEST)
+        {
+            _timeLeftBeforePulse -= Time.deltaTime;
+            if (_timeLeftBeforePulse <= 0.0f)
+            {
+                _mementoUtils.OnMementoPulse(this.gameObject, MEMENTO_PULSE_RADIUS);
+                _timeLeftBeforePulse = PULSE_TIME;
+            }
+            // Update the UI
+            _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, PULSE_TIME);
         }
 		
 	}
@@ -118,6 +139,15 @@ public class Memento : MonoBehaviour {
     public HeldBy GetHeldBy()
     {
         return _heldBy;
+    }
+
+    public void OnPlayerAbilityUsed()
+    {
+        _timeLeftBeforePulse += PULSE_DELAY_AMOUNT;
+
+        _mementoUtils.OnMementoPulse(this.gameObject, PLAYER_PULSE_RADIUS);
+        //Update UI
+        _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, PULSE_TIME);
     }
 
 }

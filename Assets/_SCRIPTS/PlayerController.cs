@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour {
 			
             if (Input.GetButtonDown("Vision"))
             {
+                if (_memento != null)
+                {
+                    _memento.OnPlayerAbilityUsed();
+                }
 				xRayVisionA.SetActive (!xRayVisionA.activeSelf);
 				xRayVisionB.SetActive (!xRayVisionB.activeSelf);
 //                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
@@ -100,6 +104,10 @@ public class PlayerController : MonoBehaviour {
 
             if (dashReady && Input.GetButtonDown("Dash"))
             {
+                if (_memento != null)
+                {
+                    _memento.OnPlayerAbilityUsed();
+                }
 				_isDashing = true;
 				switch(_view)
 				{
