@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour {
     private MementoUtils _mementoUtils;
     private GameInfo _gameInfo;
 
-    private float _lastTargetedPlayer = 0f;
+    private float _idleTimeRemaining = 0f;
 
     [HideInInspector]
     public Light visionLight;
@@ -96,14 +96,14 @@ public class EnemyController : MonoBehaviour {
                 (P2) Collision With Memento Point -> Patrolling
         */
 
-        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _lastTargetedPlayer <= PatrolManager.ENEMY_IDLE_TIME))
+        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _idleTimeRemaining <= PatrolManager.ENEMY_IDLE_TIME))
             SetTargetToPlayer();
         else
         {
             switch (_enemyState)
             {
                 case EnemyState.Idle:
-                    if (Time.time - _lastTargetedPlayer <= PatrolManager.ENEMY_IDLE_TIME)
+                    if (Time.time - _idleTimeRemaining <= PatrolManager.ENEMY_IDLE_TIME)
                     {
                         if (!CheckMemento())
                             SetTargetToNearestPoint();
@@ -119,6 +119,22 @@ public class EnemyController : MonoBehaviour {
                         _memento.Release();
                         _memento = null;
                         SetTargetToNearestPoint();
+                    }
+                    break;
+                case EnemyState.TargetingPlayer:
+                    if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
+                    {
+                        _enemyState = EnemyState.Idle;
+                        _idleTimeRemaining = PatrolManager.ENEMY_IDLE_TIME;
+
+                    }
+                    break;
+                case EnemyState.TargetingMemento:
+                    if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
+                    {
+                        _enemyState = EnemyState.Idle;
+                        _idleTimeRemaining = PatrolManager.ENEMY_IDLE_TIME;
+
                     }
                     break;
                 default:
@@ -199,7 +215,7 @@ public class EnemyController : MonoBehaviour {
         //Debug.Log("<color=blue>AI: Setting Target to Player</color>");
         _enemyState = EnemyState.TargetingPlayer;
         _navAgent.SetDestination(_player.transform.position);
-        _lastTargetedPlayer = Time.time;
+        _idleTimeRemaining = Time.time;
     }
 
     public void SetTargetToNextPatrolPoint()
