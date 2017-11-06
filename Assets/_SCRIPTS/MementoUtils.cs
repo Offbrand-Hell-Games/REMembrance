@@ -57,7 +57,7 @@ public class MementoUtils : MonoBehaviour {
 			pulse.transform.position = memento.transform.position;
 
 
-			float time = radius / (pulse.GetComponent<ParticleSystem>()).startSpeed;
+			float time = radius / (pulse.GetComponent<ParticleSystem>()).main.startSpeed.constant;
 			Debug.Log("<color=blue>Memento Pulse: Destroying pulse game object after " + time + "seconds</color>");
 			Object.Destroy(pulse, time);
 		}

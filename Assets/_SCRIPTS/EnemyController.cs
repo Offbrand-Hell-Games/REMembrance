@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour {
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
+    public float MEMENTO_SEARCH_RADIUS = 5.0f; /* Radius around enemy to detect dropped mementos */
 
     public PatrolPoint PATROL_START;
     public MementoPoint NEST;
@@ -137,7 +138,7 @@ public class EnemyController : MonoBehaviour {
             //Check for any memento's out of MementoPoints
             GameObject memento = _mementoUtils.GetClosestMemento (transform.position);
             Memento mc = memento.GetComponent<Memento> ();
-            if (mc != null && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)
+            if (mc != null && Vector3.Distance(mc.transform.position, transform.position) <= MEMENTO_SEARCH_RADIUS && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (nearby)</color>");
                 _enemyState = EnemyState.TargetingMemento;
