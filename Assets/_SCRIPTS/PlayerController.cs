@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour {
 				if(_memento != null)
 				{
 					_memento.Release();
+                    _memento = null;
 				}
             }
         }
