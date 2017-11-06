@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23103406463962586}
   - component: {fileID: 95273305176751174}
   - component: {fileID: 65833197716768788}
-  - component: {fileID: 114241682388732584}
   m_Layer: 8
   m_Name: 15x10x1_A_impassable
   m_TagString: Wall
@@ -57,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
+  - {fileID: 2100000, guid: 52b43d1bb7aa24a57b4191445b0db3f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,16 +111,3 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114241682388732584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1290622129508154}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae505e3b16733d045a8b303e79247be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Wall_Material: {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
-  WallColider: {fileID: 65833197716768788}

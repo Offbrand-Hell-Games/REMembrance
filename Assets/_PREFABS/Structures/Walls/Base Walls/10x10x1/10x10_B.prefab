@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33702207111882954}
   - component: {fileID: 23913035118670976}
   - component: {fileID: 65442396025073606}
-  - component: {fileID: 114411015232458150}
   m_Layer: 8
   m_Name: 10x10_B
   m_TagString: Wall
@@ -56,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae26fdb27981149ec90800adf8c5645d, type: 2}
+  - {fileID: 2100000, guid: a28babcc6a3c54caa93f163824dbd444, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,16 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.189879, y: 3.0479999, z: 0.4134903}
   m_Center: {x: -0.0047507286, y: 1.5239999, z: -0.041324615}
---- !u!114 &114411015232458150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362786998893354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae505e3b16733d045a8b303e79247be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Wall_Material: {fileID: 2100000, guid: ae26fdb27981149ec90800adf8c5645d, type: 2}
-  WallColider: {fileID: 65442396025073606}
