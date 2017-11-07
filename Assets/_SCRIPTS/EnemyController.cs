@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour {
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
+    public float MEMENTO_SEARCH_RADIUS = 5.0f; /* Radius around enemy to detect dropped mementos */
 
     public PatrolPoint PATROL_START;
     public MementoPoint NEST;
@@ -33,7 +34,7 @@ public class EnemyController : MonoBehaviour {
     private MementoUtils _mementoUtils;
     private GameInfo _gameInfo;
 
-    private float _lastTargetedPlayer = 0f;
+    private float _idleTimeRemaining = 0f;
 
     [HideInInspector]
     public Light visionLight;
@@ -95,14 +96,14 @@ public class EnemyController : MonoBehaviour {
                 (P2) Collision With Memento Point -> Patrolling
         */
 
-        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _lastTargetedPlayer <= PatrolManager.ENEMY_IDLE_TIME))
+        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _idleTimeRemaining <= PatrolManager.ENEMY_IDLE_TIME))
             SetTargetToPlayer();
         else
         {
             switch (_enemyState)
             {
                 case EnemyState.Idle:
-                    if (Time.time - _lastTargetedPlayer <= PatrolManager.ENEMY_IDLE_TIME)
+                    if (Time.time - _idleTimeRemaining <= PatrolManager.ENEMY_IDLE_TIME)
                     {
                         if (!CheckMemento())
                             SetTargetToNearestPoint();
@@ -118,6 +119,22 @@ public class EnemyController : MonoBehaviour {
                         _memento.Release();
                         _memento = null;
                         SetTargetToNearestPoint();
+                    }
+                    break;
+                case EnemyState.TargetingPlayer:
+                    if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
+                    {
+                        _enemyState = EnemyState.Idle;
+                        _idleTimeRemaining = PatrolManager.ENEMY_IDLE_TIME;
+
+                    }
+                    break;
+                case EnemyState.TargetingMemento:
+                    if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
+                    {
+                        _enemyState = EnemyState.Idle;
+                        _idleTimeRemaining = PatrolManager.ENEMY_IDLE_TIME;
+
                     }
                     break;
                 default:
@@ -137,7 +154,7 @@ public class EnemyController : MonoBehaviour {
             //Check for any memento's out of MementoPoints
             GameObject memento = _mementoUtils.GetClosestMemento (transform.position);
             Memento mc = memento.GetComponent<Memento> ();
-            if (mc != null && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)
+            if (mc != null && Vector3.Distance(mc.transform.position, transform.position) <= MEMENTO_SEARCH_RADIUS && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (nearby)</color>");
                 _enemyState = EnemyState.TargetingMemento;
@@ -198,7 +215,7 @@ public class EnemyController : MonoBehaviour {
         //Debug.Log("<color=blue>AI: Setting Target to Player</color>");
         _enemyState = EnemyState.TargetingPlayer;
         _navAgent.SetDestination(_player.transform.position);
-        _lastTargetedPlayer = Time.time;
+        _idleTimeRemaining = Time.time;
     }
 
     public void SetTargetToNextPatrolPoint()
