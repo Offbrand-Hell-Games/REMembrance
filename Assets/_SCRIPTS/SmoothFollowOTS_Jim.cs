@@ -26,7 +26,10 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 	public LayerMask _myLayerMask; // A layer mask where only the game layers the camera will try to avoid being behind are checked off
 	[HideInInspector]
 	public bool freezeCam = false;
-
+	[SerializeField]
+	public float _cameraVerticalMaxRotation = 155.0f;
+	[SerializeField]
+	public float _cameraVerticalMinRotation = 35.0f;
 	
 	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
@@ -46,6 +49,23 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 			Debug.Log (wrapper);
 			wrapper.RotateAround (player.position, Vector3.up, inputRXAxis * rotation_step);
 			wrapper.RotateAround (player.position, wrapper.right, -1f * inputRYAxis * rotation_step);
+//			Debug.LogWarning (wrapper.localRotation);
+//			Debug.LogWarning (wrapper.localRotation);
+//			Debug.LogWarning (wrapper.rotation.eulerAngles);
+//			Debug.LogWarning (wrapper.rotation.eulerAngles.y);
+//			Debug.LogWarning ("--------------------------");
+//			if (wrapper.rotation.eulerAngles.x < _cameraVerticalMaxRotation) {
+//				Vector3 temp = wrapper.rotation.eulerAngles; 
+//				temp.x = _cameraVerticalMinRotation;
+//				wrapper.rotation = Quaternion.Euler(temp);
+//			} else if (wrapper.rotation.eulerAngles.x > _cameraVerticalMinRotation) {
+//				Vector3 temp = wrapper.rotation.eulerAngles; 
+//				temp.x = _cameraVerticalMaxRotation;
+//				wrapper.rotation = Quaternion.Euler(temp);
+//			}
+
+//			Debug.LogWarning (Vector3.Angle(wrapper.forward, Vector3.up));
+
 
 
 			Vector3 target_to_cam = (anchor.position - target.position).normalized; // point toward the cam
@@ -53,7 +73,7 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 			float distanceFromAnchor;
 			RaycastHit hit;
 			if (Physics.Raycast (target.position, target_to_cam, out hit, _maxDistance, _myLayerMask)) {
-				Debug.Log ("Camera positioning raycast hitting " + LayerMask.LayerToName(hit.collider.gameObject.layer));
+//				Debug.Log ("Camera positioning raycast hitting " + LayerMask.LayerToName(hit.collider.gameObject.layer));
 				distanceFromAnchor = ((target.position + ((hit.point - target.position) * .9f)) - transform.position).magnitude;
 
 				nextposition = Vector3.MoveTowards(
@@ -67,7 +87,7 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 				Debug.DrawRay (target.position, target_to_cam, Color.red);
 				Debug.DrawLine (target.position, nextposition, Color.cyan);
 			} else {
-				Debug.Log ("Camera positioning at maximum distance");
+//				Debug.Log ("Camera positioning at maximum distance");
 				distanceFromAnchor = (anchor.position - transform.position).magnitude;
 
 				nextposition = Vector3.MoveTowards(
@@ -85,7 +105,7 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 			transform.position = nextposition;
 			transform.rotation = anchor.transform.rotation;
 		} else {
-			Debug.Log ("Camera is frozen");
+//			Debug.Log ("Camera is frozen");
 		}
 	}
 }

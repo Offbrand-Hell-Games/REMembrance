@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PositionAtRaycastPoint : MonoBehaviour {
 	public bool active = true;
+	public Camera cam1;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,7 @@ public class PositionAtRaycastPoint : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (active) {
-			Camera cam1 = gameObject.transform.parent.gameObject.GetComponentsInChildren<Camera> () [0];
+//			Camera cam1 = gameObject.transform.parent.gameObject.GetComponentsInChildren<Camera> () [0];
 //			Camera cam2 = gameObject.transform.parent.gameObject.GetComponentsInChildren<Camera> () [1];
 
 			// point a ray forward through the center of the viewport and report where it hits.
