@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject xRayVisionB;
 
 	public GameObject RemDashTrail;
+	
+	public GameObject REM_MODEL;
 
 
     // Use this for initialization
@@ -85,12 +87,20 @@ public class PlayerController : MonoBehaviour {
 					Vector3 direction = cameraForward*inputVertical+cameraRight*inputHorizontal;
 					direction = direction.normalized;
 					_rb.velocity = new Vector3(SPEED * direction.x, 0, SPEED * direction.z);
+					if(direction != Vector3.zero){
+						Vector3 remLook = new Vector3(transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
+						REM_MODEL.transform.LookAt(remLook);
+					}
 					break;
 				case VIEW.TD:
 					//If the player presses W / Left Ananlog UP, the player should move north.
 					direction = new Vector3(inputHorizontal,0f,inputVertical);
 					direction = direction.normalized;
 					_rb.velocity = new Vector3(SPEED * direction.x, 0, SPEED * direction.z);
+					if(direction != Vector3.zero){
+						Vector3 remLook = new Vector3(transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
+						REM_MODEL.transform.LookAt(remLook);
+					}
 					break;
 			}
 			
