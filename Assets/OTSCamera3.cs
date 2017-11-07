@@ -34,6 +34,7 @@ public class OTSCamera3 : MonoBehaviour
 
 	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
+		Cursor.visible = false;
 	}
 
 	void FixedUpdate()

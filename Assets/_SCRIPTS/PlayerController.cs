@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject xRayVisionA;
 	public GameObject xRayVisionB;
 
+	public GameObject particleSystem;
+
 
     // Use this for initialization
     void Start()
@@ -104,6 +106,7 @@ public class PlayerController : MonoBehaviour {
 
             if (dashReady && Input.GetButtonDown("Dash"))
             {
+				particleSystem.SetActive (true);
                 if (_memento != null)
                 {
                     _memento.OnPlayerAbilityUsed();
@@ -190,6 +193,7 @@ public class PlayerController : MonoBehaviour {
         }
         yield return new WaitForSeconds(JUMP_DURATION);
         _isDashing = false;
+		particleSystem.SetActive (false);
         StopCoroutine(FadeWalls(this.gameObject.transform.position, 2.0f));
     }
 	
