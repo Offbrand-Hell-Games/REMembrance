@@ -63,10 +63,10 @@ public class OTSCamera3 : MonoBehaviour
 			Debug.DrawRay (target.position, (anchor.position - target.position), Color.red);
 
 			if (Physics.Raycast (target.position, (anchor.position - target.position), out hit, _maxDistance, _myLayerMask)) {
-				Debug.Log ("Collision: " + hit.point);
+//				Debug.Log ("Collision: " + hit.point);
 				camera.position = target.position + ((hit.point - target.position) * .9f);
 			} else {
-				Debug.Log ("No collision: " + hit.point);
+//				Debug.Log ("No collision: " + hit.point);
 				camera.position = anchor.position;
 			}
 		}

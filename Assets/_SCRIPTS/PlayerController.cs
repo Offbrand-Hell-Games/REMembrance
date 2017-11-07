@@ -30,12 +30,13 @@ public class PlayerController : MonoBehaviour {
 	public GameObject xRayVisionA;
 	public GameObject xRayVisionB;
 
-	public GameObject particleSystem;
+	public GameObject RemDashTrail;
 
 
     // Use this for initialization
     void Start()
     {
+//		dashTrailParticleEmitter.GetComponent<ParticleSystem> ().Stop ();
         PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
 		EnterViewOTS();
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 
             if (dashReady && Input.GetButtonDown("Dash"))
             {
-				particleSystem.SetActive (true);
+				Instantiate (RemDashTrail, transform);
                 if (_memento != null)
                 {
                     _memento.OnPlayerAbilityUsed();
@@ -124,8 +125,7 @@ public class PlayerController : MonoBehaviour {
 						break;
 				}
 				
-				StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
-				dashReady = false;
+				StartCoroutine(StopDashEffects());   // dashReady = false;
 				DASH_NOT_READY_ICON.SetActive(true);
 				StartCoroutine(DashCountdown());
 			}
@@ -193,8 +193,7 @@ public class PlayerController : MonoBehaviour {
         }
         yield return new WaitForSeconds(JUMP_DURATION);
         _isDashing = false;
-		particleSystem.SetActive (false);
-        StopCoroutine(FadeWalls(this.gameObject.transform.position, 2.0f));
+		StopCoroutine(FadeWalls(this.gameObject.transform.position, 2.0f));
     }
 	
     public IEnumerator OpenDoors(Vector3 center, float radius)
@@ -223,7 +222,20 @@ public class PlayerController : MonoBehaviour {
         print("Dash is ready after waiting " + DASH_COOLDOWN);
         yield return null;
     }
-	
+
+
+
+	public IEnumerator StopDashEffects() {
+//		Debug.Log ("ooooh");
+		yield return new WaitForSeconds(JUMP_DURATION);
+		_isDashing = false;
+//		Debug.Log ("hey");
+//		yield return new WaitForSeconds (dashTrailParticleEmitter.GetComponent<ParticleSystem> ().main.duration - JUMP_DURATION); 
+//		Debug.Log ("hey again");
+//		dashTrailParticleEmitter.GetComponent<ParticleSystem> ().Clear();
+//		dashTrailParticleEmitter.GetComponent<ParticleSystem> ().Stop();
+	}
+
     public void playerSpeedChanged(float value)
     {
         SPEED = value;
