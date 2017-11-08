@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 						dashForce = dashForce.normalized;
 						break;
 				}
-				
+
 				StartCoroutine(StopDashEffects());   // dashReady = false;
 				DASH_NOT_READY_ICON.SetActive(true);
 				StartCoroutine(DashCountdown());

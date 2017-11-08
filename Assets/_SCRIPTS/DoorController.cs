@@ -10,6 +10,8 @@ public class DoorController : MonoBehaviour {
     bool touched = false;
     string touchedBy;
     enum DoorStates { closed, open };
+	[SerializeField]
+	public float doorOpenSpeed = 1f;
 
     
 
@@ -39,7 +41,7 @@ public class DoorController : MonoBehaviour {
             {
                 if (doorState == DoorStates.closed)
                 {
-                    door.transform.RotateAround(pivot.transform.position, Vector3.up, 1f);
+                    door.transform.RotateAround(pivot.transform.position, Vector3.up, doorOpenSpeed);
                     
                     if (Mathf.Floor(currentRotation) == openRotation)
                     {
@@ -50,7 +52,7 @@ public class DoorController : MonoBehaviour {
                 }
                 if (doorState == DoorStates.open)
                 {
-                    door.transform.RotateAround(pivot.transform.position, Vector3.up, -1f);
+                    door.transform.RotateAround(pivot.transform.position, Vector3.up, -doorOpenSpeed);
                     if (Mathf.Floor(currentRotation) == closedRotation)
                     {
                         touched = false;

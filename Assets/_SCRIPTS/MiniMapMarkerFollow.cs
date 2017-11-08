@@ -24,7 +24,7 @@ public class MiniMapMarkerFollow : MonoBehaviour {
 		Vector3 next;
 
 		if (Vector3.Distance (transform.position, newPos) < minDistance) {
-			Debug.Log ("Setting Distance Directly");
+//			Debug.Log ("Setting Distance Directly");
 			next = newPos;
 		} else {
 			next = ((newPos - transform.position) * followCoefficient) + newPos;

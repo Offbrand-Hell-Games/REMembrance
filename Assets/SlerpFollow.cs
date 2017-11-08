@@ -21,7 +21,7 @@ public class SlerpFollow : MonoBehaviour {
 		Vector3 b = target.position;
 		Vector3 next;
 		if (Vector3.Distance (a, b) < minDistance) {
-			Debug.Log ("Setting Distance Directly");
+//			Debug.Log ("Setting Distance Directly");
 			next = b;
 		} else {
 			next = ((b - a) * followCoefficient) + a;

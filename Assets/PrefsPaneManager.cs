@@ -13,7 +13,11 @@ public class PrefsPaneManager : MonoBehaviour {
 	//float importantValue = .7f;
 	// Use this for initialization
 	void Start () {
-		instance = this;
+		if (instance != null) {
+			Destroy (gameObject);
+		} else {
+			instance = this;
+		}
 	}
 
 	// Update is called once per frame
@@ -22,9 +26,11 @@ public class PrefsPaneManager : MonoBehaviour {
 			if (prefs_container.activeSelf) {
 				prefs_container.SetActive (false);
 				prefs_ui.SetActive(false);
+				Cursor.visible = false;
 			} else {
 				prefs_container.SetActive (true);
 				prefs_ui.SetActive(true);
+				Cursor.visible = true;
 			}
 		}
 
@@ -39,7 +45,7 @@ public class PrefsPaneManager : MonoBehaviour {
 
 	public void AddLivePreferenceFloat(string label, float min, float max, float value, SliderManager.valueChangedDelegate vd) {
 		GameObject newslider = Instantiate (slider_prefab);
-		newslider.transform.parent = prefs_container.transform;
+		newslider.transform.SetParent(prefs_container.transform);
 		newslider.GetComponent<SliderManager> ().Initialize (label, min, max, value, vd);
 	}
 }

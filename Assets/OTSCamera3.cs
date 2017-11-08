@@ -40,7 +40,7 @@ public class OTSCamera3 : MonoBehaviour
 	void FixedUpdate()
 	{
 		if (freezeCam) {
-			Debug.Log ("Camera frozen/paused");
+//			Debug.Log ("Camera frozen/paused");
 		} else {
 			float inputRXAxis = Input.GetAxisRaw ("RHorizontal");
 			float inputRYAxis = Input.GetAxisRaw ("RVertical");
