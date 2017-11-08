@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject DASH_NOT_READY_ICON;
 	
 	private Memento _memento = null;
+    private float _timeReleasedMemento;
+    public float MEMENTO_PICKUP_COOLDOWN = 2.0f;
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
 		EnterViewOTS();
+        _timeReleasedMemento = Time.time;
     }
 	
 	// Switch from Topdown camera to Overthe soulder
@@ -152,6 +155,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					_memento.Release();
                     _memento = null;
+                    _timeReleasedMemento = Time.time;
 				}
             }
         }
@@ -262,6 +266,7 @@ public class PlayerController : MonoBehaviour {
 			if(_memento != null)
 			{
 				_memento.Release();
+                _memento = null;
 			}
             transform.position = SAFEROOM_TRANSFORM.position;
         }
@@ -274,7 +279,7 @@ public class PlayerController : MonoBehaviour {
               to access its parent through its transform
         */
         Transform parent = collider.gameObject.transform.parent;
-        if (parent != null && parent.tag == "Memento")
+        if (parent != null && parent.tag == "Memento" && Time.time - _timeReleasedMemento >= MEMENTO_PICKUP_COOLDOWN)
         {
             _memento = parent.gameObject.GetComponent<Memento>();
             _memento.Bind(this.gameObject);
