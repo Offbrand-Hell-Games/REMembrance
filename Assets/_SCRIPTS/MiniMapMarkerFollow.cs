@@ -27,7 +27,6 @@ public class MiniMapMarkerFollow : MonoBehaviour {
 			Debug.Log ("Setting Distance Directly");
 			next = newPos;
 		} else {
-			Debug.Log ();
 			next = ((newPos - transform.position) * followCoefficient) + newPos;
 		}
 		transform.position = next;

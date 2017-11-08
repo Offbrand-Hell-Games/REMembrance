@@ -117,7 +117,9 @@ public class PlayerController : MonoBehaviour {
 
             if (dashReady && Input.GetButtonDown("Dash"))
             {
-				Instantiate (RemDashTrail, transform);
+				GameObject trail = Instantiate (RemDashTrail, transform);
+				trail.SetActive (true);
+
                 if (_memento != null)
                 {
                     _memento.OnPlayerAbilityUsed();
