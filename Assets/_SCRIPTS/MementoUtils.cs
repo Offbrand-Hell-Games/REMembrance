@@ -11,10 +11,10 @@ public class MementoUtils : MonoBehaviour {
 	public GameObject PULSE_EFFECT;
 	public Slider MEMENTO_SLIDER;
 
-	public static float PULSE_TIME = 25.0f;
-    public static float PULSE_DELAY_AMOUNT = 5.0f;
-    public static float MEMENTO_PULSE_RADIUS = 30.0f;
-    public static float PLAYER_PULSE_RADIUS = 15.0f;
+	public static float PULSE_TIME = 15.0f;
+    public static float PULSE_DELAY_AMOUNT = 1.0f;
+    public static float MEMENTO_PULSE_RADIUS = 15.0f;
+    public static float PLAYER_PULSE_RADIUS = 7.5f;
 
 	private GameObject[] _mementos;
 	private PatrolManager _patrolManager;
