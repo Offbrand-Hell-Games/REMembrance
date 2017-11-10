@@ -23,7 +23,9 @@ public class EnemyController : MonoBehaviour {
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
+    public float ENEMY_IDLE_TIME = 2.0f; /* How long enemies should pause after losing track of the player or memento */
     public float MEMENTO_SEARCH_RADIUS = 5.0f; /* Radius around enemy to detect dropped mementos */
+    public float DELAY_BEFORE_TAKING_FROM_LINKED_NEST = 15.0f; /* Time to wait after a memento enters a linked nest before trying to steal it */
 
     public PatrolPoint PATROL_START;
     public MementoPoint NEST;
@@ -70,6 +72,11 @@ public class EnemyController : MonoBehaviour {
 			if (light.tag == "EnemyVisionLight")
 				visionLight = light;
 		}
+        if (visionLight != null)
+        {
+            visionLight.range = FOV_CONE_LENGTH;
+            visionLight.spotAngle = FOV_CONE_RADIUS;
+        }
 
 	}
 	
@@ -104,14 +111,14 @@ public class EnemyController : MonoBehaviour {
                 (P2) Collision With Memento Point -> Patrolling
         */
 
-        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _timeOnTargetPlayer <= PatrolManager.ENEMY_IDLE_TIME))
+        if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _timeOnTargetPlayer >= ENEMY_IDLE_TIME))
             SetTargetToPlayer();
         else
         {
             switch (_enemyState)
             {
                 case EnemyState.Idle:
-                    if (Time.time - _timeOnEnterIdle <= PatrolManager.ENEMY_IDLE_TIME)
+                    if (Time.time - _timeOnEnterIdle >= ENEMY_IDLE_TIME)
                     {
                         if (!CheckMemento())
                             SetTargetToNearestPoint();
@@ -186,7 +193,7 @@ public class EnemyController : MonoBehaviour {
                 _navAgent.SetDestination (memento.transform.position);
                 return true;
             }
-            else if (NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null)
+            else if (NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (other nest)</color>");
                 _enemyState = EnemyState.TargetingMemento;

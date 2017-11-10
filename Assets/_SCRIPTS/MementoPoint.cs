@@ -10,6 +10,8 @@ public class MementoPoint : MonoBehaviour {
 
 	[HideInInspector]
 	public Memento MEMENTO = null; /* The memento currently in this nest (null if none) */
+	[HideInInspector]
+	public float TIME_MEMENTO_ENTERED;
 
 	public MementoPoint NEST_TO_TAKE_FROM; /* Nest linked to this one. */
 
@@ -21,6 +23,7 @@ public class MementoPoint : MonoBehaviour {
 		{
 			MEMENTO = collider.gameObject.GetComponent<Memento>();
 			MEMENTO.IN_NEST = true;
+			TIME_MEMENTO_ENTERED = Time.time;
 		}
 	}
 

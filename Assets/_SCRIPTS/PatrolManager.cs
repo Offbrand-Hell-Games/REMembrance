@@ -8,8 +8,6 @@ public class PatrolManager : MonoBehaviour {
 
 	private Dictionary<int,List<PatrolPoint>> _patrol_groups;
 	private GameObject[] _enemies;
-	[SerializeField]
-	public static float ENEMY_IDLE_TIME = 5.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +26,7 @@ public class PatrolManager : MonoBehaviour {
 		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, OnEnemySpeedChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, ENEMY_IDLE_TIME, OnEnemyPauseTimeChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, (_enemies[0].GetComponent<EnemyController>()).ENEMY_IDLE_TIME, OnEnemyPauseTimeChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, OnEnemySightLengthChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, OnEnemySightRadiusChanged);
 	}
@@ -71,7 +69,10 @@ public class PatrolManager : MonoBehaviour {
 	/// <param name="value"> float: new value to use </param>
 	public void OnEnemyPauseTimeChanged(float value)
 	{
-		ENEMY_IDLE_TIME = value;
+		foreach (GameObject enemy in _enemies)
+		{
+			(enemy.GetComponent<EnemyController>()).ENEMY_IDLE_TIME = value;
+		}
 	}
 
 	/// <summary> Preference Screen OnChange method for changing the sight distance of player detection </summary>

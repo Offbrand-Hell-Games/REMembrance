@@ -154,11 +154,9 @@ public class PlayerController : MonoBehaviour {
             {
                 StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
 				if(_memento != null)
-				{
-					_memento.Release();
-                    _memento = null;
-                    _timeReleasedMemento = Time.time;
-				}
+                {
+					DropMemento(); // CB: Moved memento dropping into one method
+                }
             }
         }
         else
@@ -266,10 +264,9 @@ public class PlayerController : MonoBehaviour {
         if(collision.gameObject.tag == "Enemy")
         {
 			if(_memento != null)
-			{
-				_memento.Release();
-                _memento = null;
-			}
+            {
+				DropMemento(); // CB: Moved memento dropping into one method
+            }
             transform.position = SAFEROOM_TRANSFORM.position;
         }
     }
@@ -292,8 +289,19 @@ public class PlayerController : MonoBehaviour {
     {
         if (_memento == memento)
         {
-            _memento.Release();
-            _memento = null;
+            DropMemento(); // CB: Moved memento dropping into one method
         }
+    }
+
+    private void DropMemento()
+    {
+        if (_memento == null) // Make sure we have a memento to drop
+        {
+            Debug.Log("Warning: Player tried to drop the memento, but doesn't have one.");
+            return;
+        }
+        _memento.Release(); // Tell the memento to release
+        _memento = null; // Remove the reference from the player
+        _timeReleasedMemento = Time.time; // Track the time dropped. This is used to prevent picking back up too fast
     }
 }
