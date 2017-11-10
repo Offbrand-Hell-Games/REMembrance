@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Author: Corwin Belser
+/// Provides helper methods for game-level information
 public class GameInfo : MonoBehaviour {
 
 	public enum GameState
@@ -24,6 +26,8 @@ public class GameInfo : MonoBehaviour {
 		
 	}
 
+	/// <summary> Changes the phase of the game </summary>
+	/// <param name="state"> enum GameState: game phase to switch to </param>
 	public void SetGameState(GameState state)
 	{
 		Debug.Log("Changing Game State to " + state + "!");
@@ -32,11 +36,17 @@ public class GameInfo : MonoBehaviour {
 			OnGameWon();
 	}
 
+	/// <summary> Helper method to get the current game phase </summary>
+	///	<return> enum GameState: current phase the game is in </return>
 	public GameState GetGameState()
 	{
 		return _gameState;
 	}
 
+	/// <summary>
+	///		Helper method for handling the win state.  Currently displays
+	///			a win image, but nothing else.
+	/// </summary>
 	public void OnGameWon()
 	{
 		WIN.SetActive(true);

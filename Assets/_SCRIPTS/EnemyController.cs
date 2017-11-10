@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// Author: Corwin Belser
+/// Controller to patrol, chase players, and horde mementos
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour {
 
     public enum EnemyState
@@ -40,7 +43,7 @@ public class EnemyController : MonoBehaviour {
     [HideInInspector]
     public Light visionLight;
 
-	// Use this for initialization
+	/// <summary> Initializes required components </summary>
 	void Start () {
         _navAgent = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -70,12 +73,13 @@ public class EnemyController : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
+	/// <summary> Update is called once per frame </summary>
 	void Update ()
     {
         /*
             Check for state changes
                 (Priority) <condition> -> <state to move to>
+
             All States EXCEPT Idle:
                 (P1) See Player -> Targeting Player
             
@@ -151,6 +155,23 @@ public class EnemyController : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    ///     Handles state changes related to mementos
+    /// 
+    ///     If this enemy's nest is empty, it checks nearby for any abandoned mementos.
+    ///         If a memento is found, it changes the enemy state to TrackingMemento and
+    ///         sets the navAgent's destination
+    ///     If this enemy's nest is empty, and it's linked to another nest that does
+    ///         have a memento, it changes the enemy state to TargetingMemento and sets
+    ///         the navAgent's destination
+    /// </summary>
+    /// <return> true if the enemy state was changed, false otherwise </return>
+    /// <thoughts>
+    ///     This method is called Check, but it does more than that, and it shouldn't.
+    ///     TODO: Break the contents of this function into two pieces:
+    ///         AttemptStateChange()
+    ///         ProcessStateChange()
+    /// </thoughts>
     private bool CheckMemento()
     {
         if (NEST.MEMENTO == null)
@@ -176,6 +197,11 @@ public class EnemyController : MonoBehaviour {
         return false;
     }
 
+    /// <summary>
+    ///     Handles the collision check with the memento, picking it up and
+    ///         changing the enemy state to TransportingMemento
+    /// </summary>
+    /// <param name="collider"> Collider: collider that is now colliding with this enemy</param>
     void OnTriggerEnter(Collider collider)
     {
         /* This code feels dirty.
@@ -194,6 +220,8 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    /// <summary> Helper function for checking player detection </summary>
+    /// <return> true if the player is within visible range, false otherwise </return>
     public bool CanSeePlayer()
     {
 		RaycastHit hit;
@@ -207,6 +235,12 @@ public class EnemyController : MonoBehaviour {
         return false;
     }
 
+    /// <summary>
+    ///     Helper function to target the player.
+    ///         Drops the memento if it is held.
+    ///         Changes enemy state to TargetingPlayer.
+    ///         Sets the navAgent's destination.
+    /// </summary>
     public void SetTargetToPlayer()
     {
         //If we have the memento, drop it
@@ -222,6 +256,12 @@ public class EnemyController : MonoBehaviour {
         _timeOnTargetPlayer = Time.time;
     }
 
+    /// <summary>
+    ///     Helper function to change the navAgent's destination to the next
+    ///         patrol point.
+    ///     If there is no next patrol point, go back to the initial point
+    ///     Otherwise, move to the next point
+    ///</summary>
     public void SetTargetToNextPatrolPoint()
     {
         if (_patrolCurrent.NEXT != null)
@@ -238,6 +278,16 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    ///     Helper function to change the navAgent's destination to the
+    ///         closest patrol point in the patrol group.
+    ///     Utilizes the PatrolManager to find all patrol points in the
+    ///         group.
+    ///     ***If no points are returned, the function exits.***
+    ///     Determines the closest point, setting the navAgent's
+    ///         destination
+    ///     Changes enemy state to Patrolling
+    /// </summary>
     public void SetTargetToNearestPoint()
     {
         List<PatrolPoint> possible_points = _patrolManager.GetPatrolPointsByGroupID(PATROL_GROUP);
@@ -262,6 +312,14 @@ public class EnemyController : MonoBehaviour {
         _navAgent.SetDestination(_patrolCurrent.transform.position);
     }
 
+    /// <summary>
+    ///     Called from Memento class to tell this enemy a memento has pulsed nearby.
+    ///
+    ///     If this enemy's state is not TargetingPlayer or TransportingMemento, the
+    ///         state is changed to TargetingMemento and the navAgent's destination
+    ///         is set to the location of the memento
+    /// </summary>
+    /// <param name="memento"> GameObject: game object of the memento that pulsed</param>
     public void OnMementoPulse(GameObject memento)
     {
         if (_enemyState != EnemyState.TargetingPlayer && _enemyState != EnemyState.TransportingMemento)

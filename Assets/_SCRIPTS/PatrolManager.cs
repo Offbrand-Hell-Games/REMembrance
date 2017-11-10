@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Author: Corwin Belser
+/// Helper class for EnemyController to access patrol information
 public class PatrolManager : MonoBehaviour {
 
 	private Dictionary<int,List<PatrolPoint>> _patrol_groups;
@@ -25,17 +27,16 @@ public class PatrolManager : MonoBehaviour {
 
 		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, enemySpeedChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, ENEMY_IDLE_TIME, PauseTimeChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, EnemySightLengthChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, EnemySightRadiusChanged);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, OnEnemySpeedChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, ENEMY_IDLE_TIME, OnEnemyPauseTimeChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, OnEnemySightLengthChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, OnEnemySightRadiusChanged);
 	}
 
+	/// <summary> Finds all enemies within a radius around the source position </summary>
+	/// <param name="source"> Vector3: position to search around </param>
+	/// <param name="radius"> float: max distance to check around the source </param>
+	/// <return> EnemyController[]: Array of EnemyController references for each enemy in range </return>
 	public EnemyController[] GetClosestEnemies(Vector3 source, float radius)
 	{
 		List<EnemyController> list = new List<EnemyController>();
@@ -49,11 +50,16 @@ public class PatrolManager : MonoBehaviour {
 		return list.ToArray();
 	}
 
+	/// <summary> Finds all patrol points belonging to a group </summary>
+	/// <param name="groupID"> int: group number </param>
+	/// <return> List<PatrolPoint>: List of every patrol point in the group </return>
 	public List<PatrolPoint> GetPatrolPointsByGroupID(int groupID) {
 		return (List<PatrolPoint>)_patrol_groups[groupID];
 	}
 
-	public void enemySpeedChanged(float value)
+	/// <summary> Preference Screen OnChange method for changing the movement speed of enemies </summary>
+	/// <param name="value"> float: new value to use </param>
+	public void OnEnemySpeedChanged(float value)
     {
 		foreach (GameObject enemy in _enemies)
 		{
@@ -61,12 +67,16 @@ public class PatrolManager : MonoBehaviour {
 		}
     }
 
-	public void PauseTimeChanged(float value)
+	/// <summary> Preference Screen OnChange method for changing the time enemies should pause for </summary>
+	/// <param name="value"> float: new value to use </param>
+	public void OnEnemyPauseTimeChanged(float value)
 	{
 		ENEMY_IDLE_TIME = value;
 	}
 
-	public void EnemySightLengthChanged(float value)
+	/// <summary> Preference Screen OnChange method for changing the sight distance of player detection </summary>
+	/// <param name="value"> float: new value to use </param>
+	public void OnEnemySightLengthChanged(float value)
 	{
 		foreach (GameObject enemy in _enemies)
 		{
@@ -75,7 +85,9 @@ public class PatrolManager : MonoBehaviour {
 		}
 	}
 
-	public void EnemySightRadiusChanged(float value)
+	/// <summary> Preference Screen OnChange method for changing the radius of player detection </summary>
+	/// <param name="value"> float: new value to use </param>
+	public void OnEnemySightRadiusChanged(float value)
 	{
 		foreach (GameObject enemy in _enemies)
 		{
