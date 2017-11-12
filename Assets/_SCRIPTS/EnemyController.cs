@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour {
     public float FOV_CONE_LENGTH = 10.0f; /* Maximum distance raycast should travel */
     public float FOV_CONE_RADIUS = 30.0f; /* Maximum angle between enemy's forward vector and the player */
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
+	public Color TARGETING_PLAYER_COLOR; /* Color of the vision light when the enemy is targeting the player */
+	private Color _neutralColor; /* Color of the vision light by default */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
     public float ENEMY_IDLE_TIME = 2.0f; /* How long enemies should pause after losing track of the player or memento */
@@ -76,6 +78,7 @@ public class EnemyController : MonoBehaviour {
         {
             visionLight.range = FOV_CONE_LENGTH;
             visionLight.spotAngle = FOV_CONE_RADIUS;
+			_neutralColor = visionLight.color;
         }
 
 	}
@@ -141,7 +144,7 @@ public class EnemyController : MonoBehaviour {
                     {
                         _enemyState = EnemyState.Idle;
                         _timeOnEnterIdle = Time.time;
-
+						visionLight.color = _neutralColor; // Return the vision light to its original color
                     }
                     break;
                 case EnemyState.TargetingMemento:
@@ -260,6 +263,7 @@ public class EnemyController : MonoBehaviour {
         //Debug.Log("<color=blue>AI: Setting Target to Player</color>");
         _enemyState = EnemyState.TargetingPlayer;
         _navAgent.SetDestination(_player.transform.position);
+		visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
         _timeOnTargetPlayer = Time.time;
     }
 
