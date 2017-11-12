@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public Transform SAFEROOM_TRANSFORM;
 	
 	public GameObject DASH_NOT_READY_ICON;
+	public AudioClip DASH_AUDIO; /* Audio clip to play when dashing */
+	private AudioSource _audioSource; /* Audio source attached to player. Used to play audio clips */
 	
 	private Memento _memento = null;
     private float _timeReleasedMemento;
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		_audioSource = GetComponent<AudioSource> ();
+		_audioSource.clip = DASH_AUDIO;
 //		dashTrailParticleEmitter.GetComponent<ParticleSystem> ().Stop ();
         PrefsPaneManager.instance.AddLivePreferenceFloat("Player Speed", 0f, 20f, SPEED, playerSpeedChanged);
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
@@ -139,7 +143,7 @@ public class PlayerController : MonoBehaviour {
 						dashForce = dashForce.normalized;
 						break;
 				}
-
+				_audioSource.Play (); /* Play the dashing audio clip */
 				StartCoroutine(StopDashEffects());   // dashReady = false;
 				DASH_NOT_READY_ICON.SetActive(true);
 				StartCoroutine(DashCountdown());

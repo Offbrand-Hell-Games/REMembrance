@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour {
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
 	public Color TARGETING_PLAYER_COLOR; /* Color of the vision light when the enemy is targeting the player */
 	private Color _neutralColor; /* Color of the vision light by default */
+	public AudioClip TARGETING_PLAYER_AUDIO; /* Audio clip to play when targeting the player */
+	private AudioClip _neutralAudio; /* Default audio clip */
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
     public float ENEMY_IDLE_TIME = 2.0f; /* How long enemies should pause after losing track of the player or memento */
@@ -46,10 +48,13 @@ public class EnemyController : MonoBehaviour {
 
     [HideInInspector]
     public Light visionLight;
+	private AudioSource _audioSource;
 
 	/// <summary> Initializes required components </summary>
 	void Start () {
         _navAgent = GetComponent<NavMeshAgent>();
+		_audioSource = GetComponent<AudioSource>();
+		_neutralAudio = _audioSource.clip;
         _player = GameObject.FindGameObjectWithTag("Player");
         _patrolManager = GameObject.Find("GameManager").GetComponent<PatrolManager>();
         _mementoUtils = GameObject.Find("GameManager").GetComponent<MementoUtils>();
@@ -145,6 +150,9 @@ public class EnemyController : MonoBehaviour {
                         _enemyState = EnemyState.Idle;
                         _timeOnEnterIdle = Time.time;
 						visionLight.color = _neutralColor; // Return the vision light to its original color
+						_audioSource.clip = _neutralAudio;
+						_audioSource.Play();
+						//Debug.Log("<color=blue>AI: Lost player. Entering Idle</color>");
                     }
                     break;
                 case EnemyState.TargetingMemento:
@@ -260,10 +268,17 @@ public class EnemyController : MonoBehaviour {
             _memento.Release();
             _memento = null;
         }
-        //Debug.Log("<color=blue>AI: Setting Target to Player</color>");
-        _enemyState = EnemyState.TargetingPlayer;
+		// Only set the audio if we are entering this state for the first time
+		if (_enemyState != EnemyState.TargetingPlayer)
+		{
+			//Debug.Log("<color=blue>AI: Setting Target to Player</color>");
+			_enemyState = EnemyState.TargetingPlayer;
+			visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
+			_audioSource.clip = TARGETING_PLAYER_AUDIO;
+			_audioSource.Play();
+		}
+
         _navAgent.SetDestination(_player.transform.position);
-		visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
         _timeOnTargetPlayer = Time.time;
     }
 
