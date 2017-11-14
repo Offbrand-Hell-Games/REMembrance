@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Author: Joseph Lipinski
+/// Controls whether a door iss open or closed
+/// Updated 11/13/17
+
 public class DoorController : MonoBehaviour {
+    //The Door gameObject that the to which the script is attached
     public GameObject door;
+    //The child gameObject of the door gameObject
     public GameObject pivot;
     
-
+    //A boolean to control the door state
     bool touched = false;
     string touchedBy;
+    
     enum DoorStates { closed, open };
 	[SerializeField]
 	public float doorOpenSpeed = 1f;
 
-    
-
+    //Two floats
+    //closedRotation is the angle of the door intially
+    //openRotation is the angle of the door after it's been swung open
     float closedRotation, openRotation;
     DoorStates doorState = DoorStates.closed;
     // Use this for initialization
@@ -32,6 +40,7 @@ public class DoorController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+    // Simply handles opening and closing the door
 	void FixedUpdate ()
     {
         if(touched)
@@ -58,13 +67,14 @@ public class DoorController : MonoBehaviour {
                         touched = false;
                         doorState = DoorStates.closed;
                     }
-                    //
                 }
 
             }
         }
     }
 
+
+    /// <summary> A sendMessage reciever for openin and closing doors </summary>
     void ChangeDoorState()
     {
         touched = true;
