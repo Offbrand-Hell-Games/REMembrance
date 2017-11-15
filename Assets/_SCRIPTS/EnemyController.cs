@@ -119,7 +119,9 @@ public class EnemyController : MonoBehaviour {
                 (P2) Collision With Memento Point -> Patrolling
         */
 
+		// 
 		// This is a solution to our extremely slide-y TV head friends. 
+		// - Jimmy
 		// speed up slowly, but stop quickly
 		if (_navAgent.hasPath) {
 			_navAgent.acceleration = (_navAgent.remainingDistance < .1f) ? 50f : 4f;
