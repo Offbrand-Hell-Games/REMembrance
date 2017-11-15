@@ -11,7 +11,7 @@
 		Stencil {
                 Ref 1
                 Comp NotEqual
-                Fail DecrSat
+                Fail IncrSat
             }
 
 //		Pass {

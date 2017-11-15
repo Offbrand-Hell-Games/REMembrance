@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 54948463864396108}
   - component: {fileID: 114174139829013684}
   - component: {fileID: 136865039625740930}
-  - component: {fileID: 81232511849754544}
   - component: {fileID: 82160253293309992}
   m_Layer: 9
   m_Name: Player
@@ -571,13 +570,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!81 &81232511849754544
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1316355899998900}
-  m_Enabled: 1
 --- !u!82 &82160253293309992
 AudioSource:
   m_ObjectHideFlags: 1
@@ -869,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 54948463864396108}
-  SPEED: 5
+  SPEED: 4
   JUMP_THRUST: 900
   JUMP_DURATION: 0.2
   _isDashing: 0

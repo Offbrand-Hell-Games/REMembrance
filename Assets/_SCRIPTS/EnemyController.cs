@@ -119,6 +119,15 @@ public class EnemyController : MonoBehaviour {
                 (P2) Collision With Memento Point -> Patrolling
         */
 
+		// 
+		// This is a solution to our extremely slide-y TV head friends. 
+		// - Jimmy
+		// speed up slowly, but stop quickly
+		if (_navAgent.hasPath) {
+			_navAgent.acceleration = (_navAgent.remainingDistance < .1f) ? 50f : 4f;
+
+		}
+
         if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _timeOnTargetPlayer >= ENEMY_IDLE_TIME))
             SetTargetToPlayer();
         else
@@ -192,7 +201,7 @@ public class EnemyController : MonoBehaviour {
     /// </thoughts>
     private bool CheckMemento()
     {
-        if (NEST.MEMENTO == null)
+        if (NEST && NEST.MEMENTO == null)
         {
             //Check for any memento's out of MementoPoints
             GameObject memento = _mementoUtils.GetClosestMemento (transform.position);
@@ -204,7 +213,7 @@ public class EnemyController : MonoBehaviour {
                 _navAgent.SetDestination (memento.transform.position);
                 return true;
             }
-            else if (NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
+            else if (NEST && NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (other nest)</color>");
                 _enemyState = EnemyState.TargetingMemento;
