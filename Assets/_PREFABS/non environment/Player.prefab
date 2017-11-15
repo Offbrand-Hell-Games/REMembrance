@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4943160641528336}
   - component: {fileID: 95100205463741142}
   - component: {fileID: 96754436999432080}
+  - component: {fileID: 114475429942621416}
   m_Layer: 9
   m_Name: Rem_PreRig
   m_TagString: Untagged
@@ -296,8 +297,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316355899998900}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.27, y: 0.46, z: -4.78}
+  m_LocalRotation: {x: -0, y: 0.70468557, z: -0, w: -0.7095198}
+  m_LocalPosition: {x: -8.0936575, y: 0.46000004, z: -4.780159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943160641528336}
@@ -305,7 +306,7 @@ Transform:
   - {fileID: 4366878350914606}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270.392, z: 0}
 --- !u!4 &4943160641528336
 Transform:
   m_ObjectHideFlags: 1
@@ -659,7 +660,7 @@ Animator:
   m_GameObject: {fileID: 1641277412115192}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 028f21f8c1662495db102ff3c1c8a28d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0132eb3c0bac1834c98b13cb520ebca4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -876,6 +877,20 @@ MonoBehaviour:
   xRayVisionB: {fileID: 0}
   RemDashTrail: {fileID: 1764430359528754}
   REM_MODEL: {fileID: 1641277412115192}
+  REM_ANIMATOR: {fileID: 95100205463741142}
+  FADE_TO_BLACK: {fileID: 0}
+--- !u!114 &114475429942621416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641277412115192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724a6e25b3402b7459f534bd2f7f1e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1316355899998900}
 --- !u!114 &114758978380897462
 MonoBehaviour:
   m_ObjectHideFlags: 1
