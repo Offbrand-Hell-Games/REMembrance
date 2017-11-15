@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+/// Updated on 11/14/17 by Joseph Lipinski
+/// Hotfix to load new scenes
 
 public class Memento : MonoBehaviour {
     
@@ -25,6 +30,8 @@ public class Memento : MonoBehaviour {
 
     private GameInfo _gameInfo;
     private MementoUtils _mementoUtils;
+
+    int BuildIndex, nextBuildIndex;
 	
 	// Use this for initialization
 	void Start () {
@@ -36,6 +43,8 @@ public class Memento : MonoBehaviour {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _gameInfo = GameObject.Find("GameManager").GetComponent<GameInfo>();
         _mementoUtils = GameObject.Find("GameManager").GetComponent<MementoUtils>();
+        BuildIndex = SceneManager.GetActiveScene().buildIndex;
+        nextBuildIndex = BuildIndex + 1;
     }
 	
 	// Update is called once per frame
@@ -92,6 +101,7 @@ public class Memento : MonoBehaviour {
 		if(other.gameObject.tag == "Saferoom")
 		{
 			_gameInfo.SetGameState(GameInfo.GameState.Won);
+            this.SendMessage("LoadScene", nextBuildIndex);
 		}
 	}
 
