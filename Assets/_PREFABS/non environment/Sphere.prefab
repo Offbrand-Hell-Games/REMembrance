@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23816547697515458}
   - component: {fileID: 114482333568179406}
   - component: {fileID: 54086558514781436}
+  - component: {fileID: 114965153285268338}
   - component: {fileID: 82504520361145254}
   m_Layer: 11
   m_Name: Sphere
@@ -127,8 +128,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022030606862854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 13.42, y: 1.8346001, z: -123.84}
+  m_LocalScale: {x: 0.5041, y: 0.50409997, z: 0.50409997}
   m_Children:
   - {fileID: 4718075155442930}
   - {fileID: 4370675933527554}
@@ -280,7 +281,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.32352942, g: 0.5241379, b: 1, a: 1}
-  m_Intensity: 6
+  m_Intensity: 3
   m_Range: 3.3362722
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -318,6 +319,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IN_NEST: 0
+--- !u!114 &114965153285268338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022030606862854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb690cd416634860ad1afcc46718f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MEMENTO: {fileID: 0}
+  TIME_MEMENTO_ENTERED: 0
+  NEST_TO_TAKE_FROM: {fileID: 0}
 --- !u!135 &135166021463654528
 SphereCollider:
   m_ObjectHideFlags: 1
