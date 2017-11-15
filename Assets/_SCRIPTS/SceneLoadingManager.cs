@@ -12,8 +12,8 @@ public class SceneLoadingManager : MonoBehaviour {
 	/// <summary> Loads the scene that is passed into it </summary>
 	/// <param name = SceneName> The name of the scene to be loaded </param>
 
-	void LoadScene(string SceneName)
+	void LoadScene(int SceneNumber)
 	{
-		SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+		SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
 	}
 }
