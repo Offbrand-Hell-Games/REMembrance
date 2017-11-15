@@ -8,11 +8,11 @@
         ColorMask RGB
         Cull Front
         ZTest Always
-        Stencil {
-            Ref 1
-            Comp notequal 
-        }
-
+//        Stencil {
+//            Ref 1
+//            Comp notequal 
+//        }
+//
         CGPROGRAM
         #pragma surface surf Lambert
         float4 _Color;

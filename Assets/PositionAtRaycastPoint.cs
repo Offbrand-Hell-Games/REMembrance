@@ -5,6 +5,8 @@ using UnityEngine;
 public class PositionAtRaycastPoint : MonoBehaviour {
 	public bool active = true;
 	public Camera cam1;
+	public float maxDistance;
+	public LayerMask Raycast_LayerMask;
 
 	// Use this for initialization
 	void Start () {
@@ -22,12 +24,19 @@ public class PositionAtRaycastPoint : MonoBehaviour {
 			// In the future we would probably restrict the range of the vision ability, or choose not to activate it 
 			// upon invalid objects. For now though, the mask will go wherever the raycast hits.
 			RaycastHit hit;
-			if (Physics.Raycast (ray, out hit)) {
+			if (Physics.Raycast (ray, out hit, maxDistance, Raycast_LayerMask)) {
+				GetComponent<MeshRenderer> ().enabled = true;
+				gameObject.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().enabled = true;
+
 				Vector3 newposition = hit.point;
 				transform.position = newposition;
 //				cam2.farClipPlane = Vector3.Distance (cam1.transform.position, transform.position);
 //				cam1.nearClipPlane = cam2.farClipPlane;
-			};
+			} else {
+				GetComponent<MeshRenderer> ().enabled = false;
+
+				gameObject.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().enabled = false;
+			}
 		}
 	}
 }

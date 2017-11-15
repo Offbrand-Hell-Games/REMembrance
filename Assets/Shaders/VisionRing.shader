@@ -10,8 +10,8 @@
 		LOD 200
 
 		Stencil {
-                Ref 1
-                Comp NotEqual
+                Ref 0
+                Comp Equal
         }
 
 		Pass

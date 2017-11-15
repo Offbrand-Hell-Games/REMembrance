@@ -244,7 +244,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673350116986660}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -256,7 +256,7 @@ Transform:
   - {fileID: 4599576245818028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4458575059570608
 Transform:
   m_ObjectHideFlags: 1
@@ -763,7 +763,7 @@ MonoBehaviour:
   FOV_CONE_RADIUS: 60
   FOV_RADIUS: 3
   TARGETING_PLAYER_COLOR: {r: 1, g: 0, b: 0, a: 0}
-  TARGETING_PLAYER_AUDIO: {fileID: 8300000, guid: 0a267dd73aa5a4b5183720866c16173f,
+  TARGETING_PLAYER_AUDIO: {fileID: 8300000, guid: 3cc44120c1c6a47ddbf4d45b4626880d,
     type: 3}
   MIN_DISTANCE: 0.25
   PATROL_GROUP: 1
@@ -794,18 +794,18 @@ NavMeshAgent:
   m_GameObject: {fileID: 1673350116986660}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.5
   m_Speed: 7.5
-  m_Acceleration: 8
+  m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0.52
-  m_WalkableMask: 4294967295
+  m_AutoBraking: 0
+  m_AutoRepath: 0
+  m_Height: 0.00001
+  m_BaseOffset: 1
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!198 &198586301949142182
 ParticleSystem:
