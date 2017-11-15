@@ -578,7 +578,7 @@ Animator:
   m_GameObject: {fileID: 1352199056179170}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 028f21f8c1662495db102ff3c1c8a28d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0132eb3c0bac1834c98b13cb520ebca4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -786,6 +786,8 @@ MonoBehaviour:
   _isDashing: 0
   SAFEROOM_TRANSFORM: {fileID: 0}
   DASH_NOT_READY_ICON: {fileID: 0}
+  DASH_AUDIO: {fileID: 0}
+  MEMENTO_PICKUP_COOLDOWN: 2
   DASH_COOLDOWN: 1
   OTS_CAMERA: {fileID: 0}
   TD_CAMERA: {fileID: 0}
@@ -794,6 +796,8 @@ MonoBehaviour:
   RemDashTrail: {fileID: 1245303817839332, guid: 9a5690b48e08a4788b4ab89645259e04,
     type: 2}
   REM_MODEL: {fileID: 1352199056179170}
+  REM_ANIMATOR: {fileID: 0}
+  FADE_TO_BLACK: {fileID: 0}
 --- !u!114 &114962733410156360
 MonoBehaviour:
   m_ObjectHideFlags: 1
