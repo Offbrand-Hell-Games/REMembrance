@@ -42,6 +42,7 @@ public class EnemyController : MonoBehaviour {
     private PatrolManager _patrolManager;
     private MementoUtils _mementoUtils;
     private GameInfo _gameInfo;
+	private Animator _animator;
 
     private float _timeOnEnterIdle;
     private float _timeOnTargetPlayer;
@@ -54,6 +55,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
         _navAgent = GetComponent<NavMeshAgent>();
 		_audioSource = GetComponent<AudioSource>();
+		_animator = GetComponentInChildren<Animator>();
 		_neutralAudio = _audioSource.clip;
         _player = GameObject.FindGameObjectWithTag("Player");
         _patrolManager = GameObject.Find("GameManager").GetComponent<PatrolManager>();
@@ -161,6 +163,7 @@ public class EnemyController : MonoBehaviour {
 						visionLight.color = _neutralColor; // Return the vision light to its original color
 						_audioSource.clip = _neutralAudio;
 						_audioSource.Play();
+						_animator.SetBool("isTargetingPlayer", false);
 						//Debug.Log("<color=blue>AI: Lost player. Entering Idle</color>");
                     }
                     break;
@@ -285,6 +288,7 @@ public class EnemyController : MonoBehaviour {
 			visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
 			_audioSource.clip = TARGETING_PLAYER_AUDIO;
 			_audioSource.Play();
+			_animator.SetBool("isTargetingPlayer", true);
 		}
 
         _navAgent.SetDestination(_player.transform.position);

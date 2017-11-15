@@ -100,7 +100,9 @@ public class PlayerController : MonoBehaviour {
 					if(direction != Vector3.zero){
 						Vector3 remLook = new Vector3(transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
 						REM_MODEL.transform.LookAt(remLook);
-					}
+						REM_ANIMATOR.SetBool("isMoving", true);
+					} else
+						REM_ANIMATOR.SetBool("isMoving", false);
 					break;
 				case VIEW.TD:
 					//If the player presses W / Left Ananlog UP, the player should move north.
@@ -110,7 +112,9 @@ public class PlayerController : MonoBehaviour {
 					if(direction != Vector3.zero){
 						Vector3 remLook = new Vector3(transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
 						REM_MODEL.transform.LookAt(remLook);
-					}
+						REM_ANIMATOR.SetBool("isMoving", true);
+					} else
+						REM_ANIMATOR.SetBool("isMoving", false);
 					break;
 			}
 			
