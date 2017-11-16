@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673350116986660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: -15}
+  m_LocalPosition: {x: 0.10999906, y: 0, z: -0.5299983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4783758232094074}
@@ -277,7 +277,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094591769547778}
   m_LocalRotation: {x: 0.6699785, y: -0, z: -0, w: 0.74238056}
-  m_LocalPosition: {x: 0.013, y: 0.776, z: 0.239}
+  m_LocalPosition: {x: 0.013, y: 1.232, z: 0.172}
   m_LocalScale: {x: 0.04453054, y: 0.0292782, z: 0.033228695}
   m_Children: []
   m_Father: {fileID: 4449746144096392}
@@ -759,8 +759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa8da54c7310d14eb09eb420b45cb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FOV_CONE_LENGTH: 15
-  FOV_CONE_RADIUS: 60
+  FOV_CONE_LENGTH: 8
+  FOV_CONE_RADIUS: 55
   FOV_RADIUS: 3
   TARGETING_PLAYER_COLOR: {r: 1, g: 0, b: 0, a: 0}
   TARGETING_PLAYER_AUDIO: {fileID: 8300000, guid: 3cc44120c1c6a47ddbf4d45b4626880d,
@@ -795,7 +795,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7.5
+  m_Speed: 6
   m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 120
