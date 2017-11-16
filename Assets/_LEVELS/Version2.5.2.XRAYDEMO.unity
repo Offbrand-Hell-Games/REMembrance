@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0.3405173, b: 0.625, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0, g: 0.5862067, b: 1, a: 1}
   m_AmbientGroundColor: {r: 0.15138409, g: 0.18395784, b: 0.5147059, a: 1}
   m_AmbientIntensity: 0.27
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -136,7 +136,7 @@ Transform:
   - {fileID: 1379671284}
   - {fileID: 1005837575}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &23592708
 Prefab:
@@ -207,6 +207,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1416714443}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+<<<<<<< 8a843fcf8e6fb64257be0318ff4919db07aa707f
 --- !u!1 &63630611
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +386,8 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 106724199}
+=======
+>>>>>>> Implemented mocap animation on REM and cleaned up player prefabs
 --- !u!4 &110626924 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4745839813884626, guid: 2ecf3c84a322ae144a7e82ad4373d6c5,
@@ -553,7 +556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4025186660261040, guid: cfecce3355c954ac3b57d05e432b885a, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4025186660261040, guid: cfecce3355c954ac3b57d05e432b885a, type: 2}
       propertyPath: m_LocalScale.x
@@ -871,13 +874,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4533009393569896, guid: 87eb4d886cfc44ef58c308cc68b50bc4, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114868487207944062, guid: 87eb4d886cfc44ef58c308cc68b50bc4,
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 93837418}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87eb4d886cfc44ef58c308cc68b50bc4, type: 2}
   m_IsPrefabParent: 0
@@ -940,9 +943,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+<<<<<<< 8a843fcf8e6fb64257be0318ff4919db07aa707f
     - target: {fileID: 1364264987802744, guid: e90d07755fe3b4c4a89f224b2fe4fbcd, type: 2}
       propertyPath: m_NavMeshLayer
       value: 1
+=======
+    - target: {fileID: 224654972765803058, guid: fb1a6e43d729943c2b2c9274c980b6d1,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+>>>>>>> Implemented mocap animation on REM and cleaned up player prefabs
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90d07755fe3b4c4a89f224b2fe4fbcd, type: 2}
@@ -1007,11 +1017,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4909294515123250, guid: 794597b6d80acff4294397b8f3614348,
     type: 2}
   m_PrefabInternal: {fileID: 1814321155}
---- !u!1 &360654581 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1085131949957740, guid: b3bee4e0dd850c744a37dc991d6d1523,
-    type: 2}
-  m_PrefabInternal: {fileID: 842709117}
 --- !u!1 &361268477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,11 +1402,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ffea52514a62e5449847c552caee31c, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &451503503 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4787505832690822, guid: 6ffea52514a62e5449847c552caee31c,
-    type: 2}
-  m_PrefabInternal: {fileID: 451503502}
 --- !u!4 &451503504 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4914814976665738, guid: 6ffea52514a62e5449847c552caee31c,
@@ -1470,23 +1470,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18d6d62fd1eebd8428d30a11136fe915, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &466098072 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1641277412115192, guid: 97406d7b129f0c84cb1bbac7b28459dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 692412713}
---- !u!114 &466098073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 466098072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724a6e25b3402b7459f534bd2f7f1e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 2131805571}
 --- !u!1001 &474520371
 Prefab:
   m_ObjectHideFlags: 0
@@ -1524,7 +1507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4467940957627476, guid: 68259823d1c0b9e4495d117ab3078a09, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114407119270722578, guid: 68259823d1c0b9e4495d117ab3078a09,
         type: 2}
@@ -1749,6 +1732,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90d07755fe3b4c4a89f224b2fe4fbcd, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< 8a843fcf8e6fb64257be0318ff4919db07aa707f
 --- !u!1001 &692412713
 Prefab:
   m_ObjectHideFlags: 0
@@ -1855,6 +1839,8 @@ Animator:
   m_PrefabParentObject: {fileID: 95100205463741142, guid: 97406d7b129f0c84cb1bbac7b28459dd,
     type: 2}
   m_PrefabInternal: {fileID: 692412713}
+=======
+>>>>>>> Implemented mocap animation on REM and cleaned up player prefabs
 --- !u!4 &721034844 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4745839813884626, guid: 2ecf3c84a322ae144a7e82ad4373d6c5,
@@ -2032,13 +2018,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4483714795224998, guid: 87b6dba86314d412cbae9e3287a570e4, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114563761249701650, guid: 87b6dba86314d412cbae9e3287a570e4,
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 93837418}
+      objectReference: {fileID: 0}
     - target: {fileID: 4979074474410272, guid: 87b6dba86314d412cbae9e3287a570e4, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.13
@@ -2252,7 +2238,7 @@ Prefab:
         type: 2}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 93837418}
+      objectReference: {fileID: 0}
     - target: {fileID: 4572140076870304, guid: b3bee4e0dd850c744a37dc991d6d1523, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 65
@@ -3741,9 +3727,20 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1347875472 stripped
 Transform:
+<<<<<<< 8a843fcf8e6fb64257be0318ff4919db07aa707f
   m_PrefabParentObject: {fileID: 4773655651809406, guid: e90d07755fe3b4c4a89f224b2fe4fbcd,
     type: 2}
   m_PrefabInternal: {fileID: 1347875471}
+=======
+  m_PrefabParentObject: {fileID: 4896429331367114, guid: 18d6d62fd1eebd8428d30a11136fe915,
+    type: 2}
+  m_PrefabInternal: {fileID: 1238956671}
+--- !u!1 &1298390859 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1902966855138512, guid: 87b6dba86314d412cbae9e3287a570e4,
+    type: 2}
+  m_PrefabInternal: {fileID: 780510559}
+>>>>>>> Implemented mocap animation on REM and cleaned up player prefabs
 --- !u!1 &1379671283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,6 +4148,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4896429331367114, guid: 18d6d62fd1eebd8428d30a11136fe915,
     type: 2}
   m_PrefabInternal: {fileID: 1562397314}
+<<<<<<< 8a843fcf8e6fb64257be0318ff4919db07aa707f
 --- !u!1 &1562856958 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1431110287867546, guid: 87b6dba86314d412cbae9e3287a570e4,
@@ -4354,6 +4352,8 @@ RectTransform:
   m_AnchoredPosition: {x: -5.35, y: 1.67}
   m_SizeDelta: {x: 3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> Implemented mocap animation on REM and cleaned up player prefabs
 --- !u!4 &1631391821 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4685550395932408, guid: 87b6dba86314d412cbae9e3287a570e4,
@@ -5026,11 +5026,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4896429331367114, guid: 18d6d62fd1eebd8428d30a11136fe915,
     type: 2}
   m_PrefabInternal: {fileID: 2092016462}
---- !u!1 &2116319313 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1907439399838192, guid: 87b6dba86314d412cbae9e3287a570e4,
-    type: 2}
-  m_PrefabInternal: {fileID: 780510559}
 --- !u!1001 &2119915201
 Prefab:
   m_ObjectHideFlags: 0
@@ -5089,11 +5084,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e90d07755fe3b4c4a89f224b2fe4fbcd, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2131805571 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1316355899998900, guid: 97406d7b129f0c84cb1bbac7b28459dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 692412713}
 --- !u!1001 &2139691022
 Prefab:
   m_ObjectHideFlags: 0

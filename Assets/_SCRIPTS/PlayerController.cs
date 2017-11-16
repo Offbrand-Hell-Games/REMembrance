@@ -103,9 +103,9 @@ public class PlayerController : MonoBehaviour {
 				if (direction != Vector3.zero) {
 					Vector3 remLook = new Vector3 (transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
 					REM_MODEL.transform.LookAt (remLook);
-//							REM_ANIMATOR.SetBool("isMoving", true);
+					REM_ANIMATOR.SetBool("isMoving", true);
 				} else {
-//							REM_ANIMATOR.SetBool("isMoving", false);
+					REM_ANIMATOR.SetBool("isMoving", false);
 					break;
 				}
 				break;
@@ -117,9 +117,9 @@ public class PlayerController : MonoBehaviour {
 				if (direction != Vector3.zero) {
 					Vector3 remLook = new Vector3 (transform.position.x + direction.x, REM_MODEL.transform.position.y, transform.position.z + direction.z);
 					REM_MODEL.transform.LookAt (remLook);
-//						REM_ANIMATO R.SetBool("isMoving", true);
+					REM_ANIMATOR.SetBool("isMoving", true);
 				} else {
-//						REM_ANIMATOR.SetBool("isMoving", false);
+					REM_ANIMATOR.SetBool("isMoving", false);
 					break;
 				}
 				break;
