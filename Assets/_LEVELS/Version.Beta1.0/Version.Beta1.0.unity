@@ -4137,6 +4137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 183137089}
   - component: {fileID: 183137090}
+  - component: {fileID: 183137091}
   m_Layer: 0
   m_Name: Spotlight (13)
   m_TagString: Untagged
@@ -4195,6 +4196,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &183137091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183137088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 183137090}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &190487665
 Prefab:
   m_ObjectHideFlags: 0
@@ -4331,6 +4346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202687043}
   - component: {fileID: 202687044}
+  - component: {fileID: 202687045}
   m_Layer: 0
   m_Name: Spotlight (22)
   m_TagString: Untagged
@@ -4389,6 +4405,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &202687045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202687042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 202687044}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &209088858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,6 +6022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263163645}
   - component: {fileID: 263163646}
+  - component: {fileID: 263163647}
   m_Layer: 0
   m_Name: Spotlight (2)
   m_TagString: Untagged
@@ -6050,6 +6081,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &263163647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263163644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 263163646}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &263931121
 GameObject:
   m_ObjectHideFlags: 0
@@ -8274,6 +8319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 373948235}
   - component: {fileID: 373948236}
+  - component: {fileID: 373948237}
   m_Layer: 0
   m_Name: Spotlight (29)
   m_TagString: Untagged
@@ -8332,6 +8378,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &373948237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 373948234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 373948236}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &374641470
 Prefab:
   m_ObjectHideFlags: 0
@@ -9479,6 +9539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424750722}
   - component: {fileID: 424750723}
+  - component: {fileID: 424750724}
   m_Layer: 0
   m_Name: Spotlight (21)
   m_TagString: Untagged
@@ -9537,6 +9598,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &424750724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424750721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 424750723}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &424818073
 Prefab:
   m_ObjectHideFlags: 0
@@ -13771,6 +13846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 608913800}
   - component: {fileID: 608913801}
+  - component: {fileID: 608913802}
   m_Layer: 0
   m_Name: Spotlight (12)
   m_TagString: Untagged
@@ -13829,6 +13905,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &608913802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 608913799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 608913801}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &612004792
 GameObject:
   m_ObjectHideFlags: 0
@@ -14080,6 +14170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 634016908}
   - component: {fileID: 634016909}
+  - component: {fileID: 634016910}
   m_Layer: 0
   m_Name: Spotlight (4)
   m_TagString: Untagged
@@ -14138,6 +14229,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &634016910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634016907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 634016909}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &634019123
 Prefab:
   m_ObjectHideFlags: 0
@@ -14393,6 +14498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657454721}
   - component: {fileID: 657454722}
+  - component: {fileID: 657454723}
   m_Layer: 0
   m_Name: Spotlight (27)
   m_TagString: Untagged
@@ -14451,6 +14557,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &657454723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657454720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 657454722}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &657926015
 Prefab:
   m_ObjectHideFlags: 0
@@ -15120,6 +15240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687365186}
   - component: {fileID: 687365187}
+  - component: {fileID: 687365188}
   m_Layer: 0
   m_Name: Spotlight (33)
   m_TagString: Untagged
@@ -15178,6 +15299,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &687365188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687365185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 687365187}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!4 &690184669 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4834797317035426, guid: 470529a4969a3e046b660b508711efa2,
@@ -15193,6 +15328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690979423}
   - component: {fileID: 690979424}
+  - component: {fileID: 690979425}
   m_Layer: 0
   m_Name: Spotlight (9)
   m_TagString: Untagged
@@ -15251,6 +15387,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &690979425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690979422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 690979424}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &692412713
 Prefab:
   m_ObjectHideFlags: 0
@@ -17315,6 +17465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790058419}
   - component: {fileID: 790058420}
+  - component: {fileID: 790058421}
   m_Layer: 0
   m_Name: Spotlight (8)
   m_TagString: Untagged
@@ -17373,6 +17524,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &790058421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790058418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 790058420}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &790885401
 Prefab:
   m_ObjectHideFlags: 0
@@ -17789,6 +17954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811941361}
   - component: {fileID: 811941362}
+  - component: {fileID: 811941363}
   m_Layer: 0
   m_Name: Spotlight (5)
   m_TagString: Untagged
@@ -17847,6 +18013,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &811941363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811941360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 811941362}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &815489551
 GameObject:
   m_ObjectHideFlags: 0
@@ -17894,6 +18074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817143964}
   - component: {fileID: 817143965}
+  - component: {fileID: 817143966}
   m_Layer: 0
   m_Name: Spotlight (14)
   m_TagString: Untagged
@@ -17952,6 +18133,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &817143966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817143963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 817143965}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &817269234
 Prefab:
   m_ObjectHideFlags: 0
@@ -18406,6 +18601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 840900817}
   - component: {fileID: 840900818}
+  - component: {fileID: 840900819}
   m_Layer: 0
   m_Name: Spotlight (32)
   m_TagString: Untagged
@@ -18464,6 +18660,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &840900819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840900816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 840900818}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &842709117
 Prefab:
   m_ObjectHideFlags: 0
@@ -18658,6 +18868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850961467}
   - component: {fileID: 850961468}
+  - component: {fileID: 850961469}
   m_Layer: 0
   m_Name: Spotlight (7)
   m_TagString: Untagged
@@ -18716,6 +18927,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &850961469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850961466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 850961468}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &851337613
 Prefab:
   m_ObjectHideFlags: 0
@@ -25177,6 +25402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1241718708}
   - component: {fileID: 1241718709}
+  - component: {fileID: 1241718710}
   m_Layer: 0
   m_Name: Spotlight (35)
   m_TagString: Untagged
@@ -25235,6 +25461,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1241718710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1241718707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1241718709}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &1242623431
 Prefab:
   m_ObjectHideFlags: 0
@@ -25979,6 +26219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271593859}
   - component: {fileID: 1271593860}
+  - component: {fileID: 1271593861}
   m_Layer: 0
   m_Name: Spotlight (34)
   m_TagString: Untagged
@@ -26037,6 +26278,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1271593861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271593858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1271593860}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &1274609265
 GameObject:
   m_ObjectHideFlags: 0
@@ -27221,6 +27476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337675117}
   - component: {fileID: 1337675118}
+  - component: {fileID: 1337675119}
   m_Layer: 0
   m_Name: Spotlight (25)
   m_TagString: Untagged
@@ -27279,6 +27535,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1337675119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1337675116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1337675118}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &1343698271
 Prefab:
   m_ObjectHideFlags: 0
@@ -28405,6 +28675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1386524029}
   - component: {fileID: 1386524030}
+  - component: {fileID: 1386524031}
   m_Layer: 0
   m_Name: Spotlight (3)
   m_TagString: Untagged
@@ -28463,6 +28734,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1386524031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386524028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1386524030}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &1391639743
 Prefab:
   m_ObjectHideFlags: 0
@@ -29041,6 +29326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413029020}
   - component: {fileID: 1413029021}
+  - component: {fileID: 1413029022}
   m_Layer: 0
   m_Name: Spotlight (20)
   m_TagString: Untagged
@@ -29099,6 +29385,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1413029022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413029019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1413029021}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &1415452225 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1580486001854270, guid: 95afd244b1d833d43aafa975947ad3a3,
@@ -32431,6 +32731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1570460916}
   - component: {fileID: 1570460917}
+  - component: {fileID: 1570460918}
   m_Layer: 0
   m_Name: Spotlight (28)
   m_TagString: Untagged
@@ -32489,6 +32790,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1570460918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1570460915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1570460917}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &1571257806
 GameObject:
   m_ObjectHideFlags: 0
@@ -33341,6 +33656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1613979560}
   - component: {fileID: 1613979561}
+  - component: {fileID: 1613979562}
   m_Layer: 0
   m_Name: Spotlight (31)
   m_TagString: Untagged
@@ -33399,6 +33715,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1613979562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613979559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1613979561}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &1619705234
 Prefab:
   m_ObjectHideFlags: 0
@@ -34994,6 +35324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703771758}
   - component: {fileID: 1703771759}
+  - component: {fileID: 1703771760}
   m_Layer: 0
   m_Name: Spotlight (6)
   m_TagString: Untagged
@@ -35052,6 +35383,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1703771760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703771757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1703771759}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &1705053559
 GameObject:
   m_ObjectHideFlags: 0
@@ -37446,6 +37791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830244031}
   - component: {fileID: 1830244032}
+  - component: {fileID: 1830244033}
   m_Layer: 0
   m_Name: Spotlight (10)
   m_TagString: Untagged
@@ -37504,6 +37850,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1830244033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1830244030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 1830244032}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1001 &1832098146
 Prefab:
   m_ObjectHideFlags: 0
@@ -42494,6 +42854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092547785}
   - component: {fileID: 2092547786}
+  - component: {fileID: 2092547787}
   m_Layer: 0
   m_Name: Spotlight (30)
   m_TagString: Untagged
@@ -42552,6 +42913,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2092547787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2092547784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 2092547786}
+  minWaitTime: 0.3
+  maxWaitTime: 1.5
 --- !u!1 &2096148686
 GameObject:
   m_ObjectHideFlags: 0
