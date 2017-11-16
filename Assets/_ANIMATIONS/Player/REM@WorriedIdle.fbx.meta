@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0107893114ab5428db99af15c26263d5
-timeCreated: 1510862401
+timeCreated: 1510866164
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -190,6 +190,7 @@ ModelImporter:
     4300000: REM
     4300002: Hair
     7400000: WorriedIdle
+    7400002: WorriedIdle_mirror
     9500000: //RootNode
     13700000: Hair
     13700002: REM
@@ -238,6 +239,34 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: WorriedIdle_mirror
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 256
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
@@ -735,7 +764,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1311949e74f95436c8e224ea9315e975,
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3d211f632cfea4e10b02f92a50bbb402,
     type: 3}
   animationType: 3
   humanoidOversampling: 1

@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	
 	public GameObject REM_MODEL;
 	public Animator REM_ANIMATOR;
-	private Animator FADE_TO_BLACK;
+	public Animator FADE_TO_BLACK;
 
 
     // Use this for initialization
@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour {
         PrefsPaneManager.instance.AddLivePreferenceFloat("Dash Cooldown", 0f, 10f, DASH_COOLDOWN, updateDASH_COOLDOWN);
 		EnterViewOTS();
         _timeReleasedMemento = Time.time;
-		FADE_TO_BLACK = GameObject.Find("Fade To Black").GetComponent<Animator>();
     }
 	
 	// Switch from Topdown camera to Overthe soulder
