@@ -2800,6 +2800,16 @@ Prefab:
       propertyPath: FADE_TO_BLACK
       value: 
       objectReference: {fileID: 60061187}
+    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: SAFEROOM_TRANSFORM
+      value: 
+      objectReference: {fileID: 447147824}
+    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: DASH_NOT_READY_ICON
+      value: 
+      objectReference: {fileID: 1049002891}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
   m_IsPrefabParent: 0
@@ -10082,6 +10092,11 @@ Transform:
   m_Father: {fileID: 209088859}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &447147824 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4787505832690822, guid: 6ffea52514a62e5449847c552caee31c,
+    type: 2}
+  m_PrefabInternal: {fileID: 109590250}
 --- !u!1001 &447418726
 Prefab:
   m_ObjectHideFlags: 0
@@ -18801,7 +18816,7 @@ Prefab:
         type: 2}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 16986635}
     - target: {fileID: 4572140076870304, guid: b3bee4e0dd850c744a37dc991d6d1523, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 83.005005
@@ -22315,6 +22330,11 @@ Transform:
   m_Father: {fileID: 1536351425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1049002891 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1653191878285540, guid: a57db25e79a684140ab42dfc7d72917f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416714443}
 --- !u!1001 &1050322874
 Prefab:
   m_ObjectHideFlags: 0
