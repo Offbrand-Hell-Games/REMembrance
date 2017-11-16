@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FOV_CONE_LENGTH: 8
-  FOV_CONE_RADIUS: 55
+  FOV_CONE_RADIUS: 50
   FOV_RADIUS: 3
   TARGETING_PLAYER_COLOR: {r: 1, g: 0, b: 0, a: 0}
   TARGETING_PLAYER_AUDIO: {fileID: 8300000, guid: 0a267dd73aa5a4b5183720866c16173f,
@@ -810,7 +810,7 @@ MonoBehaviour:
   MIN_DISTANCE: 0.25
   PATROL_GROUP: 1
   ENEMY_IDLE_TIME: 2
-  MEMENTO_SEARCH_RADIUS: 5
+  MEMENTO_SEARCH_RADIUS: 3
   DELAY_BEFORE_TAKING_FROM_LINKED_NEST: 15
   PATROL_START: {fileID: 0}
   NEST: {fileID: 0}
@@ -837,7 +837,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 5
   m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 120
