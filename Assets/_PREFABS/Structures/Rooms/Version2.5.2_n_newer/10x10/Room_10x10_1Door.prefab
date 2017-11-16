@@ -26,8 +26,8 @@ GameObject:
   m_Name: 10x10_A
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1117053109695042
 GameObject:
@@ -59,8 +59,8 @@ GameObject:
   m_Name: 5x5_A
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1622118182854500
 GameObject:
@@ -109,9 +109,9 @@ GameObject:
   m_Name: 10x10_A
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
+  m_IsActive: 0
 --- !u!1 &1846999944203244
 GameObject:
   m_ObjectHideFlags: 1
@@ -142,8 +142,8 @@ GameObject:
   m_Name: 5x5_B_doorway
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1916284480386982
 GameObject:
@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 4001896421322764}
   - component: {fileID: 65264467103339644}
   - component: {fileID: 114062747228753342}
+  - component: {fileID: 208442705575781240}
   m_Layer: 0
   m_Name: Door_universal
   m_TagString: Door
@@ -211,8 +212,8 @@ GameObject:
   m_Name: 10x10_A (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4001896421322764
 Transform:
@@ -369,8 +370,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622118182854500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1764727, y: -0.107979774, z: -2.3324943}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 12.82, y: 2.76, z: 1.8400002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523114315412696}
@@ -781,3 +782,18 @@ MonoBehaviour:
   door: {fileID: 1920225704967196}
   pivot: {fileID: 1846999944203244}
   doorOpenSpeed: 1
+--- !u!208 &208442705575781240
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920225704967196}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.125}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
