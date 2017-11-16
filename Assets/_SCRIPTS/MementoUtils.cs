@@ -13,7 +13,7 @@ public class MementoUtils : MonoBehaviour {
 
 	public static float PULSE_TIME = 15.0f;
     public static float PULSE_DELAY_AMOUNT = 1.0f;
-    public static float MEMENTO_PULSE_RADIUS = 15.0f;
+    public static float MEMENTO_PULSE_RADIUS = 25.0f;
     public static float PLAYER_PULSE_RADIUS = 7.5f;
 
 	private GameObject[] _mementos;
