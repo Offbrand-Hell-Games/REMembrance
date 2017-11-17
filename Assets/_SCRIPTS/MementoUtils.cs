@@ -15,6 +15,7 @@ public class MementoUtils : MonoBehaviour {
     public static float PULSE_DELAY_AMOUNT = 1.0f;
     public static float MEMENTO_PULSE_RADIUS = 25.0f;
     public static float PLAYER_PULSE_RADIUS = 7.5f;
+    public float PULSE_SPEED = 20f;
 
 	private GameObject[] _mementos;
 	private PatrolManager _patrolManager;
@@ -68,10 +69,10 @@ public class MementoUtils : MonoBehaviour {
 			GameObject pulse = GameObject.Instantiate(PULSE_EFFECT);
 			pulse.transform.position = memento.transform.position;
 
-
-			float time = radius / (pulse.GetComponent<ParticleSystem>()).main.startSpeed.constant;
-			Debug.Log("<color=blue>Memento Pulse: Destroying pulse game object after " + time + "seconds</color>");
-			Object.Destroy(pulse, time);
+            /* CB: pulse now has its own script. We can set the max size and speed there */
+            ScaleThenDestroy script = pulse.GetComponent<ScaleThenDestroy>();
+            script.MAX_DISTANCE = radius;
+            script.EXPANSION_SPEED = PULSE_SPEED;
 		}
 		else
 		{
