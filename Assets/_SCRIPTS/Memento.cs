@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Memento : MonoBehaviour {
     
     PlayerController _player;
-    Transform _transformToFollow; //The current holder of this memento
     
     public enum HeldBy //Enum in case we want to know what type of entity is holding this memento
     {
@@ -57,11 +56,13 @@ public class Memento : MonoBehaviour {
             }
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
         }
+        /* CB: This is no longer needed, as we make this game object a child of
+         *  the gameobject claiming it.
         else
         {
             targetPosition = new Vector3(_transformToFollow.position.x, _baseHeight+.5f, _transformToFollow.position.z);
             transform.position = targetPosition;
-        }
+        }*/
 
         /* Memento Pulse Code */
         if (_heldBy == HeldBy.Player && !IN_NEST)
@@ -101,7 +102,6 @@ public class Memento : MonoBehaviour {
         if (owner == null)
         {
             _heldBy = HeldBy.None;
-            _transformToFollow = null;
         }
         else
         {
@@ -109,17 +109,18 @@ public class Memento : MonoBehaviour {
             {
                 case "Enemy":
                     _heldBy = HeldBy.Enemy;
-                    _transformToFollow = owner.transform;
+                    this.transform.SetParent(owner.transform, true);
+                    this.transform.localPosition = new Vector3(0f, 0.5f, 0.6f);
                     break;
                 case "Player":
                     _heldBy = HeldBy.Player;
-                    _transformToFollow = owner.transform;
                     _gameInfo.SetGameState(GameInfo.GameState.Escape);
+                    this.transform.SetParent(owner.transform, true);
+                    this.transform.localPosition = new Vector3(0f, 0.6f, 0.4f);
                     break;
                 default:
                     Debug.Log("<color=blue>Memento Error: Memento told to bind to something other than Enemy or Player!</color>");
                     _heldBy = HeldBy.None;
-                    _transformToFollow = null;
                     break;
             }
         }
@@ -128,7 +129,7 @@ public class Memento : MonoBehaviour {
     public void Release()
     {
         _heldBy = HeldBy.None;
-        _transformToFollow = null;
+        this.transform.SetParent(null);
         _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
         _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
     }

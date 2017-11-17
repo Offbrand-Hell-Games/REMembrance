@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour {
     public float DELAY_BEFORE_TAKING_FROM_LINKED_NEST = 15.0f; /* Time to wait after a memento enters a linked nest before trying to steal it */
 
     public PatrolPoint PATROL_START;
-    public MementoPoint NEST;
+    public Nest NEST;
 
     private PatrolPoint _patrolCurrent;
     private Memento _memento = null;
@@ -206,7 +206,7 @@ public class EnemyController : MonoBehaviour {
     {
         if (NEST && NEST.MEMENTO == null)
         {
-            //Check for any memento's out of MementoPoints
+            //Check for any memento's out of Nests
             GameObject memento = _mementoUtils.GetClosestMemento (transform.position);
             Memento mc = memento.GetComponent<Memento> ();
             if (mc != null && Vector3.Distance(mc.transform.position, transform.position) <= MEMENTO_SEARCH_RADIUS && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)

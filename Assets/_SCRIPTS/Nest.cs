@@ -6,14 +6,14 @@ using UnityEngine;
 ///	Used by EnemyController and Memento to make decisions. Provides
 ///		access to the memento held in this nest (if any), and access
 ///		to the nest linked to this one (if one is linked)
-public class MementoPoint : MonoBehaviour {
+public class Nest : MonoBehaviour {
 
 	[HideInInspector]
 	public Memento MEMENTO = null; /* The memento currently in this nest (null if none) */
 	[HideInInspector]
 	public float TIME_MEMENTO_ENTERED;
 
-	public MementoPoint NEST_TO_TAKE_FROM; /* Nest linked to this one. */
+	public Nest NEST_TO_TAKE_FROM; /* Nest linked to this one. */
 
 	/// <summary> Checks if a memento enters this nest, storing a reference if so </summary>
 	/// <param name="collider"> Collider: collider that is currently colliding with this nest </param>
