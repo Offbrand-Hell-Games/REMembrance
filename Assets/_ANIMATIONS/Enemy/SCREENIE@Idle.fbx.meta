@@ -1,0 +1,783 @@
+fileFormatVersion: 2
+guid: d0eb6e58240d03e4693afe06a6f9a579
+timeCreated: 1511034808
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Enemy
+    100002: Enemy_Master_Group
+    100004: EnemyGroup
+    100006: Face
+    100008: Head
+    100010: Hips
+    100012: Knob
+    100014: Knob1
+    100016: LeftArm
+    100018: LeftFoot
+    100020: LeftFootEnd
+    100022: LeftForeArm
+    100024: LeftHand
+    100026: LeftHandEnd
+    100028: LeftLeg
+    100030: LeftUpLeg
+    100032: Neck
+    100034: RemSkel:Solving
+    100036: RemSkel:Solving:Head
+    100038: RemSkel:Solving:Head_End
+    100040: RemSkel:Solving:Hips
+    100042: RemSkel:Solving:LeftArm
+    100044: RemSkel:Solving:LeftFoot
+    100046: RemSkel:Solving:LeftForeArm
+    100048: RemSkel:Solving:LeftHand
+    100050: RemSkel:Solving:LeftHandEnd
+    100052: RemSkel:Solving:LeftHandThumb1
+    100054: RemSkel:Solving:LeftHandThumb2
+    100056: RemSkel:Solving:LeftLeg
+    100058: RemSkel:Solving:LeftShoulder
+    100060: RemSkel:Solving:LeftToeBase
+    100062: RemSkel:Solving:LeftToeEnd
+    100064: RemSkel:Solving:LeftUpLeg
+    100066: RemSkel:Solving:RightArm
+    100068: RemSkel:Solving:RightFoot
+    100070: RemSkel:Solving:RightForeArm
+    100072: RemSkel:Solving:RightHand
+    100074: RemSkel:Solving:RightHandEnd
+    100076: RemSkel:Solving:RightHandThumb1
+    100078: RemSkel:Solving:RightHandThumb2
+    100080: RemSkel:Solving:RightLeg
+    100082: RemSkel:Solving:RightShoulder
+    100084: RemSkel:Solving:RightToeBase
+    100086: RemSkel:Solving:RightToeEnd
+    100088: RemSkel:Solving:RightUpLeg
+    100090: RemSkel:Solving:Spine
+    100092: RightArm
+    100094: RightFoot
+    100096: RightFootEnd
+    100098: RightForeArm
+    100100: RightHand
+    100102: RightHandEnd
+    100104: RightLeg
+    100106: RightUpLeg
+    100108: Screenie_Ctrl:ChestEndEffector
+    100110: Screenie_Ctrl:ChestOriginEffector
+    100112: Screenie_Ctrl:Head
+    100114: Screenie_Ctrl:HeadEffector
+    100116: Screenie_Ctrl:Hips
+    100118: Screenie_Ctrl:HipsEffector
+    100120: Screenie_Ctrl:LeftAnkleEffector
+    100122: Screenie_Ctrl:LeftArm
+    100124: Screenie_Ctrl:LeftElbowEffector
+    100126: Screenie_Ctrl:LeftFoot
+    100128: Screenie_Ctrl:LeftForeArm
+    100130: Screenie_Ctrl:LeftHand
+    100132: Screenie_Ctrl:LeftHipEffector
+    100134: Screenie_Ctrl:LeftKneeEffector
+    100136: Screenie_Ctrl:LeftLeg
+    100138: Screenie_Ctrl:LeftShoulderEffector
+    100140: Screenie_Ctrl:LeftUpLeg
+    100142: Screenie_Ctrl:LeftWristEffector
+    100144: Screenie_Ctrl:Neck
+    100146: Screenie_Ctrl:Reference
+    100148: Screenie_Ctrl:RightAnkleEffector
+    100150: Screenie_Ctrl:RightArm
+    100152: Screenie_Ctrl:RightElbowEffector
+    100154: Screenie_Ctrl:RightFoot
+    100156: Screenie_Ctrl:RightForeArm
+    100158: Screenie_Ctrl:RightHand
+    100160: Screenie_Ctrl:RightHipEffector
+    100162: Screenie_Ctrl:RightKneeEffector
+    100164: Screenie_Ctrl:RightLeg
+    100166: Screenie_Ctrl:RightShoulderEffector
+    100168: Screenie_Ctrl:RightUpLeg
+    100170: Screenie_Ctrl:RightWristEffector
+    100172: Screenie_Ctrl:Spine
+    100174: //RootNode
+    100176: Spine
+    100178: Spine_2
+    100180: Spine_3
+    100182: Spine_4
+    100184: Spine_5
+    400000: Enemy
+    400002: Enemy_Master_Group
+    400004: EnemyGroup
+    400006: Face
+    400008: Head
+    400010: Hips
+    400012: Knob
+    400014: Knob1
+    400016: LeftArm
+    400018: LeftFoot
+    400020: LeftFootEnd
+    400022: LeftForeArm
+    400024: LeftHand
+    400026: LeftHandEnd
+    400028: LeftLeg
+    400030: LeftUpLeg
+    400032: Neck
+    400034: RemSkel:Solving
+    400036: RemSkel:Solving:Head
+    400038: RemSkel:Solving:Head_End
+    400040: RemSkel:Solving:Hips
+    400042: RemSkel:Solving:LeftArm
+    400044: RemSkel:Solving:LeftFoot
+    400046: RemSkel:Solving:LeftForeArm
+    400048: RemSkel:Solving:LeftHand
+    400050: RemSkel:Solving:LeftHandEnd
+    400052: RemSkel:Solving:LeftHandThumb1
+    400054: RemSkel:Solving:LeftHandThumb2
+    400056: RemSkel:Solving:LeftLeg
+    400058: RemSkel:Solving:LeftShoulder
+    400060: RemSkel:Solving:LeftToeBase
+    400062: RemSkel:Solving:LeftToeEnd
+    400064: RemSkel:Solving:LeftUpLeg
+    400066: RemSkel:Solving:RightArm
+    400068: RemSkel:Solving:RightFoot
+    400070: RemSkel:Solving:RightForeArm
+    400072: RemSkel:Solving:RightHand
+    400074: RemSkel:Solving:RightHandEnd
+    400076: RemSkel:Solving:RightHandThumb1
+    400078: RemSkel:Solving:RightHandThumb2
+    400080: RemSkel:Solving:RightLeg
+    400082: RemSkel:Solving:RightShoulder
+    400084: RemSkel:Solving:RightToeBase
+    400086: RemSkel:Solving:RightToeEnd
+    400088: RemSkel:Solving:RightUpLeg
+    400090: RemSkel:Solving:Spine
+    400092: RightArm
+    400094: RightFoot
+    400096: RightFootEnd
+    400098: RightForeArm
+    400100: RightHand
+    400102: RightHandEnd
+    400104: RightLeg
+    400106: RightUpLeg
+    400108: Screenie_Ctrl:ChestEndEffector
+    400110: Screenie_Ctrl:ChestOriginEffector
+    400112: Screenie_Ctrl:Head
+    400114: Screenie_Ctrl:HeadEffector
+    400116: Screenie_Ctrl:Hips
+    400118: Screenie_Ctrl:HipsEffector
+    400120: Screenie_Ctrl:LeftAnkleEffector
+    400122: Screenie_Ctrl:LeftArm
+    400124: Screenie_Ctrl:LeftElbowEffector
+    400126: Screenie_Ctrl:LeftFoot
+    400128: Screenie_Ctrl:LeftForeArm
+    400130: Screenie_Ctrl:LeftHand
+    400132: Screenie_Ctrl:LeftHipEffector
+    400134: Screenie_Ctrl:LeftKneeEffector
+    400136: Screenie_Ctrl:LeftLeg
+    400138: Screenie_Ctrl:LeftShoulderEffector
+    400140: Screenie_Ctrl:LeftUpLeg
+    400142: Screenie_Ctrl:LeftWristEffector
+    400144: Screenie_Ctrl:Neck
+    400146: Screenie_Ctrl:Reference
+    400148: Screenie_Ctrl:RightAnkleEffector
+    400150: Screenie_Ctrl:RightArm
+    400152: Screenie_Ctrl:RightElbowEffector
+    400154: Screenie_Ctrl:RightFoot
+    400156: Screenie_Ctrl:RightForeArm
+    400158: Screenie_Ctrl:RightHand
+    400160: Screenie_Ctrl:RightHipEffector
+    400162: Screenie_Ctrl:RightKneeEffector
+    400164: Screenie_Ctrl:RightLeg
+    400166: Screenie_Ctrl:RightShoulderEffector
+    400168: Screenie_Ctrl:RightUpLeg
+    400170: Screenie_Ctrl:RightWristEffector
+    400172: Screenie_Ctrl:Spine
+    400174: //RootNode
+    400176: Spine
+    400178: Spine_2
+    400180: Spine_3
+    400182: Spine_4
+    400184: Spine_5
+    2300000: Knob
+    2300002: Knob1
+    3300000: Knob
+    3300002: Knob1
+    4300000: Enemy
+    4300002: Knob1
+    4300004: Knob
+    7400000: Idle
+    9500000: //RootNode
+    13700000: Enemy
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Hips' has translation animation that will be
+      discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 186
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: Enemy_Master_Group
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine_2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Face
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine_4
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: SCREENIE(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Enemy_Master_Group
+      parentName: SCREENIE(Clone)
+      position: {x: 0.009999998, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: EnemyGroup
+      parentName: Enemy_Master_Group
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Enemy
+      parentName: EnemyGroup
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Knob
+      parentName: EnemyGroup
+      position: {x: -0.23960517, y: 1.6537535, z: 0.2500714}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Knob1
+      parentName: EnemyGroup
+      position: {x: -0.2401336, y: 1.7964479, z: 0.24674866}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips
+      parentName: Enemy_Master_Group
+      position: {x: -0.01, y: 1.016041, z: -0.02}
+      rotation: {x: 0.07088902, y: -0, z: -0, w: 0.9974842}
+      scale: {x: 1, y: 0.99999976, z: 0.99999976}
+    - name: Spine
+      parentName: Hips
+      position: {x: -0, y: 0.070710674, z: 3.5527136e-17}
+      rotation: {x: 0.06814845, y: -4.2676844e-33, z: -2.0013034e-32, w: 0.99767524}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine_2
+      parentName: Spine
+      position: {x: 2.086162e-10, y: 0.0728011, z: -7.105427e-17}
+      rotation: {x: 0.021723732, y: 3.569977e-33, z: 1.9685435e-32, w: 0.9997641}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: Spine_3
+      parentName: Spine_2
+      position: {x: 2.6822086e-10, y: 0.094868325, z: 7.105427e-17}
+      rotation: {x: 0.029373722, y: 4.728061e-33, z: -1.0909653e-33, w: 0.9995685}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: Spine_4
+      parentName: Spine_3
+      position: {x: 1.490116e-10, y: 0.053851645, z: 7.105427e-17}
+      rotation: {x: -0.37139073, y: 2.4074122e-33, z: -7.824091e-33, w: 0.9284767}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+    - name: Spine_5
+      parentName: Spine_4
+      position: {x: 1.233199e-10, y: 0.16155495, z: 0}
+      rotation: {x: 0.55049103, y: 5.867598e-33, z: 1.6613244e-32, w: 0.8348411}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Neck
+      parentName: Spine_5
+      position: {x: 1.7264868e-11, y: 0.09899495, z: -5.684342e-16}
+      rotation: {x: -0.16018222, y: -8.832724e-33, z: -4.020201e-33, w: 0.9870875}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Face
+      parentName: Neck
+      position: {x: 1.5359476e-11, y: 0.06708204, z: 6.3948843e-16}
+      rotation: {x: -0.22975302, y: -5.841207e-34, z: 8.003887e-33, w: 0.973249}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Face
+      position: {x: 9.8316445e-11, y: 0.31, z: -1.7763568e-17}
+      rotation: {x: -0, y: 2.4074139e-33, z: -1.04000224e-32, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: LeftArm
+      parentName: Spine_5
+      position: {x: -0.089999996, y: -0.042426404, z: 0.042426404}
+      rotation: {x: -0.27059805, y: 0.27059805, z: 0.65328145, w: 0.65328145}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1}
+    - name: LeftForeArm
+      parentName: LeftArm
+      position: {x: -8.5265126e-16, y: 0.52, z: -1.1788323e-10}
+      rotation: {x: -0.00000004470348, y: -0.000000014901159, z: 0.008619747, w: 0.99996287}
+      scale: {x: 1, y: 0.99999994, z: 1.0000002}
+    - name: LeftHand
+      parentName: LeftForeArm
+      position: {x: 2.842171e-16, y: 0.5800862, z: -2.2667348e-12}
+      rotation: {x: 0.00000004444659, y: -0.000000014900049, z: -0.008619747, w: 0.99996287}
+      scale: {x: 1.0000007, y: 1.0000007, z: 0.9999999}
+    - name: LeftHandEnd
+      parentName: LeftHand
+      position: {x: 5.684342e-16, y: 0.089999996, z: 3.5176237e-13}
+      rotation: {x: -0.000000050875737, y: 0.000000050875745, z: -0.7071069, w: 0.70710677}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: RightArm
+      parentName: Spine_5
+      position: {x: 0.11, y: -0.042426404, z: 0.042426404}
+      rotation: {x: -0.27059805, y: -0.27059805, z: -0.65328145, w: 0.65328145}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1}
+    - name: RightForeArm
+      parentName: RightArm
+      position: {x: 8.5265126e-16, y: 0.52, z: 1.1788334e-10}
+      rotation: {x: -0.00000004470348, y: 0.000000014901159, z: -0.008619747, w: 0.99996287}
+      scale: {x: 1, y: 0.99999994, z: 1.0000002}
+    - name: RightHand
+      parentName: RightForeArm
+      position: {x: -0, y: 0.5800862, z: -2.2671144e-12}
+      rotation: {x: 0.00000004444659, y: 0.000000014900049, z: 0.008619747, w: 0.99996287}
+      scale: {x: 1.0000007, y: 1.0000007, z: 0.9999999}
+    - name: RightHandEnd
+      parentName: RightHand
+      position: {x: -0, y: 0.089999996, z: 3.5170117e-13}
+      rotation: {x: -0.000000050875737, y: -0.000000050875745, z: 0.7071069, w: 0.70710677}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: LeftUpLeg
+      parentName: Hips
+      position: {x: -0.07, y: -0.019798988, z: 0.0028284271}
+      rotation: {x: -0.00030838395, y: 0.11142839, z: 0.9937201, w: 0.010197829}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999998}
+    - name: LeftLeg
+      parentName: LeftUpLeg
+      position: {x: -1.5987211e-16, y: 0.49173164, z: -8.8817837e-17}
+      rotation: {x: -0.080161236, y: 0.000034578843, z: 0.030027749, w: 0.99632955}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: LeftFoot
+      parentName: LeftLeg
+      position: {x: -6.217249e-17, y: 0.506012, z: -9.7699626e-17}
+      rotation: {x: 0.7097255, y: -0.01292739, z: -0.0150347855, w: 0.7041993}
+      scale: {x: 1.0000007, y: 1.0000005, z: 1.0000006}
+    - name: LeftFootEnd
+      parentName: LeftFoot
+      position: {x: 8.881784e-18, y: 0.010273773, z: 2.4882874e-16}
+      rotation: {x: 0.0000000018626449, y: -0.6814489, z: -0.73186576, w: -0.0000000011059454}
+      scale: {x: 1.0000004, y: 0.9999998, z: 1.0000001}
+    - name: RightUpLeg
+      parentName: Hips
+      position: {x: 0.07, y: -0.019798988, z: 0.0028284271}
+      rotation: {x: 0.00092605595, y: 0.11131522, z: 0.9933149, w: -0.030555282}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.9999999}
+    - name: RightLeg
+      parentName: RightUpLeg
+      position: {x: -3.5527136e-17, y: 0.49254438, z: -1.5987211e-16}
+      rotation: {x: -0.08012371, y: -0.0000321961, z: -0.030569296, w: 0.9963161}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: RightFoot
+      parentName: RightLeg
+      position: {x: 1.7763568e-17, y: 0.5056167, z: -4.440892e-18}
+      rotation: {x: 0.7098888, y: 8.9858065e-10, z: -0.0000000018626449, w: 0.7043138}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+    - name: RightFootEnd
+      parentName: RightFoot
+      position: {x: -3.5527136e-17, y: 0.0102737695, z: -8.097689e-17}
+      rotation: {x: -6.6188094e-10, y: -0.6814509, z: -0.73186386, w: 0.0000000033711076}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Screenie_Ctrl:Reference
+      parentName: SCREENIE(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:ChestEndEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 7.2450473e-10, y: 1.3860409, z: 1.6437784e-12}
+      rotation: {x: 2.7608776e-19, y: 2.5849394e-26, z: -1.0339758e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:ChestOriginEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.01, y: 1.086041, z: -0.01}
+      rotation: {x: 2.7608776e-19, y: 2.5849394e-26, z: -1.0339758e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:HeadEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.009999999, y: 1.8860409, z: 0.099999994}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:Hips
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.01, y: 1.016041, z: -0.02}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftUpLeg
+      parentName: Screenie_Ctrl:Hips
+      position: {x: -0.07, y: -0.02, z: 0}
+      rotation: {x: 3.0628711e-18, y: -1.0842022e-19, z: -1.7347235e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftLeg
+      parentName: Screenie_Ctrl:LeftUpLeg
+      position: {x: -0.010000001, y: -0.48999998, z: 0.04}
+      rotation: {x: -2.1141942e-18, y: -2.1684043e-19, z: -4.584428e-37, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftFoot
+      parentName: Screenie_Ctrl:LeftLeg
+      position: {x: 0.019999998, y: -0.5040319, z: -0.04}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightUpLeg
+      parentName: Screenie_Ctrl:Hips
+      position: {x: 0.07, y: -0.02, z: 0}
+      rotation: {x: -3.1441863e-18, y: 4.3368087e-19, z: 3.469447e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightLeg
+      parentName: Screenie_Ctrl:RightUpLeg
+      position: {x: 0.029999997, y: -0.48999998, z: 0.04}
+      rotation: {x: 3.480312e-19, y: 7.1e-44, z: 2.0679515e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightFoot
+      parentName: Screenie_Ctrl:RightLeg
+      position: {x: -0.0000000015021323, y: -0.50403196, z: -0.04}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:Spine
+      parentName: Screenie_Ctrl:Hips
+      position: {x: -0, y: 0.07, z: 0.01}
+      rotation: {x: 2.7608776e-19, y: 2.5849394e-26, z: -1.0339758e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftArm
+      parentName: Screenie_Ctrl:Spine
+      position: {x: -0.089999996, y: 0.29999998, z: 0.01}
+      rotation: {x: 0, y: 7.037378e-28, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftForeArm
+      parentName: Screenie_Ctrl:LeftArm
+      position: {x: -0.52, y: 9.780706e-11, z: -2.00753e-11}
+      rotation: {x: 2.019484e-28, y: 5.9921874e-27, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftHand
+      parentName: Screenie_Ctrl:LeftForeArm
+      position: {x: -0.58, y: -0.01, z: 1.0682672e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:Neck
+      parentName: Screenie_Ctrl:Spine
+      position: {x: 7.664334e-10, y: 0.42999998, z: 0.08}
+      rotation: {x: 3.776809e-21, y: 0, z: 2.5849394e-26, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:Head
+      parentName: Screenie_Ctrl:Neck
+      position: {x: 1.1367592e-10, y: 0.37, z: 0.03}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightArm
+      parentName: Screenie_Ctrl:Spine
+      position: {x: 0.11, y: 0.29999998, z: 0.01}
+      rotation: {x: 0, y: -7.0367086e-28, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightForeArm
+      parentName: Screenie_Ctrl:RightArm
+      position: {x: 0.52, y: -9.780819e-11, z: 2.0075991e-11}
+      rotation: {x: 4.038968e-28, y: 6.2856437e-27, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightHand
+      parentName: Screenie_Ctrl:RightForeArm
+      position: {x: 0.58, y: -0.01, z: -1.11359935e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:HipsEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.01, y: 0.996041, z: -0.02}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftAnkleEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.07, y: 0.0020091007, z: -0.02}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftElbowEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.62, y: 1.3860409, z: -3.4874235e-11}
+      rotation: {x: 2.019484e-28, y: 5.9921874e-27, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftHipEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.08, y: 0.996041, z: -0.02}
+      rotation: {x: 3.062871e-18, y: -1.0842022e-19, z: -1.7347235e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftKneeEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.089999996, y: 0.506041, z: 0.02}
+      rotation: {x: -2.1141942e-18, y: -2.1684043e-19, z: -4.584428e-37, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftShoulderEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -0.099999994, y: 1.3860409, z: -1.4798935e-11}
+      rotation: {x: 0, y: 7.037378e-28, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:LeftWristEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: -1.1999999, y: 1.3760409, z: 7.1952486e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightAnkleEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 0.089999996, y: 0.0020090176, z: -0.02}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightElbowEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 0.62, y: 1.3860409, z: 3.8162487e-11}
+      rotation: {x: 4.038968e-28, y: 6.2856437e-27, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightHipEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 0.06, y: 0.996041, z: -0.02}
+      rotation: {x: -3.1441863e-18, y: 4.3368087e-19, z: 3.469447e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightKneeEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 0.089999996, y: 0.506041, z: 0.02}
+      rotation: {x: 3.480312e-19, y: 7.1e-44, z: 2.0679515e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightShoulderEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 0.099999994, y: 1.3860409, z: 1.8086492e-11}
+      rotation: {x: 0, y: -7.0367086e-28, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Screenie_Ctrl:RightWristEffector
+      parentName: Screenie_Ctrl:Reference
+      position: {x: 1.1999999, y: 1.3760409, z: -7.319745e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2db42c26aaadeb7498286d7b73ad1fd0,
+    type: 3}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
