@@ -164,6 +164,7 @@ public class EnemyController : MonoBehaviour {
 						_audioSource.clip = _neutralAudio;
 						_audioSource.Play();
 						_animator.SetBool("isTargetingPlayer", false);
+                        _animator.SetBool("isIdle", true);
 						//Debug.Log("<color=blue>AI: Lost player. Entering Idle</color>");
                     }
                     break;
@@ -171,6 +172,7 @@ public class EnemyController : MonoBehaviour {
                     if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
                     {
                         _enemyState = EnemyState.Idle;
+                        _animator.SetBool("isIdle", true);
                         _timeOnEnterIdle = Time.time;
 
                     }
@@ -213,6 +215,7 @@ public class EnemyController : MonoBehaviour {
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (nearby)</color>");
                 _enemyState = EnemyState.TargetingMemento;
+                _animator.SetBool("isIdle", false);
                 _navAgent.SetDestination (memento.transform.position);
                 return true;
             }
@@ -220,6 +223,7 @@ public class EnemyController : MonoBehaviour {
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (other nest)</color>");
                 _enemyState = EnemyState.TargetingMemento;
+                _animator.SetBool("isIdle", false);
                 _navAgent.SetDestination(NEST.NEST_TO_TAKE_FROM.MEMENTO.transform.position);
                 return true;
             }
@@ -246,6 +250,7 @@ public class EnemyController : MonoBehaviour {
             _memento = parent.gameObject.GetComponent<Memento>();
             _memento.Bind(this.gameObject);
             _enemyState = EnemyState.TransportingMemento;
+            _animator.SetBool("isIdle", false);
             _navAgent.SetDestination(NEST.transform.position);
         }
     }
@@ -289,6 +294,7 @@ public class EnemyController : MonoBehaviour {
 			_audioSource.clip = TARGETING_PLAYER_AUDIO;
 			_audioSource.Play();
 			_animator.SetBool("isTargetingPlayer", true);
+            _animator.SetBool("isIdle", false);
 		}
 
         _navAgent.SetDestination(_player.transform.position);
@@ -348,6 +354,7 @@ public class EnemyController : MonoBehaviour {
         PATROL_START = _patrolCurrent;
         //Debug.Log("<color=blue>AI: Setting Target to Patrol Point " + _patrolCurrent.name + "</color>");
         _enemyState = EnemyState.Patrolling;
+        _animator.SetBool("isIdle", false);
         _navAgent.SetDestination(_patrolCurrent.transform.position);
     }
 
@@ -364,6 +371,7 @@ public class EnemyController : MonoBehaviour {
         if (_enemyState != EnemyState.TargetingPlayer && _enemyState != EnemyState.TransportingMemento)
         {
             _enemyState = EnemyState.TargetingMemento;
+            _animator.SetBool("isIdle", false);
             _navAgent.SetDestination(memento.transform.position);
         }
     }
