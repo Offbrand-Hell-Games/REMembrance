@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour {
     Vector3 dashForce;
     Transform[] array;
     bool dashReady = true;
-    public float DASH_COOLDOWN = 3f;
+    //John 11/18, changed default 2.5f
+    public float DASH_COOLDOWN = 2.5f;
 	
 	enum VIEW {TD,OTS}; //Top-down, Over-the-shoulder
 	private VIEW _view;
