@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PositionAtRaycastPoint : MonoBehaviour {
+public class PositionAtRaycastPoint2 : MonoBehaviour {
 	public bool active = true;
 	public Camera cam1;
 	public float maxDistance;
@@ -26,6 +26,9 @@ public class PositionAtRaycastPoint : MonoBehaviour {
 			Debug.Log (initialScale);
 			transform.localScale += initialScale * (Time.deltaTime / sizeUpDuration);
 			sizingUp = transform.localScale.magnitude < initialScale.magnitude;
+			if (!sizingUp) {
+				transform.localScale = initialScale;
+			}
 		} else if (sizingDown) {
 			transform.localScale -= initialScale * (Time.deltaTime / sizeUpDuration);
 			sizingDown = transform.localScale.magnitude > 0.1  && transform.localScale.x > 0.1;
@@ -64,6 +67,7 @@ public class PositionAtRaycastPoint : MonoBehaviour {
 				//				cam2.farClipPlane = Vector3.Distance (cam1.transform.position, transform.position);
 				//				cam1.nearClipPlane = cam2.farClipPlane;
 				sizingUp = true;
+				sizingDown = false;
 				Debug.Log ("ay");
 			} else {
 				//				GetComponent<MeshRenderer> ().enabled = false;

@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4486012410804816}
   - component: {fileID: 33516357822472180}
   - component: {fileID: 23077768847053920}
-  - component: {fileID: 114493860011655098}
+  - component: {fileID: 114614528417334910}
   m_Layer: 10
   m_Name: MaskingSphere (1)
   m_TagString: Untagged
@@ -214,7 +214,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241948147123894}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114493860011655098
+--- !u!114 &114614528417334910
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -222,16 +222,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241948147123894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09621fe0c5ea74e72af0218db7bb2855, type: 3}
+  m_Script: {fileID: 11500000, guid: 75cf61709943e4a41a29fc53cdb43183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
   cam1: {fileID: 0}
-  maxDistance: 6
+  maxDistance: 5
   Raycast_LayerMask:
     serializedVersion: 2
-    m_Bits: 33025
-  sizeUpDuration: 0.5
+    m_Bits: 33024
+  sizeUpDuration: 0.25
 --- !u!114 &114781587634759740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +249,6 @@ MonoBehaviour:
   Raycast_LayerMask:
     serializedVersion: 2
     m_Bits: 257
-  sizeUpDuration: 0.5
 --- !u!198 &198501214675224596
 ParticleSystem:
   m_ObjectHideFlags: 1
