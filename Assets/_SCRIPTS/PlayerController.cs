@@ -132,8 +132,8 @@ public class PlayerController : MonoBehaviour {
                 {
                     _memento.OnPlayerAbilityUsed();
                 }
-				xRayVisionA.SetActive (!xRayVisionA.activeSelf);
-				xRayVisionB.SetActive (!xRayVisionB.activeSelf);
+//				xRayVisionA.SetActive (!xRayVisionA.activeSelf);
+//				xRayVisionB.SetActive (!xRayVisionB.activeSelf);
 //                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
             }
 
