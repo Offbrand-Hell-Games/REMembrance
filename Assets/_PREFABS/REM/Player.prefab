@@ -733,6 +733,7 @@ GameObject:
   - component: {fileID: 114127566829324180}
   - component: {fileID: 136743644628182956}
   - component: {fileID: 82874418604421552}
+  - component: {fileID: 114619237954351182}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1022,7 +1023,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877343035153272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.272333, y: -0.012600064, z: 19.280481}
+  m_LocalPosition: {x: 16.418858, y: 0, z: 1.2270069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4252722908209648}
@@ -2292,7 +2293,7 @@ MonoBehaviour:
   DASH_NOT_READY_ICON: {fileID: 0}
   DASH_AUDIO: {fileID: 8300000, guid: bee321df13d684148aa0d3f5b4ccc2a4, type: 3}
   MEMENTO_PICKUP_COOLDOWN: 2
-  DASH_COOLDOWN: 1
+  DASH_COOLDOWN: 2.5
   OTS_CAMERA: {fileID: 0}
   TD_CAMERA: {fileID: 0}
   xRayVisionA: {fileID: 0}
@@ -2312,6 +2313,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decay_coefficient: 0.4
+--- !u!114 &114619237954351182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877343035153272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af471e3be1afc458b95644b396bf9fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PortalVisualObject: {fileID: 0}
+  cooldownTime: 3
+  portalLifetime: 8
 --- !u!114 &114774200037572802
 MonoBehaviour:
   m_ObjectHideFlags: 1
