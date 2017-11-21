@@ -6,7 +6,8 @@ public class XRayPortalControl : MonoBehaviour {
 	public GameObject PortalVisualObject;
 	public float cooldownTime = 6f;
 	private float elapsedCooldownTime = 0f;
-	public float portalLifetime;
+	public float portalLifetime = 8f;
+	Coroutine portalRemove;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,9 @@ public class XRayPortalControl : MonoBehaviour {
 		//  (and reset the cooldown)
 		if (elapsedCooldownTime >= cooldownTime  && Input.GetKeyDown (KeyCode.Q)) {
 			PortalVisualObject.SetActive (true);
-			PortalVisualObject.GetComponent<PositionAtRaycastPoint> ().Position ();
-			StartCoroutine (RemovePortal ());
+			PortalVisualObject.GetComponent<PositionAtRaycastPoint2> ().Position ();
+			if (portalRemove != null) StopCoroutine (portalRemove);
+			portalRemove = StartCoroutine (RemovePortal ());
 			elapsedCooldownTime = 0f;
 		}
 		// Update the cooldown time until the cooldown is complete
@@ -32,6 +34,6 @@ public class XRayPortalControl : MonoBehaviour {
 
 	public IEnumerator RemovePortal() {
 		yield return new WaitForSeconds (portalLifetime);
-		PortalVisualObject.GetComponent<PositionAtRaycastPoint> ().ShrinkAndDisappear ();
+		PortalVisualObject.GetComponent<PositionAtRaycastPoint2> ().ShrinkAndDisappear ();
 	}
 }

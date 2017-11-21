@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Position at raycast point2 includes functionality for positioning the vision portal according to the normal of the wall you palce it on.
+/// Combined with XRayPortalControl.cs on the Player Object (or anywhere, tbh), now places the wall once when you hit Q, rather
+/// than having it constantly move with your camera.
+/// </summary>
 public class PositionAtRaycastPoint : MonoBehaviour {
 	public bool active = true;
 	public Camera cam1;
