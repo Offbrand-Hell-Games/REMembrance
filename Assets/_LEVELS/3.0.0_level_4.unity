@@ -1505,11 +1505,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91923647640cab847b6653aa0e0da43c, type: 2}
   m_IsPrefabParent: 0
---- !u!95 &60061187 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95591894928640594, guid: a57db25e79a684140ab42dfc7d72917f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1416714443}
 --- !u!114 &60841126 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114439120186882408, guid: a57db25e79a684140ab42dfc7d72917f,
@@ -2178,31 +2173,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
+    - target: {fileID: 114619237954351182, guid: aefbf415c85ff44ada7f9e744b221114,
         type: 2}
-      propertyPath: OTS_CAMERA
+      propertyPath: PortalVisualObject
       value: 
-      objectReference: {fileID: 512631524}
-    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
-        type: 2}
-      propertyPath: TD_CAMERA
-      value: 
-      objectReference: {fileID: 360654581}
-    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
-        type: 2}
-      propertyPath: xRayVisionA
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
-        type: 2}
-      propertyPath: xRayVisionB
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
-        type: 2}
-      propertyPath: FADE_TO_BLACK
-      value: 
-      objectReference: {fileID: 60061187}
+      objectReference: {fileID: 539485874}
     - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
         type: 2}
       propertyPath: SAFEROOM_TRANSFORM
@@ -2215,17 +2190,14 @@ Prefab:
       objectReference: {fileID: 1049002891}
     - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
         type: 2}
-      propertyPath: DASH_COOLDOWN
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005181799901042, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005181799901042, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: OTS_CAMERA
+      value: 
+      objectReference: {fileID: 512631524}
+    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: TD_CAMERA
+      value: 
+      objectReference: {fileID: 360654581}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
   m_IsPrefabParent: 0
@@ -11941,24 +11913,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1241948147123894, guid: 1768fb93b5f294eb3933da26dd353952,
     type: 2}
   m_PrefabInternal: {fileID: 1160408456}
---- !u!114 &539485875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 539485874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75cf61709943e4a41a29fc53cdb43183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  cam1: {fileID: 512631525}
-  maxDistance: 5
-  Raycast_LayerMask:
-    serializedVersion: 2
-    m_Bits: 33024
-  sizeUpDuration: 0.25
 --- !u!1001 &544183984
 Prefab:
   m_ObjectHideFlags: 0
@@ -22462,13 +22416,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114493860011655098, guid: 1768fb93b5f294eb3933da26dd353952,
+    - target: {fileID: 114614528417334910, guid: 1768fb93b5f294eb3933da26dd353952,
         type: 2}
       propertyPath: cam1
       value: 
       objectReference: {fileID: 512631525}
-    m_RemovedComponents:
-    - {fileID: 114493860011655098, guid: 1768fb93b5f294eb3933da26dd353952, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1768fb93b5f294eb3933da26dd353952, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1161286049
