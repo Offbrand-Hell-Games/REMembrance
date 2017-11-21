@@ -296,6 +296,15 @@ public class PlayerController : MonoBehaviour {
 		REM_ANIMATOR.ResetTrigger("die");
 		transform.position = SAFEROOM_TRANSFORM.position;
 	}
+
+    /// <summary>
+    ///     Plays the victory animation
+    /// </summary>
+    public void OnWin()
+    {
+        Debug.Log("Setting win trigger!");
+        REM_ANIMATOR.SetTrigger("win");
+    }
 	
     void OnCollisionEnter(Collision collision)
     {

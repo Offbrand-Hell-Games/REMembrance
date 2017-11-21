@@ -46,6 +46,7 @@ public class EnemyController : MonoBehaviour {
 
     private float _timeOnEnterIdle;
     private float _timeOnTargetPlayer;
+    private EnemyState _previousState; /* Previous state enemy was in. Used to resume a patrol after idling */
 
     [HideInInspector]
     public Light visionLight;
@@ -69,7 +70,7 @@ public class EnemyController : MonoBehaviour {
             /* Initialize patrol start point */
             _navAgent.SetDestination(PATROL_START.transform.position);
             _patrolCurrent = PATROL_START;
-            _enemyState = EnemyState.Patrolling;
+            ChangeState(EnemyState.Patrolling);
         } else {
             Debug.Log("<color=blue>AI Warning: This AI does not have a patrol set! (" + gameObject.name + ")</color>");
         }
@@ -140,12 +141,17 @@ public class EnemyController : MonoBehaviour {
                     if (Time.time - _timeOnEnterIdle >= ENEMY_IDLE_TIME)
                     {
                         if (!CheckMemento())
-                            SetTargetToNearestPoint();
+                        {
+                            if (_previousState == EnemyState.Patrolling)
+                                SetTargetToNextPatrolPoint();
+                            else
+                                SetTargetToNearestPoint();
+                        }
                     }
                     break;
                 case EnemyState.Patrolling:
                     if (!CheckMemento() && !_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
-                        SetTargetToNextPatrolPoint();
+                        ChangeState(EnemyState.Idle);
                     break;
                 case EnemyState.TransportingMemento:
                     if (_navAgent.remainingDistance < MIN_DISTANCE)
@@ -158,29 +164,22 @@ public class EnemyController : MonoBehaviour {
                 case EnemyState.TargetingPlayer:
                     if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
                     {
-                        _enemyState = EnemyState.Idle;
-                        _timeOnEnterIdle = Time.time;
-						visionLight.color = _neutralColor; // Return the vision light to its original color
-						_audioSource.clip = _neutralAudio;
-						_audioSource.Play();
-						_animator.SetBool("isTargetingPlayer", false);
-                        _animator.SetBool("isIdle", true);
+                        ChangeState(EnemyState.Idle);
 						//Debug.Log("<color=blue>AI: Lost player. Entering Idle</color>");
                     }
                     break;
                 case EnemyState.TargetingMemento:
                     if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
                     {
-                        _enemyState = EnemyState.Idle;
-                        _animator.SetBool("isIdle", true);
-                        _timeOnEnterIdle = Time.time;
+                        ChangeState(EnemyState.Idle);
 
                     }
                     break;
                 default:
                     if (!_navAgent.pathPending && _navAgent.remainingDistance < MIN_DISTANCE)
                     {
-                        SetTargetToNearestPoint();
+                        //SetTargetToNearestPoint();
+                        ChangeState(EnemyState.Idle); // CB: Enter idle for a bit after reaching a destination
                     }
                     break;
             }
@@ -214,16 +213,14 @@ public class EnemyController : MonoBehaviour {
             if (mc != null && Vector3.Distance(mc.transform.position, transform.position) <= MEMENTO_SEARCH_RADIUS && mc.GetHeldBy () == Memento.HeldBy.None && !mc.IN_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (nearby)</color>");
-                _enemyState = EnemyState.TargetingMemento;
-                _animator.SetBool("isIdle", false);
+                ChangeState(EnemyState.TargetingMemento);
                 _navAgent.SetDestination (memento.transform.position);
                 return true;
             }
             else if (NEST && NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (other nest)</color>");
-                _enemyState = EnemyState.TargetingMemento;
-                _animator.SetBool("isIdle", false);
+                ChangeState(EnemyState.TargetingMemento);
                 _navAgent.SetDestination(NEST.NEST_TO_TAKE_FROM.MEMENTO.transform.position);
                 return true;
             }
@@ -249,8 +246,7 @@ public class EnemyController : MonoBehaviour {
         {
             _memento = parent.gameObject.GetComponent<Memento>();
             _memento.Bind(this.gameObject);
-            _enemyState = EnemyState.TransportingMemento;
-            _animator.SetBool("isIdle", false);
+            ChangeState(EnemyState.TransportingMemento);
             _navAgent.SetDestination(NEST.transform.position);
         }
     }
@@ -286,16 +282,8 @@ public class EnemyController : MonoBehaviour {
             _memento = null;
         }
 		// Only set the audio if we are entering this state for the first time
-		if (_enemyState != EnemyState.TargetingPlayer)
-		{
-			//Debug.Log("<color=blue>AI: Setting Target to Player</color>");
-			_enemyState = EnemyState.TargetingPlayer;
-			visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
-			_audioSource.clip = TARGETING_PLAYER_AUDIO;
-			_audioSource.Play();
-			_animator.SetBool("isTargetingPlayer", true);
-            _animator.SetBool("isIdle", false);
-		}
+        if (_enemyState != EnemyState.TargetingPlayer)
+            ChangeState(EnemyState.TargetingPlayer);
 
         _navAgent.SetDestination(_player.transform.position);
         _timeOnTargetPlayer = Time.time;
@@ -312,12 +300,14 @@ public class EnemyController : MonoBehaviour {
         if (_patrolCurrent.NEXT != null)
         {
 			_patrolCurrent = _patrolCurrent.NEXT; // Move to next point
+            ChangeState(EnemyState.Patrolling);
             //Debug.Log("<color=blue>AI: Setting Target to Next Patrol Point " + _patrolCurrent.name + "</color>");
 		    _navAgent.SetDestination (_patrolCurrent.transform.position);
         }
         else if (_patrolCurrent != PATROL_START) // Return to initial patrol point (unless we only have one)
 		{
         	_patrolCurrent = PATROL_START; // Restart the patrol
+            ChangeState(EnemyState.Patrolling);
             //Debug.Log("<color=blue>AI: Setting Target to Next Patrol Point " + _patrolCurrent.name + "</color>");
 		    _navAgent.SetDestination (_patrolCurrent.transform.position);
         }
@@ -337,8 +327,8 @@ public class EnemyController : MonoBehaviour {
     {
         List<PatrolPoint> possible_points = _patrolManager.GetPatrolPointsByGroupID(PATROL_GROUP);
         if(possible_points.Count == 0) {
-            Debug.Log("<color=blue>AI Warning:</color>Found no patrol points belonging to this AI's Patrol Group!"
-                + "Did you remember to assign a group to this AI, as well as the patrol points you want it tied to?", gameObject);
+            //Debug.Log("<color=blue>AI Warning:</color>Found no patrol points belonging to this AI's Patrol Group!"
+                //+ "Did you remember to assign a group to this AI, as well as the patrol points you want it tied to?", gameObject);
             return;
         }
         PatrolPoint closest = possible_points[0];
@@ -353,8 +343,7 @@ public class EnemyController : MonoBehaviour {
         _patrolCurrent = closest;
         PATROL_START = _patrolCurrent;
         //Debug.Log("<color=blue>AI: Setting Target to Patrol Point " + _patrolCurrent.name + "</color>");
-        _enemyState = EnemyState.Patrolling;
-        _animator.SetBool("isIdle", false);
+        ChangeState(EnemyState.Patrolling);
         _navAgent.SetDestination(_patrolCurrent.transform.position);
     }
 
@@ -370,9 +359,49 @@ public class EnemyController : MonoBehaviour {
     {
         if (_enemyState != EnemyState.TargetingPlayer && _enemyState != EnemyState.TransportingMemento)
         {
-            _enemyState = EnemyState.TargetingMemento;
-            _animator.SetBool("isIdle", false);
+            ChangeState(EnemyState.TargetingMemento);
             _navAgent.SetDestination(memento.transform.position);
+        }
+    }
+
+    /// <summary>
+    ///     Helper method to handle state change events like audio and animation
+    /// </summary>
+    /// <param name="newState">The new state to transition to</param>
+    public void ChangeState(EnemyState newState)
+    {
+        _previousState = _enemyState;
+        switch (newState)
+        {
+            case EnemyState.Idle:
+                _enemyState = EnemyState.Idle;
+                _timeOnEnterIdle = Time.time;
+				visionLight.color = _neutralColor; // Return the vision light to its original color
+				_audioSource.clip = _neutralAudio;
+				_audioSource.Play();
+				_animator.SetBool("isTargetingPlayer", false);
+                _animator.SetBool("isIdle", true);
+                break;
+            case EnemyState.Patrolling:
+                _enemyState = EnemyState.Patrolling;
+                _animator.SetBool("isIdle", false);
+                break;
+            case EnemyState.TargetingMemento:
+                _enemyState = EnemyState.TargetingMemento;
+                _animator.SetBool("isIdle", false);
+                break;
+            case EnemyState.TargetingPlayer:
+			    _enemyState = EnemyState.TargetingPlayer;
+			    visionLight.color = TARGETING_PLAYER_COLOR; // Change the color of the vision light
+			    _audioSource.clip = TARGETING_PLAYER_AUDIO;
+			    _audioSource.Play();
+			    _animator.SetBool("isTargetingPlayer", true);
+                _animator.SetBool("isIdle", false);
+                break;
+            case EnemyState.TransportingMemento:
+                _enemyState = EnemyState.TransportingMemento;
+                _animator.SetBool("isIdle", false);
+                break;
         }
     }
 }

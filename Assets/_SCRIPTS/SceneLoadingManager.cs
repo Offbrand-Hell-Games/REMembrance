@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadingManager : MonoBehaviour 
 {
 
+    public float LEVEL_LOAD_DELAY = 5f;
 	int BuildIndex, nextBuildIndex;
 	
 	// Use this for initialization
@@ -23,15 +24,16 @@ public class SceneLoadingManager : MonoBehaviour
 	{
 		if(collider.gameObject.tag == "Memento")
 		{
-			LoadScene(nextBuildIndex);
+            StartCoroutine("LoadScene");
 		}
 	}
 	
 	/// <summary> Loads the scene that is passed into it </summary>
 	/// <param name = SceneName> The name of the scene to be loaded </param>
 
-	void LoadScene(int SceneNumber)
+	IEnumerator LoadScene()
 	{
-		SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
+        yield return new WaitForSeconds(LEVEL_LOAD_DELAY); // CB: Added a delay to allow player victory animation to play
+        SceneManager.LoadScene(nextBuildIndex, LoadSceneMode.Single);
 	}
 }

@@ -91,9 +91,10 @@ public class Memento : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "Saferoom")
+		if(other.gameObject.tag == "Saferoom" || other.gameObject.name == "LevelLoader")
 		{
 			_gameInfo.SetGameState(GameInfo.GameState.Won);
+            _player.OnWin(); // CB: Notify the playerController to play to win animation
 		}
 	}
 
