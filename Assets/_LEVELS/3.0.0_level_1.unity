@@ -95,7 +95,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.1
+    agentRadius: 0.2
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -103,11 +103,11 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.033333335
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: a6c8e59ad43212745b9047c707ae58b3, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 456f13df647f543c8a85988f82cbc813, type: 2}
 --- !u!1 &1135526
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +441,14 @@ Prefab:
     - target: {fileID: 1550654117286328, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
       propertyPath: m_Name
       value: ND (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
@@ -1435,6 +1443,14 @@ Prefab:
     - target: {fileID: 1550654117286328, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
       propertyPath: m_Name
       value: ND (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
@@ -4935,6 +4951,14 @@ Prefab:
     - target: {fileID: 1542303624325356, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946106112128368, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0505ee2facb2e4248849a5fde1cc276e, type: 2}
