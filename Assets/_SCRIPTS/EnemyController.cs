@@ -126,10 +126,10 @@ public class EnemyController : MonoBehaviour {
 		// This is a solution to our extremely slide-y TV head friends. 
 		// - Jimmy
 		// speed up slowly, but stop quickly
-		if (_navAgent.hasPath) {
-			_navAgent.acceleration = (_navAgent.remainingDistance < .1f) ? 50f : 4f;
+		// if (_navAgent.hasPath) {
+		// 	_navAgent.acceleration = (_navAgent.remainingDistance < .1f) ? 50f : 4f;
 
-		}
+		// }
 
         if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _timeOnTargetPlayer >= ENEMY_IDLE_TIME))
             SetTargetToPlayer();
