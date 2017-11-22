@@ -171,7 +171,8 @@ public class PlayerController : MonoBehaviour {
 						break;
 				}
 				_audioSource.Play (); /* Play the dashing audio clip */
-				StartCoroutine(StopDashEffects());   // dashReady = false;
+                dashReady = false; // CB: Added this back, as it is used to determine if the player is allowed to dash, not just if the effects have ended
+				StartCoroutine(StopDashEffects());
 				DASH_NOT_READY_ICON.SetActive(true);
 				StartCoroutine(DashCountdown());
 			}
