@@ -18,7 +18,7 @@ public class ScaleThenDestroy : MonoBehaviour {
             GameObject.Destroy(this.gameObject);
         else
         {
-            Debug.Log("Magnitude: " + this.transform.localScale.magnitude + ", scale.x: " + scale.x);
+            //Debug.Log("Magnitude: " + this.transform.localScale.magnitude + ", scale.x: " + scale.x);
             float increase = EXPANSION_SPEED * Time.deltaTime;
             this.transform.localScale = new Vector3(scale.x + increase, scale.y + increase, scale.z + increase);
         }

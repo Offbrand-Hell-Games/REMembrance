@@ -25,6 +25,7 @@ public class Memento : MonoBehaviour {
 
     private GameInfo _gameInfo;
     private MementoUtils _mementoUtils;
+    private Transform _transformToFollow; // CB: The target transform to move this memento to
 	
 	// Use this for initialization
 	void Start () {
@@ -56,13 +57,10 @@ public class Memento : MonoBehaviour {
             }
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
         }
-        /* CB: This is no longer needed, as we make this game object a child of
-         *  the gameobject claiming it.
-        else
+        else // CB: Bringing this back, as using SetParent was ignoring physics during a dash
         {
-            targetPosition = new Vector3(_transformToFollow.position.x, _baseHeight+.5f, _transformToFollow.position.z);
-            transform.position = targetPosition;
-        }*/
+            this.transform.position = _transformToFollow.position;
+        }
 
         /* Memento Pulse Code */
         if (_heldBy == HeldBy.Player && !IN_NEST)
@@ -80,6 +78,7 @@ public class Memento : MonoBehaviour {
 	}
     void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("<color=pink>Memento collided with: " + collision.gameObject.name + "</color>");
         //If the player is the current owner, check if we're colliding with a wall
         if (_heldBy == HeldBy.Player)
         {
@@ -110,14 +109,16 @@ public class Memento : MonoBehaviour {
             {
                 case "Enemy":
                     _heldBy = HeldBy.Enemy;
-                    this.transform.SetParent(owner.transform, true);
-                    this.transform.localPosition = new Vector3(0f, 0.5f, 0.6f);
+                    //this.transform.SetParent(owner.transform, true); // CB: No longer setting the parent, as it was ignoring physics collisions when dashing
+                    _transformToFollow = owner.transform.Find("CarryLocation");
+                    this.transform.position = _transformToFollow.position;
                     break;
                 case "Player":
                     _heldBy = HeldBy.Player;
                     _gameInfo.SetGameState(GameInfo.GameState.Escape);
-                    this.transform.SetParent(owner.transform, true);
-                    this.transform.localPosition = new Vector3(0f, 0.6f, 0.4f);
+                    //this.transform.SetParent(owner.transform, true); // CB: No longer setting the parent, as it was ignoring physics collisions when dashing
+                    _transformToFollow = owner.transform.Find("CarryLocation");
+                    this.transform.position = _transformToFollow.position;
                     break;
                 default:
                     Debug.Log("<color=blue>Memento Error: Memento told to bind to something other than Enemy or Player!</color>");
@@ -130,7 +131,8 @@ public class Memento : MonoBehaviour {
     public void Release()
     {
         _heldBy = HeldBy.None;
-        this.transform.SetParent(null);
+        //this.transform.SetParent(null); // CB: No longer setting the parent, as it was ignoring physics collisions when dashing
+        _transformToFollow = null;
         _maxHeight = new Vector3(transform.position.x, _baseHeight + 0.25f, transform.position.z);
         _lowerHeight = new Vector3(transform.position.x, _baseHeight - 0.25f, transform.position.z);
     }

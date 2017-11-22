@@ -205,7 +205,7 @@ public class EnemyController : MonoBehaviour {
     /// </thoughts>
     private bool CheckMemento()
     {
-        if (NEST && NEST.MEMENTO == null)
+        if (NEST != null && NEST.MEMENTO == null)
         {
             //Check for any memento's out of Nests
             GameObject memento = _mementoUtils.GetClosestMemento (transform.position);
@@ -217,7 +217,7 @@ public class EnemyController : MonoBehaviour {
                 _navAgent.SetDestination (memento.transform.position);
                 return true;
             }
-            else if (NEST && NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
+            else if (NEST != null && NEST.NEST_TO_TAKE_FROM != null && NEST.NEST_TO_TAKE_FROM.MEMENTO != null && Time.time - NEST.TIME_MEMENTO_ENTERED >= DELAY_BEFORE_TAKING_FROM_LINKED_NEST)
             {
                 //Debug.Log("<color=blue>AI Debug: State Change: Patrolling -> TargetingMemento (other nest)</color>");
                 ChangeState(EnemyState.TargetingMemento);
@@ -240,7 +240,7 @@ public class EnemyController : MonoBehaviour {
               to access its parent through its transform
         */
         Transform parent = collider.gameObject.transform.parent;
-        if (parent != null && parent.tag == "Memento" && NEST.MEMENTO == null
+        if (parent != null && parent.tag == "Memento" && NEST != null && NEST.MEMENTO == null
             && (_enemyState != EnemyState.TargetingPlayer
                 && _enemyState != EnemyState.TransportingMemento))
         {

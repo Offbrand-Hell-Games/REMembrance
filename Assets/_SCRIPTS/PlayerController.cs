@@ -145,6 +145,18 @@ public class PlayerController : MonoBehaviour {
                 if (_memento != null)
                 {
                     _memento.OnPlayerAbilityUsed();
+                    /* This code shoots a raycast from the memento forward, attempting to check preemtively
+                     *  if the player is going to pass through a wall when dashing. This is needed to solve
+                     *  the issue where the memento is already in a collision with the wall when the dash
+                     *  occured, as the memento was not triggering a second collision.
+                     */
+                    RaycastHit hitinfo;
+                    Physics.Raycast(_memento.transform.position, this.transform.forward, out hitinfo, 1f);
+                    if (hitinfo.collider.tag == "Wall")
+                    {
+                        //Debug.Log("Preemptively dropping the memento");
+                        DropMemento();
+                    }
                 }
 				_isDashing = true;
 				switch(_view)
