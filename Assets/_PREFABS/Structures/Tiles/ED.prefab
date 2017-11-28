@@ -38,13 +38,14 @@ GameObject:
   - component: {fileID: 4412320520230296}
   - component: {fileID: 65167071444169782}
   - component: {fileID: 114865684244711382}
+  - component: {fileID: 208630113057022140}
   m_Layer: 0
   m_Name: Door_universal
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1099750664000572
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +197,8 @@ GameObject:
   m_Name: 5x5_A (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 0
 --- !u!1 &1983967349324390
 GameObject:
@@ -362,7 +363,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983967349324390}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.5, y: 0, z: 22.5}
+  m_LocalPosition: {x: 21, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4513108389707620}
@@ -490,7 +491,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1dbad6ba60bda1b4d90d686808727539, type: 2}
+  - {fileID: 2100000, guid: 9ccc67064ec8fcf4ab82bfcb71c352ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -682,7 +683,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a28babcc6a3c54caa93f163824dbd444, type: 2}
+  - {fileID: 2100000, guid: c06d676903e4d534ea142aeaa1b9fd96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -868,3 +869,18 @@ MonoBehaviour:
   door: {fileID: 1073471086149280}
   pivot: {fileID: 1656217890347550}
   doorOpenSpeed: 1
+--- !u!208 &208630113057022140
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073471086149280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1.125, z: 0.075}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
