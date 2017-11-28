@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 95108751770968974}
   - component: {fileID: 65186708072930428}
   - component: {fileID: 114350640036822522}
+  - component: {fileID: 114084469404719364}
+  - component: {fileID: 114792943065390350}
   m_Layer: 8
   m_Name: 5x10x1wall
   m_TagString: Wall
@@ -53,7 +55,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,7 +70,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -114,6 +114,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114084469404719364
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610526760813652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1610526760813652}
+  _assetGuid: b28d97d62f255004c866a1d32e2b0ba8
 --- !u!114 &114350640036822522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,3 +144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wall_Material: {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
   WallColider: {fileID: 0}
+--- !u!114 &114792943065390350
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610526760813652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 2d15c1f2-4f16-42b4-834b-03b5a351a412

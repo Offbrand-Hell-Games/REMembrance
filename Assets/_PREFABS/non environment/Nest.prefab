@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4444181436524058}
   - component: {fileID: 198237469722620796}
   - component: {fileID: 199413968540784766}
+  - component: {fileID: 114325445173580870}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4467940957627476}
   - component: {fileID: 114407119270722578}
   - component: {fileID: 65772460885247306}
+  - component: {fileID: 114013145631435360}
+  - component: {fileID: 114568753600231922}
   m_Layer: 0
   m_Name: Nest
   m_TagString: Untagged
@@ -84,6 +87,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &114013145631435360
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1770749125188984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1770749125188984}
+    - {fileID: 1059958439981364}
+  _assetGuid: 68259823d1c0b9e4495d117ab3078a09
+--- !u!114 &114325445173580870
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1059958439981364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 4764a4be-9441-42d0-bb00-6c2ce70ddb96
 --- !u!114 &114407119270722578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -98,6 +131,18 @@ MonoBehaviour:
   MEMENTO: {fileID: 0}
   TIME_MEMENTO_ENTERED: 0
   NEST_TO_TAKE_FROM: {fileID: 0}
+--- !u!114 &114568753600231922
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1770749125188984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 9ef00360-fb07-49e2-a74a-24037b9652f9
 --- !u!198 &198237469722620796
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114482333568179406}
   - component: {fileID: 82504520361145254}
   - component: {fileID: 54334055563825992}
+  - component: {fileID: 114240966229811698}
+  - component: {fileID: 114299617241342868}
   m_Layer: 11
   m_Name: Memento
   m_TagString: Memento
@@ -42,6 +44,7 @@ GameObject:
   - component: {fileID: 4370675933527554}
   - component: {fileID: 198412526673681478}
   - component: {fileID: 199704811562783642}
+  - component: {fileID: 114762867247111934}
   m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
@@ -58,6 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4634278962832746}
   - component: {fileID: 135166021463654528}
+  - component: {fileID: 114536234714799436}
   m_Layer: 10
   m_Name: TriggerCollider
   m_TagString: Untagged
@@ -74,6 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4718075155442930}
   - component: {fileID: 108910813606963660}
+  - component: {fileID: 114342441839880200}
   m_Layer: 11
   m_Name: Point light
   m_TagString: Untagged
@@ -306,6 +311,50 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114240966229811698
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022030606862854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1022030606862854}
+    - {fileID: 1959257976832928}
+    - {fileID: 1233560698187310}
+    - {fileID: 1925100478930500}
+  _assetGuid: 98818bce3f63c64419462a85bc48b721
+--- !u!114 &114299617241342868
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022030606862854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 4f76cc07-4db3-4e09-94e0-7c32e5abcff0
+--- !u!114 &114342441839880200
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959257976832928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 081cf85c-5c88-4fbd-8761-97ac930d6fca
 --- !u!114 &114482333568179406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,6 +367,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IN_NEST: 0
+--- !u!114 &114536234714799436
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925100478930500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 6237d780-1569-43d3-8bd8-475c1eee62e8
+--- !u!114 &114762867247111934
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233560698187310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e8e1792b-0a7a-44f2-8600-9cdf123f4080
 --- !u!135 &135166021463654528
 SphereCollider:
   m_ObjectHideFlags: 1

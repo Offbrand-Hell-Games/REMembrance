@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33731119080412114}
   - component: {fileID: 64696652298582690}
   - component: {fileID: 23007736060250782}
+  - component: {fileID: 114569970321062458}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 33584290423224972}
   - component: {fileID: 65854033446050110}
   - component: {fileID: 23913199217860044}
+  - component: {fileID: 114221406022229476}
   m_Layer: 0
   m_Name: Trim
   m_TagString: Untagged
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 33325665885882288}
   - component: {fileID: 64382647439364036}
   - component: {fileID: 23312207212269026}
+  - component: {fileID: 114364532049001674}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -73,6 +76,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4548343012199250}
+  - component: {fileID: 114653970134988232}
+  - component: {fileID: 114981234627620386}
   m_Layer: 0
   m_Name: NU
   m_TagString: Untagged
@@ -91,6 +96,7 @@ GameObject:
   - component: {fileID: 33847322009609978}
   - component: {fileID: 23113438722254054}
   - component: {fileID: 65175807740930660}
+  - component: {fileID: 114094321133580064}
   m_Layer: 0
   m_Name: 5x5_A
   m_TagString: Wall
@@ -375,3 +381,84 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114094321133580064
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956793845419808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 54f10b32-2719-4465-9564-7088c1c6727f
+--- !u!114 &114221406022229476
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174570503930192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 51a97347-a1e2-41a9-91f5-16dab1993991
+--- !u!114 &114364532049001674
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182326985682200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 430003a3-e029-43cf-95e9-20eaff588655
+--- !u!114 &114569970321062458
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131347011184246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 38a540e8-1b6c-48af-ae96-880a8f5c63a1
+--- !u!114 &114653970134988232
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308603125997030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1308603125997030}
+    - {fileID: 1956793845419808}
+    - {fileID: 1174570503930192}
+    - {fileID: 1131347011184246}
+    - {fileID: 1182326985682200}
+  _assetGuid: 4b58f6c61fb48f54d90feedde025d2cc
+--- !u!114 &114981234627620386
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308603125997030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: afce9cdf-124f-4938-a49b-9e684e121147

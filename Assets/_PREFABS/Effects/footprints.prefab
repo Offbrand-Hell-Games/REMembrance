@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 23230497688516416}
   - component: {fileID: 199058898945034392}
   - component: {fileID: 198684181726767234}
+  - component: {fileID: 114756216901515022}
+  - component: {fileID: 114899281802415652}
   m_Layer: 0
   m_Name: footprints
   m_TagString: Untagged
@@ -82,6 +84,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796494733071144}
   m_Mesh: {fileID: 4300000, guid: b64018f28f8c6594fb1facbc990166fc, type: 3}
+--- !u!114 &114756216901515022
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796494733071144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1796494733071144}
+  _assetGuid: ffe817f7b113d844ab9d97ef3c4ebeb9
+--- !u!114 &114899281802415652
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796494733071144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 2b62c3d1-792a-4eed-a7da-bfdfc306cc78
 --- !u!198 &198684181726767234
 ParticleSystem:
   m_ObjectHideFlags: 1

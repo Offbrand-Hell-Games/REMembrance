@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4787505832690822}
   - component: {fileID: 82467846378552328}
+  - component: {fileID: 114007802290870094}
   m_Layer: 0
   m_Name: Saferoom Spawn
   m_TagString: Untagged
@@ -35,6 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4914814976665738}
+  - component: {fileID: 114250261032371276}
+  - component: {fileID: 114057455634319198}
   m_Layer: 0
   m_Name: Saferoom
   m_TagString: Untagged
@@ -52,6 +55,7 @@ GameObject:
   - component: {fileID: 4022668053566076}
   - component: {fileID: 212143818024301418}
   - component: {fileID: 95162450963113230}
+  - component: {fileID: 114150401188554858}
   m_Layer: 0
   m_Name: Saferoom Sprite
   m_TagString: Untagged
@@ -71,6 +75,7 @@ GameObject:
   - component: {fileID: 65257195832903196}
   - component: {fileID: 23018641318687400}
   - component: {fileID: 114838244275459394}
+  - component: {fileID: 114638225996164242}
   m_Layer: 0
   m_Name: SafeRoom Floor
   m_TagString: Untagged
@@ -282,6 +287,74 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114007802290870094
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330257541060146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 6543c212-e939-4f51-ab4e-1acdc24a7763
+--- !u!114 &114057455634319198
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405710086412094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c1619f60-d83f-444a-844e-a57f161a5e5b
+--- !u!114 &114150401188554858
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752294612307794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: aa03d349-d055-4f20-8443-cfc5ccf86750
+--- !u!114 &114250261032371276
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405710086412094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1405710086412094}
+    - {fileID: 1752294612307794}
+    - {fileID: 1330257541060146}
+    - {fileID: 1993927447763658}
+  _assetGuid: 6ffea52514a62e5449847c552caee31c
+--- !u!114 &114638225996164242
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993927447763658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f346fcd1-6652-4413-af28-de4ab7183f99
 --- !u!114 &114838244275459394
 MonoBehaviour:
   m_ObjectHideFlags: 1

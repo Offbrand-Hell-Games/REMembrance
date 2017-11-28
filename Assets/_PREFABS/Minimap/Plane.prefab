@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33469124976525450}
   - component: {fileID: 64957319255054866}
   - component: {fileID: 23122327460363928}
+  - component: {fileID: 114222791845097868}
+  - component: {fileID: 114252243687730470}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -95,3 +97,32 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114222791845097868
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1078762499848676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1078762499848676}
+  _assetGuid: ec89d4ec62eab4e0ea5dfe870e4e6c08
+--- !u!114 &114252243687730470
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1078762499848676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: a342f0ad-42b8-4a75-acb0-49889bc60e9d

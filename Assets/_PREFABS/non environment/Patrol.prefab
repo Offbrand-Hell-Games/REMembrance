@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4619451492307778}
   - component: {fileID: 114657672001250306}
+  - component: {fileID: 114087247295405880}
   m_Layer: 0
   m_Name: Patrol Point (2)
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695097350601246}
   - component: {fileID: 114688404429627298}
+  - component: {fileID: 114586858860663810}
   m_Layer: 0
   m_Name: Patrol Point (1)
   m_TagString: Untagged
@@ -51,6 +53,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690602986425068}
+  - component: {fileID: 114513094973876238}
+  - component: {fileID: 114892767457166126}
   m_Layer: 0
   m_Name: Patrol
   m_TagString: Untagged
@@ -67,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326817745924992}
   - component: {fileID: 114788298810861858}
+  - component: {fileID: 114532311810538942}
   m_Layer: 0
   m_Name: Patrol Point (3)
   m_TagString: Untagged
@@ -83,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4766873404318588}
   - component: {fileID: 114765276354066464}
+  - component: {fileID: 114490257413910028}
   m_Layer: 0
   m_Name: Patrol Point (4)
   m_TagString: Untagged
@@ -159,6 +165,75 @@ Transform:
   m_Father: {fileID: 4690602986425068}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114087247295405880
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058025369575536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 2505a163-883a-426f-bfbd-75837d964ff4
+--- !u!114 &114490257413910028
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968677807684084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e6767944-1458-42d1-ac99-f985639146eb
+--- !u!114 &114513094973876238
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506052290187842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1506052290187842}
+    - {fileID: 1460807734677416}
+    - {fileID: 1058025369575536}
+    - {fileID: 1523955069397282}
+    - {fileID: 1968677807684084}
+  _assetGuid: e577cac26220cbf4fb6b27fefc21e25c
+--- !u!114 &114532311810538942
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523955069397282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: a889ecb2-06ea-484b-bd58-8bcd4ccae492
+--- !u!114 &114586858860663810
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460807734677416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 06977de3-f0e3-4648-acbb-23b0b0583943
 --- !u!114 &114657672001250306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,3 +286,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PATROL_GROUP: 0
   NEXT: {fileID: 114765276354066464}
+--- !u!114 &114892767457166126
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506052290187842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 30368a34-2e2b-44a4-b00d-d8b7d80a125c

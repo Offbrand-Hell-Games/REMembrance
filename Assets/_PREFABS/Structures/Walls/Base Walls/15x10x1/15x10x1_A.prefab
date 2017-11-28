@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 95244925499350220}
   - component: {fileID: 65624124745989700}
   - component: {fileID: 114303101250423708}
+  - component: {fileID: 114093816743812578}
+  - component: {fileID: 114534107737347356}
   m_Layer: 8
   m_Name: 15x10x1_A
   m_TagString: Wall
@@ -112,6 +114,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114093816743812578
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139580701425040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1139580701425040}
+  _assetGuid: d8ce9ca8eb4c0f949bf485638721f668
 --- !u!114 &114303101250423708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,3 +144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wall_Material: {fileID: 2100000, guid: 4c33c2e6a0ab47d44aafb9882649154b, type: 2}
   WallColider: {fileID: 65624124745989700}
+--- !u!114 &114534107737347356
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139580701425040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c452b233-d536-4008-8794-b8e5237f3986

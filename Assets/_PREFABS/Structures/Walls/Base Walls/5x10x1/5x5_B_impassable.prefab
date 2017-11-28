@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33051962209862186}
   - component: {fileID: 23638486891639150}
   - component: {fileID: 65149656143313378}
+  - component: {fileID: 114492413868460010}
+  - component: {fileID: 114095169651381006}
   m_Layer: 0
   m_Name: 5x5_B_impassable
   m_TagString: Wall
@@ -93,3 +95,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6753525, y: 3.0479999, z: 0.36636618}
   m_Center: {x: -0.004321009, y: 0, z: 5.894092e-18}
+--- !u!114 &114095169651381006
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589621416692040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e168af90-8133-4ce0-95ed-5349cd35e211
+--- !u!114 &114492413868460010
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589621416692040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1589621416692040}
+  _assetGuid: f4ac9d34907a1a8429d8a82897b1e1b9

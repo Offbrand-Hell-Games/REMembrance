@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4775718087978570}
   - component: {fileID: 198835236732580546}
   - component: {fileID: 199528237489554386}
+  - component: {fileID: 114362222595854082}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -39,6 +40,8 @@ GameObject:
   - component: {fileID: 65104971507090232}
   - component: {fileID: 23284067052711724}
   - component: {fileID: 114761387663599134}
+  - component: {fileID: 114046609766066452}
+  - component: {fileID: 114552202983972936}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -117,6 +120,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 7.84, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114046609766066452
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665475623669054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1665475623669054}
+    - {fileID: 1418419173506826}
+  _assetGuid: d0bfc7e4617e66c4aac7ffe6e66be764
+--- !u!114 &114362222595854082
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418419173506826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: ce931e15-d892-405b-ad57-42db9dc21aba
+--- !u!114 &114552202983972936
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665475623669054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f66670f6-d85e-4efd-95d8-f07a2f80d3a2
 --- !u!114 &114761387663599134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a720c4e1693852549908009ed7291a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LEVEL_LOAD_DELAY: 5
 --- !u!198 &198835236732580546
 ParticleSystem:
   m_ObjectHideFlags: 1

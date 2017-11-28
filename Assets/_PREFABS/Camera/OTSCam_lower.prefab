@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4672658778287910}
+  - component: {fileID: 114281425320241500}
   m_Layer: 0
   m_Name: CameraLookAtPoint
   m_TagString: Untagged
@@ -37,6 +38,7 @@ GameObject:
   - component: {fileID: 33911368682825528}
   - component: {fileID: 23395552481398350}
   - component: {fileID: 114280976431634912}
+  - component: {fileID: 114995968019876922}
   m_Layer: 10
   m_Name: MaskingSphere
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   - component: {fileID: 20013302938249376}
   - component: {fileID: 124040983214471456}
   - component: {fileID: 81300640284513376}
+  - component: {fileID: 114784169758743970}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -70,6 +73,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4138557238856644}
+  - component: {fileID: 114705284841575908}
   m_Layer: 0
   m_Name: CameraReturnPoint
   m_TagString: Untagged
@@ -88,6 +92,7 @@ GameObject:
   - component: {fileID: 33432249382524496}
   - component: {fileID: 23497501438462348}
   - component: {fileID: 114977864121716874}
+  - component: {fileID: 114448005288845810}
   m_Layer: 10
   m_Name: MaskingSphere (1)
   m_TagString: Untagged
@@ -104,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256212006782518}
   - component: {fileID: 108408868382171974}
+  - component: {fileID: 114056382230288004}
   m_Layer: 9
   m_Name: vision_light
   m_TagString: EnemyVisionLight
@@ -121,6 +127,8 @@ GameObject:
   - component: {fileID: 4901842559285446}
   - component: {fileID: 114682407053796182}
   - component: {fileID: 114583134659864204}
+  - component: {fileID: 114836718068076966}
+  - component: {fileID: 114554660435899142}
   m_Layer: 0
   m_Name: OTSCam_lower
   m_TagString: Untagged
@@ -382,6 +390,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114056382230288004
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1886763629229644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: cdecd550-f36a-402d-b798-4ad875497e05
 --- !u!114 &114280976431634912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,6 +419,42 @@ MonoBehaviour:
   Raycast_LayerMask:
     serializedVersion: 2
     m_Bits: 33025
+--- !u!114 &114281425320241500
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351596075881680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 26a2eab3-f2e5-45de-83d7-33abef900833
+--- !u!114 &114448005288845810
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632465436073102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 8bb78cc1-f9a3-4902-8dee-938e15c169d2
+--- !u!114 &114554660435899142
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999110425714468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 095e4f5c-c44e-4c2c-a70b-40030691184f
 --- !u!114 &114583134659864204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,6 +493,53 @@ MonoBehaviour:
   minDistance: 0.003
   followCoefficient: 0.1
   target: {fileID: 0}
+--- !u!114 &114705284841575908
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610739516913798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 53056f37-d99e-4ef8-8fa8-1252b2da96b2
+--- !u!114 &114784169758743970
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1562409139643610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1865adb8-b816-41a3-be03-4d6bbca606ec
+--- !u!114 &114836718068076966
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999110425714468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1999110425714468}
+    - {fileID: 1562409139643610}
+    - {fileID: 1886763629229644}
+    - {fileID: 1610739516913798}
+    - {fileID: 1351596075881680}
+    - {fileID: 1475325244771132}
+    - {fileID: 1632465436073102}
+  _assetGuid: ee9cedaa1862cd344ad37d507cd2d609
 --- !u!114 &114977864121716874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,6 +557,18 @@ MonoBehaviour:
   Raycast_LayerMask:
     serializedVersion: 2
     m_Bits: 257
+--- !u!114 &114995968019876922
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475325244771132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 69e45052-60d1-40a7-af04-23baee42832c
 --- !u!124 &124040983214471456
 Behaviour:
   m_ObjectHideFlags: 1

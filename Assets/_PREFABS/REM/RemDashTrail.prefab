@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4643314548962464}
   - component: {fileID: 96369212699162476}
   - component: {fileID: 114495692227556910}
+  - component: {fileID: 114881100289940522}
+  - component: {fileID: 114872618311594848}
   m_Layer: 9
   m_Name: RemDashTrail
   m_TagString: Untagged
@@ -51,7 +53,6 @@ TrailRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -67,7 +68,6 @@ TrailRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -146,3 +146,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decay_coefficient: 0.4
+--- !u!114 &114872618311594848
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245303817839332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: bdabe3b4-cb36-404e-9ce4-b849056edec0
+--- !u!114 &114881100289940522
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245303817839332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1245303817839332}
+  _assetGuid: 9a5690b48e08a4788b4ab89645259e04

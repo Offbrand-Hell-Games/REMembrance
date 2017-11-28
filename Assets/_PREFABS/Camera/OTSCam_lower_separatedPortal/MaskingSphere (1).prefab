@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4967779322227560}
   - component: {fileID: 198818363870126918}
   - component: {fileID: 199698851189217582}
+  - component: {fileID: 114521234503700702}
   m_Layer: 10
   m_Name: Particle System 2 (1)
   m_TagString: Untagged
@@ -39,6 +40,7 @@ GameObject:
   - component: {fileID: 33495576631284762}
   - component: {fileID: 23892391019780924}
   - component: {fileID: 114781587634759740}
+  - component: {fileID: 114477234293654358}
   m_Layer: 10
   m_Name: MaskingSphere (1)
   m_TagString: Untagged
@@ -57,6 +59,8 @@ GameObject:
   - component: {fileID: 33516357822472180}
   - component: {fileID: 23077768847053920}
   - component: {fileID: 114614528417334910}
+  - component: {fileID: 114884711569197098}
+  - component: {fileID: 114381691560551550}
   m_Layer: 10
   m_Name: MaskingSphere (1)
   m_TagString: Untagged
@@ -74,6 +78,7 @@ GameObject:
   - component: {fileID: 4232205620155312}
   - component: {fileID: 198501214675224596}
   - component: {fileID: 199834235352389400}
+  - component: {fileID: 114505551141590498}
   m_Layer: 10
   m_Name: Particle System 2 (2)
   m_TagString: Untagged
@@ -214,6 +219,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241948147123894}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114381691560551550
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241948147123894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 70b4c7f9-429e-49fe-9a14-e56adf5dfb10
+--- !u!114 &114477234293654358
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140742973237304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 856365fb-db0b-4ba4-90e7-3346b126323d
+--- !u!114 &114505551141590498
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1638821302561254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e9869c06-3745-4672-9250-48a64cea4a17
+--- !u!114 &114521234503700702
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086044292312658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: fce443c6-9fd3-417b-8318-a99f8c18007d
 --- !u!114 &114614528417334910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,6 +302,26 @@ MonoBehaviour:
   Raycast_LayerMask:
     serializedVersion: 2
     m_Bits: 257
+--- !u!114 &114884711569197098
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241948147123894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1241948147123894}
+    - {fileID: 1086044292312658}
+    - {fileID: 1638821302561254}
+    - {fileID: 1140742973237304}
+  _assetGuid: 1768fb93b5f294eb3933da26dd353952
 --- !u!198 &198501214675224596
 ParticleSystem:
   m_ObjectHideFlags: 1

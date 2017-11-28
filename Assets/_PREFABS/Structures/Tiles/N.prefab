@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33423483476210406}
   - component: {fileID: 23645304556171890}
   - component: {fileID: 65081396484414862}
+  - component: {fileID: 114189844501376404}
   m_Layer: 8
   m_Name: 5x5_A
   m_TagString: Wall
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 33648829289098966}
   - component: {fileID: 64375896987277816}
   - component: {fileID: 23397278422496350}
+  - component: {fileID: 114312372116549516}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 33963076720268978}
   - component: {fileID: 64815597965155028}
   - component: {fileID: 23071732090135358}
+  - component: {fileID: 114488221984501416}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -76,6 +79,7 @@ GameObject:
   - component: {fileID: 33451381297303732}
   - component: {fileID: 65525491749051706}
   - component: {fileID: 23683665269066862}
+  - component: {fileID: 114447348608631306}
   m_Layer: 0
   m_Name: Trim
   m_TagString: Untagged
@@ -91,6 +95,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4854306503048552}
+  - component: {fileID: 114003791763651448}
+  - component: {fileID: 114831043748419060}
   m_Layer: 0
   m_Name: N
   m_TagString: Untagged
@@ -375,3 +381,84 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114003791763651448
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847387661556616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1847387661556616}
+    - {fileID: 1260389313732096}
+    - {fileID: 1842474300232190}
+    - {fileID: 1768541920365970}
+    - {fileID: 1310314303492756}
+  _assetGuid: 647e06b218bd5b6469f414ea93f3604a
+--- !u!114 &114189844501376404
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260389313732096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 91b5b883-a0d4-451f-a70a-a308298bbfff
+--- !u!114 &114312372116549516
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310314303492756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7beea61b-51c5-484a-9fa3-ccb1bbfb1716
+--- !u!114 &114447348608631306
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842474300232190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f2ecbbbe-c974-4342-b958-de6044926a4f
+--- !u!114 &114488221984501416
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768541920365970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 86561d5f-3eed-455c-88bd-d505c4e44c6e
+--- !u!114 &114831043748419060
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847387661556616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: d6748972-f718-4e83-9737-2af795e914d2

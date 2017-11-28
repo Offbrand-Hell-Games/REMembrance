@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33666694689848528}
   - component: {fileID: 23401180420545984}
   - component: {fileID: 65398750780593594}
+  - component: {fileID: 114676898783242716}
+  - component: {fileID: 114107182322820166}
   m_Layer: 0
   m_Name: Medicine_bottle2
   m_TagString: Untagged
@@ -93,3 +95,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06728305, y: 0.15190294, z: 0.050207682}
   m_Center: {x: 0, y: -0.0000000037252903, z: 0}
+--- !u!114 &114107182322820166
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195677398586924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 05b1ca57-cae3-4510-b475-92d4387fbf4b
+--- !u!114 &114676898783242716
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195677398586924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1195677398586924}
+  _assetGuid: 470529a4969a3e046b660b508711efa2

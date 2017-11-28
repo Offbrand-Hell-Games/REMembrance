@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4896429331367114}
   - component: {fileID: 108671689104789516}
+  - component: {fileID: 114533056546412218}
+  - component: {fileID: 114009467462206240}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -76,3 +78,32 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114009467462206240
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762797489240956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7310ecca-8d3f-46c7-b703-97ce01ca0a20
+--- !u!114 &114533056546412218
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762797489240956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1762797489240956}
+  _assetGuid: 18d6d62fd1eebd8428d30a11136fe915

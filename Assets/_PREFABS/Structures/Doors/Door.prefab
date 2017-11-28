@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 65469941631096600}
   - component: {fileID: 114313769015572324}
   - component: {fileID: 23392092024885140}
+  - component: {fileID: 114055913466896792}
+  - component: {fileID: 114949220668414160}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -38,6 +40,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4674186067946994}
+  - component: {fileID: 114588669606566850}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -123,6 +126,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114055913466896792
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206138724807840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1206138724807840}
+    - {fileID: 1658261946135660}
+  _assetGuid: 8c60f4dfb3d190b468790f8ccdc49223
 --- !u!114 &114313769015572324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,3 +158,27 @@ MonoBehaviour:
   door: {fileID: 1206138724807840}
   pivot: {fileID: 1658261946135660}
   doorOpenSpeed: 1
+--- !u!114 &114588669606566850
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658261946135660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e776abf1-d023-457c-bdf0-2f756a3e32b5
+--- !u!114 &114949220668414160
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206138724807840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 296770a3-014c-48fb-b844-e57bbb2e440b

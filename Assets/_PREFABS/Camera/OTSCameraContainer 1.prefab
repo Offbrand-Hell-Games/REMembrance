@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20813389433211574}
   - component: {fileID: 81668193706976318}
   - component: {fileID: 124793918244597232}
+  - component: {fileID: 114243109804278006}
   m_Layer: 0
   m_Name: OTSCamera
   m_TagString: MainCamera
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 33089176637263104}
   - component: {fileID: 23667713984412998}
   - component: {fileID: 114487042326075478}
+  - component: {fileID: 114578152049793850}
   m_Layer: 10
   m_Name: MaskingSphere
   m_TagString: Untagged
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 33885544206112468}
   - component: {fileID: 23365856929927102}
   - component: {fileID: 114616807397812494}
+  - component: {fileID: 114268705031770376}
   m_Layer: 10
   m_Name: MaskingSphere (1)
   m_TagString: Untagged
@@ -74,6 +77,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4851699323233860}
   - component: {fileID: 114889333729124784}
+  - component: {fileID: 114420504335134732}
+  - component: {fileID: 114052751873699866}
   m_Layer: 0
   m_Name: OTSCameraContainer 1
   m_TagString: Untagged
@@ -257,6 +262,62 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474792027145246}
   m_Enabled: 1
+--- !u!114 &114052751873699866
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995811960352480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 4f48e3f9-f789-4fba-af72-3c5d1272b3cd
+--- !u!114 &114243109804278006
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474792027145246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7d41baff-671a-4543-9c04-f75f0ba8dc45
+--- !u!114 &114268705031770376
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814188162777232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: a23a3b47-2a79-40eb-94a1-fde501830228
+--- !u!114 &114420504335134732
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995811960352480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1995811960352480}
+    - {fileID: 1474792027145246}
+    - {fileID: 1538661071289550}
+    - {fileID: 1814188162777232}
+  _assetGuid: c10cbd9613f784f8e8761c6d5afca3ad
 --- !u!114 &114487042326075478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +330,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  cam1: {fileID: 0}
+  maxDistance: 0
+  Raycast_LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &114578152049793850
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538661071289550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: d0f15947-75b3-41a5-9524-475602999541
 --- !u!114 &114616807397812494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +359,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  cam1: {fileID: 0}
+  maxDistance: 0
+  Raycast_LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114889333729124784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,12 +379,15 @@ MonoBehaviour:
   cam_speed_coefficient: 0.5
   target: {fileID: 0}
   anchor: {fileID: 0}
+  player: {fileID: 0}
   _minDistance: 0.5
   _maxDistance: 4
   _myLayerMask:
     serializedVersion: 2
     m_Bits: 3329
   freezeCam: 0
+  _cameraVerticalMaxRotation: 155
+  _cameraVerticalMinRotation: 35
 --- !u!124 &124793918244597232
 Behaviour:
   m_ObjectHideFlags: 1

@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33731469303704778}
   - component: {fileID: 23267504492614016}
   - component: {fileID: 65402575676246846}
+  - component: {fileID: 114304791342295062}
+  - component: {fileID: 114019899115127434}
   m_Layer: 0
   m_Name: CRTMonitor
   m_TagString: Untagged
@@ -93,3 +95,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4191, y: 0.4894746, z: 0.41158354}
   m_Center: {x: 0, y: 0.2471602, z: 0.0013217553}
+--- !u!114 &114019899115127434
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459708266997000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c41912cf-f48b-4735-b174-974c75abc88f
+--- !u!114 &114304791342295062
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459708266997000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1459708266997000}
+  _assetGuid: bac3116b773549344a6d35ec8e130544

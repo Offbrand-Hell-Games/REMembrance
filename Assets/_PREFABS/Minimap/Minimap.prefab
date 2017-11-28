@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 224923637018328980}
   - component: {fileID: 222775410921095056}
   - component: {fileID: 114688273649689886}
+  - component: {fileID: 114784558589236146}
+  - component: {fileID: 114036052014968406}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -28,6 +30,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114036052014968406
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091969230742646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: dd77b08e-ba6d-4fe3-8fea-96afa01c2c17
 --- !u!114 &114688273649689886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,6 +69,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114784558589236146
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091969230742646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1091969230742646}
+  _assetGuid: 0884b2bc97dc94f719544181eeb44243
 --- !u!222 &222775410921095056
 CanvasRenderer:
   m_ObjectHideFlags: 1

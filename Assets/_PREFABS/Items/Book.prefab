@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33517495411761610}
   - component: {fileID: 23455595481013590}
   - component: {fileID: 65930495780976068}
+  - component: {fileID: 114646401506153500}
+  - component: {fileID: 114618699803194448}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -93,3 +95,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009999999, y: 0.01, z: 0.009999999}
   m_Center: {x: 2.3283063e-10, y: -2.3283064e-10, z: -2.3283063e-10}
+--- !u!114 &114618699803194448
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372825450491204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: fd0cde69-b251-4180-a48f-d3024706a438
+--- !u!114 &114646401506153500
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372825450491204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1372825450491204}
+  _assetGuid: d142325885b8fd848863d9892a23e2d0
