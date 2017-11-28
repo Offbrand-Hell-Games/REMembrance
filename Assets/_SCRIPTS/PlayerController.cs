@@ -75,6 +75,14 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
+        /* Check if the player has gotten out-of-bounds (only checking vertical for now) */
+        if (transform.position.y < -10f)
+        {
+            /* Player is out-of-bounds, trigger death and respawn */
+            Die();
+            return;
+        }
+
 		float inputHorizontal = Input.GetAxisRaw("Horizontal");
 		float inputVertical = Input.GetAxisRaw("Vertical");
 		float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
