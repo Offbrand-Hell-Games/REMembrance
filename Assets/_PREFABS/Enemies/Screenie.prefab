@@ -1428,7 +1428,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1404061125586704}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0.175}
+  m_LocalPosition: {x: 0, y: 1, z: 0.175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4048436971851814}
@@ -2293,12 +2293,12 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0.791, b: 0.878, a: 1}
-  m_Intensity: 2
+  m_Intensity: 15
   m_Range: 10
   m_SpotAngle: 90
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2312,7 +2312,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -2337,12 +2337,14 @@ MonoBehaviour:
   TARGETING_PLAYER_AUDIO: {fileID: 8300000, guid: f7065f16ec1eea041b37976600061092,
     type: 3}
   MIN_DISTANCE: 0.25
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
+  PATROL_START: {fileID: 0}
+  SPEED_DEFAULT: 5
+  SPEED_TARGETING_PLAYER: 8
+  NEST: {fileID: 0}
   ENEMY_IDLE_TIME: 2
   MEMENTO_SEARCH_RADIUS: 3
   DELAY_BEFORE_TAKING_FROM_LINKED_NEST: 15
-  PATROL_START: {fileID: 0}
-  NEST: {fileID: 0}
   visionLight: {fileID: 0}
 --- !u!114 &114987219505750662
 MonoBehaviour:
@@ -2436,13 +2438,13 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.25
   m_Speed: 6
-  m_Acceleration: 5
+  m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.25
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 1

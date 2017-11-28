@@ -16,8 +16,10 @@ public class EnemyController : MonoBehaviour {
         TargetingMemento,
         TransportingMemento
     }
-    private EnemyState _enemyState;
+    private EnemyState _enemyState; /* The current state enemy is in */
+    private EnemyState _previousState; /* Previous state enemy was in. Used to resume a patrol after idling */
 
+    /****************************** Player Detection ******************************/
     public float FOV_CONE_LENGTH = 10.0f; /* Maximum distance raycast should travel */
     public float FOV_CONE_RADIUS = 30.0f; /* Maximum angle between enemy's forward vector and the player */
     public float FOV_RADIUS = 3.0f; /* Radius around enemy to detect player */
@@ -25,32 +27,37 @@ public class EnemyController : MonoBehaviour {
 	private Color _neutralColor; /* Color of the vision light by default */
 	public AudioClip TARGETING_PLAYER_AUDIO; /* Audio clip to play when targeting the player */
 	private AudioClip _neutralAudio; /* Default audio clip */
+    private GameObject _player; /* Reference to the player gameObject */
+    private float _timeOnTargetPlayer; /* Time in seconds since game start that TargetingPlayer state was last entered */
+
+    /******************************* Patrol Settings ******************************/
     public float MIN_DISTANCE = 0.5f; /* Minimun distance before moving to next patrol point */
     public int PATROL_GROUP = 0; /* AI will only follow patrols in the assigned group */
-    public float ENEMY_IDLE_TIME = 2.0f; /* How long enemies should pause after losing track of the player or memento */
+    public PatrolPoint PATROL_START; /* Starting Patrol Point */
+    private PatrolPoint _patrolCurrent; /* The current patrol point */
+
+    /******************************* Memento Settings ******************************/
+    public float SPEED_DEFAULT = 5f;
+    public float SPEED_TARGETING_PLAYER = 8f;
+    public Nest NEST; /* Nest to take found mementos to */
+    private Memento _memento = null; /* Reference to the memento being held, if one exists */
+
+    /***************************** Movement Settings ******************************/
+    public float ENEMY_IDLE_TIME = 2.0f; /* How long enemies should pause after losing track of the player or memento, or reaching a patrol point */
     public float MEMENTO_SEARCH_RADIUS = 5.0f; /* Radius around enemy to detect dropped mementos */
     public float DELAY_BEFORE_TAKING_FROM_LINKED_NEST = 15.0f; /* Time to wait after a memento enters a linked nest before trying to steal it */
+    private float _timeOnEnterIdle; /* Time in seconds since game start that Idle state was last entered */
 
-    public PatrolPoint PATROL_START;
-    public Nest NEST;
-
-    private PatrolPoint _patrolCurrent;
-    private Memento _memento = null;
-    
-    private GameObject _player;
+    /*************************** GameObject Components ****************************/
     private NavMeshAgent _navAgent;
     private PatrolManager _patrolManager;
     private MementoUtils _mementoUtils;
     private GameInfo _gameInfo;
 	private Animator _animator;
-
-    private float _timeOnEnterIdle;
-    private float _timeOnTargetPlayer;
-    private EnemyState _previousState; /* Previous state enemy was in. Used to resume a patrol after idling */
-
     [HideInInspector]
     public Light visionLight;
-	private AudioSource _audioSource;
+    private AudioSource _audioSource;
+
 
 	/// <summary> Initializes required components </summary>
 	void Start () {
@@ -121,15 +128,6 @@ public class EnemyController : MonoBehaviour {
             Transporting Memento:
                 (P2) Collision With Memento Point -> Patrolling
         */
-
-		// 
-		// This is a solution to our extremely slide-y TV head friends. 
-		// - Jimmy
-		// speed up slowly, but stop quickly
-		// if (_navAgent.hasPath) {
-		// 	_navAgent.acceleration = (_navAgent.remainingDistance < .1f) ? 50f : 4f;
-
-		// }
 
         if (CanSeePlayer() && (_enemyState != EnemyState.Idle || Time.time - _timeOnTargetPlayer >= ENEMY_IDLE_TIME))
             SetTargetToPlayer();
@@ -381,14 +379,17 @@ public class EnemyController : MonoBehaviour {
 				_audioSource.Play();
 				_animator.SetBool("isTargetingPlayer", false);
                 _animator.SetBool("isIdle", true);
+                _navAgent.speed = SPEED_DEFAULT; // CB: Change the movement speed to match the state
                 break;
             case EnemyState.Patrolling:
                 _enemyState = EnemyState.Patrolling;
                 _animator.SetBool("isIdle", false);
+                _navAgent.speed = SPEED_DEFAULT; // CB: Change the movement speed to match the state
                 break;
             case EnemyState.TargetingMemento:
                 _enemyState = EnemyState.TargetingMemento;
                 _animator.SetBool("isIdle", false);
+                _navAgent.speed = SPEED_DEFAULT; // CB: Change the movement speed to match the state
                 break;
             case EnemyState.TargetingPlayer:
 			    _enemyState = EnemyState.TargetingPlayer;
@@ -397,10 +398,12 @@ public class EnemyController : MonoBehaviour {
 			    _audioSource.Play();
 			    _animator.SetBool("isTargetingPlayer", true);
                 _animator.SetBool("isIdle", false);
+                _navAgent.speed = SPEED_TARGETING_PLAYER; // CB: Change the movement speed to match the state
                 break;
             case EnemyState.TransportingMemento:
                 _enemyState = EnemyState.TransportingMemento;
                 _animator.SetBool("isIdle", false);
+                _navAgent.speed = SPEED_DEFAULT; // CB: Change the movement speed to match the state
                 break;
         }
     }
