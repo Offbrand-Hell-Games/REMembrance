@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114501357737454324}
   - component: {fileID: 114740218201072978}
   - component: {fileID: 114609230564829752}
+  - component: {fileID: 65530797807690508}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -75,6 +76,7 @@ GameObject:
   - component: {fileID: 114653997813781104}
   - component: {fileID: 114663703889372228}
   - component: {fileID: 114230601501258632}
+  - component: {fileID: 65111040766689900}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -247,6 +249,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300816127510010}
   m_Mesh: {fileID: 4300002, guid: 897767b21c9441c4b814284adea31b6a, type: 3}
+--- !u!65 &65111040766689900
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394723655548618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.1, z: 2}
+  m_Center: {x: 1, y: -0.05, z: 1}
+--- !u!65 &65530797807690508
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070771818792482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.1, z: 2}
+  m_Center: {x: 1, y: -0.05, z: 1}
 --- !u!114 &114207421068708444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,10 +289,8 @@ MonoBehaviour:
   _referenceCollection:
     _collection:
     - {fileID: 1186165909014784}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1070771818792482}
+    - {fileID: 1394723655548618}
   _assetGuid: 5df485d88a30afd4fb36d1a33129bcec
 --- !u!114 &114230601501258632
 MonoBehaviour:
@@ -327,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isConnected: 1
-  _guid: 
+  _guid: de9f79eb-6f87-48b4-82e5-7764a426ea97
   _referenceCollection:
     _collection:
     - {fileID: 1070771818792482}
@@ -356,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isConnected: 1
-  _guid: 
+  _guid: de17223c-4ed8-4ca1-aa6c-83d0c9b52f7b
   _referenceCollection:
     _collection:
     - {fileID: 1394723655548618}
