@@ -30,7 +30,16 @@ public class Blink_light : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             //turns light on and off
             spot_Light.enabled = !spot_Light.enabled;
-
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            spot_Light.enabled = !spot_Light.enabled;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+            spot_Light.enabled = !spot_Light.enabled;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
+            spot_Light.enabled = !spot_Light.enabled;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+            spot_Light.enabled = !spot_Light.enabled;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
+            spot_Light.enabled = !spot_Light.enabled;
         }
     }
 }
