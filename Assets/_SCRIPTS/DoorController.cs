@@ -77,6 +77,7 @@ public class DoorController : MonoBehaviour {
     /// <summary> A sendMessage reciever for openin and closing doors </summary>
     void ChangeDoorState()
     {
+        Debug.Log("Door: " + name + " recieved instruction to open.");
         touched = true;
     }
 }

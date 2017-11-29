@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float SPEED; 				//Player speed
     public float JUMP_THRUST = 1850; 	//Player jump thrust
 	public float JUMP_DURATION;			//Player jump duration
+    public float INTERACT_RADIUS = 2.5f; /* radius from the player to interact with doors */ // CB: Moved door interaction radius to a public variable
     public bool _isDashing = false;
     public Transform SAFEROOM_TRANSFORM;
 	
@@ -187,12 +188,12 @@ public class PlayerController : MonoBehaviour {
 			
             if (Input.GetButtonDown("Door"))
             {
-                StartCoroutine(OpenDoors(this.gameObject.transform.position, 2.5f));
+                StartCoroutine(OpenDoors(this.gameObject.transform.position, INTERACT_RADIUS));
             }
 			
 			if (Input.GetButtonDown("Drop"))
             {
-                StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
+                //StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f)); // CB: Dropping a memento shouldn't open doors
 				if(_memento != null)
                 {
 					DropMemento(); // CB: Moved memento dropping into one method
@@ -252,13 +253,14 @@ public class PlayerController : MonoBehaviour {
 	
     public IEnumerator OpenDoors(Vector3 center, float radius)
     {
+        //Debug.Log("Finding doors to open...");
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
         int i = 0;
         while (i < hitColliders.Length)
         {
             if (hitColliders[i].tag == "Door")
             {
-                //print(hitColliders[i].name);
+                //print("PlayerController: " + hitColliders[i].name + " sent message to open.");
                 hitColliders[i].SendMessage("ChangeDoorState");    
             }
             i++;
