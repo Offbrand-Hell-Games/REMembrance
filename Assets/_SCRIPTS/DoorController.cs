@@ -18,7 +18,7 @@ public class DoorController : MonoBehaviour {
     
     enum DoorStates { closed, open };
 	[SerializeField]
-	public float doorOpenSpeed = 1f;
+	public float doorOpenSpeed = 10f;
 
     //Two floats
     //closedRotation is the angle of the door intially

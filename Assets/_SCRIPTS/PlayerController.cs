@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour {
 			
             if (Input.GetButtonDown("Door"))
             {
-                StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f));
+                StartCoroutine(OpenDoors(this.gameObject.transform.position, 2.5f));
             }
 			
 			if (Input.GetButtonDown("Drop"))
