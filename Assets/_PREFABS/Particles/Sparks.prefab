@@ -112,7 +112,7 @@ Light:
   m_ShadowAngle: 0
 --- !u!114 &114041046181135078
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357787174021490}
@@ -124,7 +124,7 @@ MonoBehaviour:
   _guid: 7a251484-1fa2-46c5-a726-1393ba27611a
 --- !u!114 &114375512334171778
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357787174021490}
@@ -850,7 +850,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 4
+    m_BurstCount: 3
     m_Bursts:
     - time: 0
       minCount: 10
@@ -863,11 +863,6 @@ ParticleSystem:
       cycleCount: 1
       repeatInterval: 0.01
     - time: 2.25
-      minCount: 10
-      maxCount: 50
-      cycleCount: 1
-      repeatInterval: 0.01
-    - time: 3
       minCount: 10
       maxCount: 50
       cycleCount: 1
