@@ -67,7 +67,7 @@ public class PrefabActiveTogglePropertyLock : MonoBehaviour {
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
-            if (child.name.Contains(orientation))
+            if (child.name.Contains(orientation + "_"))
             {
                 if (child.name.Contains(WallType.Passable))
                     prefabProperty.passable = child.activeSelf;
@@ -92,7 +92,7 @@ public class PrefabActiveTogglePropertyLock : MonoBehaviour {
             for (int i = 0; i < transform.childCount; i++)
             {
                 GameObject child = transform.GetChild(i).gameObject;
-                if (child.name.Contains(prefabProperty.orientation))
+                if (child.name.Contains(prefabProperty.orientation + "_"))
                 {
                     if (child.name.Contains(WallType.Passable))
                         child.SetActive(prefabProperty.passable);
