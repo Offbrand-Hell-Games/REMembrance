@@ -11102,7 +11102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 1951407442}
 --- !u!4 &650604452
 Transform:
@@ -11305,7 +11305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 872236643}
 --- !u!4 &685087987
 Transform:
@@ -14688,7 +14688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 685087986}
 --- !u!1001 &875502959
 Prefab:
@@ -20856,6 +20856,11 @@ Prefab:
       propertyPath: NEST
       value: 
       objectReference: {fileID: 830555111}
+    - target: {fileID: 114750145056026992, guid: d8256feadb90702439c9707281c31d8a,
+        type: 2}
+      propertyPath: PATROL_GROUP
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8256feadb90702439c9707281c31d8a, type: 2}
   m_IsPrefabParent: 0
@@ -24823,6 +24828,11 @@ Prefab:
       propertyPath: m_WalkableMask
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114750145056026992, guid: d8256feadb90702439c9707281c31d8a,
+        type: 2}
+      propertyPath: PATROL_GROUP
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8256feadb90702439c9707281c31d8a, type: 2}
   m_IsPrefabParent: 0
@@ -25793,7 +25803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 2086134392}
 --- !u!4 &1643133846
 Transform:
@@ -29519,7 +29529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 650604451}
 --- !u!4 &1951407443
 Transform:
@@ -31274,7 +31284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09337277d001434e87be0d02fe6f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PATROL_GROUP: 1
+  PATROL_GROUP: 0
   NEXT: {fileID: 1643133845}
 --- !u!4 &2086134393
 Transform:
