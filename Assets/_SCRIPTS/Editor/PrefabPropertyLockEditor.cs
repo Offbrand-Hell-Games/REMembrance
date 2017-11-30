@@ -7,17 +7,34 @@ using UnityEditor;
 [CanEditMultipleObjects]
 public class PrefabPropertyLockEditor : Editor {
 
-    SerializedProperty ActiveStates;
+    PrefabPropertyLock t;
+    SerializedObject GetTarget;
+    SerializedProperty ThisList;
 
     public void OnEnable()
     {
-        ActiveStates = serializedObject.FindProperty("test");
+        t = (PrefabPropertyLock)target;
+        GetTarget = new SerializedObject(t);
+        ThisList = GetTarget.FindProperty("prefabProperties");
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        EditorGUILayout.PropertyField(ActiveStates);
-        serializedObject.ApplyModifiedProperties();
+
+        for (int i = 0; i < ThisList.arraySize; i++)
+        {
+            SerializedProperty prefabProperty = ThisList.GetArrayElementAtIndex(i);
+
+            EditorGUILayout.LabelField(t.prefabProperties[i].orientation);
+            EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(prefabProperty.FindPropertyRelative("passable"));
+            EditorGUILayout.PropertyField(prefabProperty.FindPropertyRelative("impassable"));
+            EditorGUILayout.PropertyField(prefabProperty.FindPropertyRelative("doorway"));
+            EditorGUILayout.PropertyField(prefabProperty.FindPropertyRelative("door"));
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+        }
+        GetTarget.ApplyModifiedProperties();
     }
 }
