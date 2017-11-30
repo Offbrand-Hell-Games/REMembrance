@@ -30,6 +30,7 @@ public class PrefsPaneManager : MonoBehaviour {
 				//prefs_ui.SetActive(false);
 				Cursor.visible = false;
 			} else {
+				prefs_container.SetActive(true);
 				pause_menu.SetActive (true);
 				//prefs_ui.SetActive(true);
 				Cursor.visible = true;
