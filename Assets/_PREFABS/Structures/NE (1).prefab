@@ -45,7 +45,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1051380987616422
 GameObject:
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4467071591430734}
   - component: {fileID: 114821352073599390}
   - component: {fileID: 114859023781735708}
+  - component: {fileID: 114539566192877900}
   m_Layer: 0
   m_Name: NE (1)
   m_TagString: Untagged
@@ -227,7 +228,7 @@ GameObject:
   - component: {fileID: 114045578807210088}
   m_Layer: 8
   m_Name: N_Wall_Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +448,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1736424956019224
 GameObject:
@@ -503,7 +504,7 @@ GameObject:
   - component: {fileID: 114673345864002450}
   m_Layer: 8
   m_Name: E_Wall_Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1739,8 +1740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e0c9bfbcb20c41b1473f04bc34727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  pivot: {fileID: 0}
+  door: {fileID: 1826029381632966}
+  pivot: {fileID: 1541251837430486}
   doorOpenSpeed: 10
 --- !u!114 &114067796468354564
 MonoBehaviour:
@@ -2115,6 +2116,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: 98949847-4dc0-4645-8137-2bc4c2a523f2
+--- !u!114 &114539566192877900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051380987616422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b9bde6fd4a4f048933b965df09295b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabProperties:
+  - orientation: N
+    passable: 0
+    impassable: 1
+    doorway: 0
+    door: 0
+  - orientation: E
+    passable: 0
+    impassable: 1
+    doorway: 0
+    door: 0
 --- !u!114 &114548489081132768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2293,8 +2316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e0c9bfbcb20c41b1473f04bc34727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  pivot: {fileID: 0}
+  door: {fileID: 1377680493617150}
+  pivot: {fileID: 1349950787164572}
   doorOpenSpeed: 10
 --- !u!114 &114794760906714154
 MonoBehaviour:

@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4762956903679812}
   - component: {fileID: 114379746786904036}
   - component: {fileID: 114326495807378520}
+  - component: {fileID: 114251176538825760}
   m_Layer: 0
   m_Name: E (1)
   m_TagString: Untagged
@@ -132,7 +133,7 @@ GameObject:
   - component: {fileID: 114065082312732872}
   - component: {fileID: 114303165939201746}
   m_Layer: 0
-  m_Name: Wall_Impassable
+  m_Name: E_Wall_Impassable
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +174,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1588398498587058
 GameObject:
@@ -187,7 +188,7 @@ GameObject:
   - component: {fileID: 114352120261496910}
   - component: {fileID: 114415010021701522}
   m_Layer: 8
-  m_Name: Wall_Doorway
+  m_Name: E_Wall_Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,8 +263,8 @@ GameObject:
   - component: {fileID: 65264599125172308}
   - component: {fileID: 114108108626895902}
   m_Layer: 8
-  m_Name: Wall_Door
-  m_TagString: Untagged
+  m_Name: E_Wall_Door
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +285,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1960901425481892
 GameObject:
@@ -299,7 +300,7 @@ GameObject:
   - component: {fileID: 114605938073311286}
   - component: {fileID: 114635422597588944}
   m_Layer: 8
-  m_Name: Wall_Passable
+  m_Name: E_Wall_Passable
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,6 +1136,23 @@ MonoBehaviour:
   m_Script: {fileID: 1491221649, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114251176538825760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185873773550792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b9bde6fd4a4f048933b965df09295b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabProperties:
+  - orientation: E
+    passable: 0
+    impassable: 1
+    doorway: 0
+    door: 0
 --- !u!114 &114272196969407750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1157,8 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e0c9bfbcb20c41b1473f04bc34727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  pivot: {fileID: 0}
+  door: {fileID: 1883158140532904}
+  pivot: {fileID: 1628525791806792}
   doorOpenSpeed: 10
 --- !u!114 &114303165939201746
 MonoBehaviour:

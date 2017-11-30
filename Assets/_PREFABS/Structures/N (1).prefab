@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 114905388401325238}
   m_Layer: 8
   m_Name: N_Wall_Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1390498300414308
 GameObject:
@@ -229,7 +229,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1663675757481248
 GameObject:
@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 4840299280791156}
   - component: {fileID: 114094938585508322}
   - component: {fileID: 114204979916001966}
+  - component: {fileID: 114564906528138674}
   m_Layer: 0
   m_Name: N (1)
   m_TagString: Untagged
@@ -1231,8 +1232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e0c9bfbcb20c41b1473f04bc34727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  pivot: {fileID: 0}
+  door: {fileID: 1218407066108506}
+  pivot: {fileID: 1597177139717478}
   doorOpenSpeed: 10
 --- !u!114 &114527842896006198
 MonoBehaviour:
@@ -1258,6 +1259,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: f2fa127d-91cd-48e5-a79a-17d2b3c59175
+--- !u!114 &114564906528138674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953341929271620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b9bde6fd4a4f048933b965df09295b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabProperties:
+  - orientation: N
+    passable: 0
+    impassable: 1
+    doorway: 0
+    door: 0
 --- !u!114 &114598792141470580
 MonoBehaviour:
   m_ObjectHideFlags: 1
