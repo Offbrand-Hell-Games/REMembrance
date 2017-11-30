@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// Author: Corwin Belser
-/// Allows properties to be added to a list, preventing them from being overriden
-///     when a prefab change is applied
+/// Allows active states to be stored for wall types in tile prefabs,
+///   preventing them from being overriden when the base prefab is updated
 [ExecuteInEditMode]
-public class PrefabPropertyLock : MonoBehaviour {
+public class PrefabActiveTogglePropertyLock : MonoBehaviour {
 
+    /// <summary>
+    /// string constants for doing string.Contains to find wall components for a given orientation
+    /// </summary>
     public static class Orientation
     {
         public const string North = "N";
@@ -16,6 +19,10 @@ public class PrefabPropertyLock : MonoBehaviour {
         public const string West = "W";
     }
 
+    /// <summary>
+    /// string constants for for doing string.Contains to find individual wall components
+    /// </summary>
+    /// <TODO> _Door will match both _Doorway & _Door</TODO>
     public static class WallType
     {
         public const string Passable = "_Passable";
@@ -24,6 +31,9 @@ public class PrefabPropertyLock : MonoBehaviour {
         public const string Door = "_Door";
     }
 
+    /// <summary>
+    /// Holds Active states of wall types for an orientation
+    /// </summary>
     [System.Serializable]
     public class PrefabProperty
     {
@@ -42,8 +52,13 @@ public class PrefabPropertyLock : MonoBehaviour {
                 + "\t" + "door: " + door.ToString() + "\r\n";
         }
     }
-    public PrefabProperty[] prefabProperties;
+    public PrefabProperty[] prefabProperties; /* Array of orientations present on the prefab */
 
+    /// <summary>
+    /// Creates a PrefabProperty for an orientation, setting the Active state of the wall components
+    /// </summary>
+    /// <param name="orientation"> The Orientation string const</param>
+    /// <returns></returns>
     private PrefabProperty ReadActiveState(string orientation)
     {
         PrefabProperty prefabProperty = new PrefabProperty();
@@ -56,17 +71,20 @@ public class PrefabPropertyLock : MonoBehaviour {
             {
                 if (child.name.Contains(WallType.Passable))
                     prefabProperty.passable = child.activeSelf;
-                if (child.name.Contains(WallType.Impassable))
+                else if (child.name.Contains(WallType.Impassable))
                     prefabProperty.impassable = child.activeSelf;
-                if (child.name.Contains(WallType.Doorway))
+                else if (child.name.Contains(WallType.Doorway))
                     prefabProperty.doorway = child.activeSelf;
-                if (child.name.Contains(WallType.Door))
+                else if (child.name.Contains(WallType.Door))
                     prefabProperty.door = child.activeSelf;
             }
         }
         return prefabProperty;
     }
 
+    /// <summary>
+    /// Overwrites the active states of wall components for all wall orientations
+    /// </summary>
     private void WriteActiveStates()
     {
         foreach (PrefabProperty prefabProperty in prefabProperties)
@@ -78,17 +96,20 @@ public class PrefabPropertyLock : MonoBehaviour {
                 {
                     if (child.name.Contains(WallType.Passable))
                         child.SetActive(prefabProperty.passable);
-                    if (child.name.Contains(WallType.Impassable))
+                    else if (child.name.Contains(WallType.Impassable))
                         child.SetActive(prefabProperty.impassable);
-                    if (child.name.Contains(WallType.Doorway))
+                    else if (child.name.Contains(WallType.Doorway))
                         child.SetActive(prefabProperty.doorway);
-                    if (child.name.Contains(WallType.Door))
+                    else if (child.name.Contains(WallType.Door))
                         child.SetActive(prefabProperty.door);
                 }
             }
         }
     }
 
+    /// <summary>
+    /// Initializes the prefabProperties variable, inserting a PrefabProperty instance for each instance found
+    /// </summary>
     public void SetupPrefabProperties()
     {
         /* Determine how many orientations are attached to this prefab */
@@ -127,15 +148,24 @@ public class PrefabPropertyLock : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Called when script is started. Initializes if not already
+    /// </summary>
     public void Start()
     {
         if (prefabProperties == null)
             SetupPrefabProperties();
     }
 
-    public void Update()
+    /// <summary>
+    /// Called from PrefabPropertyLockEditor when a change is made
+    /// </summary>
+    public void UpdateActiveStates()
     {
-        foreach (PrefabProperty prefabProperty in prefabProperties)
-            WriteActiveStates();
+        if (prefabProperties != null && prefabProperties.Length != 0)
+        {
+            foreach (PrefabProperty prefabProperty in prefabProperties)
+                WriteActiveStates();
+        }
     }
 }
