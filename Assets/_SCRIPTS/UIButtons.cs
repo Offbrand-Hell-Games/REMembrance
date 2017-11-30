@@ -65,4 +65,9 @@ public class UIButtons : MonoBehaviour {
 	public void CloseMenu(GameObject menu){
 		menu.SetActive(false);
 	}
+	
+	/// <summary> Hides the cursor. Used in conjuction with CloseMenu() when needed. </summary>
+	public void CursorInvisible(){
+		Cursor.visible = false;
+	}
 }
