@@ -930,6 +930,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0bfc7e4617e66c4aac7ffe6e66be764, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &646027542 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1653191878285540, guid: a57db25e79a684140ab42dfc7d72917f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416714443}
 --- !u!1001 &658930278
 Prefab:
   m_ObjectHideFlags: 0
@@ -1460,12 +1465,17 @@ Prefab:
         type: 2}
       propertyPath: SAFEROOM_TRANSFORM
       value: 
-      objectReference: {fileID: 1326485011}
+      objectReference: {fileID: 1157001241}
     - target: {fileID: 114619237954351182, guid: aefbf415c85ff44ada7f9e744b221114,
         type: 2}
       propertyPath: PortalVisualObject
       value: 
       objectReference: {fileID: 2118076438}
+    - target: {fileID: 114127566829324180, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: DASH_NOT_READY_ICON
+      value: 
+      objectReference: {fileID: 646027542}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
   m_IsPrefabParent: 0
@@ -1564,6 +1574,11 @@ Transform:
   m_Father: {fileID: 1474918987}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1157001241 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4787505832690822, guid: 6ffea52514a62e5449847c552caee31c,
+    type: 2}
+  m_PrefabInternal: {fileID: 109590250}
 --- !u!1 &1298390859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,11 +1654,6 @@ MonoBehaviour:
   minDistance: 0.003
   followCoefficient: 0.1
   target: {fileID: 1867492237}
---- !u!224 &1326485011 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224485584640442226, guid: a57db25e79a684140ab42dfc7d72917f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1416714443}
 --- !u!1001 &1353149165
 Prefab:
   m_ObjectHideFlags: 0

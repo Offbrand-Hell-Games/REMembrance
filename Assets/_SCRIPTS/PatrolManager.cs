@@ -25,10 +25,13 @@ public class PatrolManager : MonoBehaviour {
 
 		_enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, OnEnemySpeedChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, (_enemies[0].GetComponent<EnemyController>()).ENEMY_IDLE_TIME, OnEnemyPauseTimeChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, OnEnemySightLengthChanged);
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, OnEnemySightRadiusChanged);
+        if (_enemies != null && _enemies.Length != 0)
+        {
+		    PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Speed", 0f, 20f, (_enemies[0].GetComponent<UnityEngine.AI.NavMeshAgent>()).speed, OnEnemySpeedChanged);
+		    PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Pause Time (s)", 0f, 10f, (_enemies[0].GetComponent<EnemyController>()).ENEMY_IDLE_TIME, OnEnemyPauseTimeChanged);
+		    PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Length", 0f, 30, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_LENGTH, OnEnemySightLengthChanged);
+		    PrefsPaneManager.instance.AddLivePreferenceFloat("Enemy Sight Radius", 0f, 180f, (_enemies[0].GetComponent<EnemyController>()).FOV_CONE_RADIUS, OnEnemySightRadiusChanged);
+        }
 	}
 
 	/// <summary> Finds all enemies within a radius around the source position </summary>
