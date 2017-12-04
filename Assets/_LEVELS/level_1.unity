@@ -376,6 +376,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ffea52514a62e5449847c552caee31c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &139121225
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.049107425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.71867687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.69175917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.050609674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930208492328970, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 615e5738338b9c148b9860bb932bada9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &174374678
 Prefab:
   m_ObjectHideFlags: 0
@@ -1476,6 +1518,16 @@ Prefab:
       propertyPath: DASH_NOT_READY_ICON
       value: 
       objectReference: {fileID: 646027542}
+    - target: {fileID: 137282696913887288, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137282696913887288, guid: aefbf415c85ff44ada7f9e744b221114,
+        type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.02302885
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefbf415c85ff44ada7f9e744b221114, type: 2}
   m_IsPrefabParent: 0
@@ -1833,6 +1885,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
