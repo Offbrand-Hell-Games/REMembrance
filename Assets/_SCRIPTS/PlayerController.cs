@@ -73,6 +73,108 @@ public class PlayerController : MonoBehaviour {
 		TD_CAMERA.SetActive(true);
 	}
 
+    /*
+        CB: I've moved the code related to inputs into an Update.
+
+        This is to hopefully solve the dash and door not always working
+    */
+    void Update()
+    {
+        /* X-Ray Button Handler */
+        if (Input.GetButtonDown("Vision"))
+        {
+            /* The actual code for spawning an x-ray portal is in XRayPortalControl.cs */
+            if (_memento != null)
+            {
+                _memento.OnPlayerAbilityUsed();
+            }
+        }
+
+        /* Dash Button Handler */
+        if (dashReady && Input.GetButtonDown("Dash"))
+        {
+			GameObject trail = Instantiate (RemDashTrail, transform);
+			trail.SetActive (true);
+
+            if (_memento != null)
+            {
+                _memento.OnPlayerAbilityUsed();
+                /* This code shoots a raycast from the memento forward, attempting to check preemtively
+                 *  if the player is going to pass through a wall when dashing. This is needed to solve
+                 *  the issue where the memento is already in a collision with the wall when the dash
+                 *  occured, as the memento was not triggering a second collision.
+                 */
+                RaycastHit hitinfo;
+                Physics.Raycast(_memento.transform.position, this.transform.forward, out hitinfo, 1f);
+                if (hitinfo.collider.tag == "Wall")
+                {
+                    //Debug.Log("Preemptively dropping the memento");
+                    DropMemento();
+                }
+            }
+			_isDashing = true;
+
+            //Get "forward" and "right" from the perspective of the camera. Used by OTS Camera.
+			Vector3 cameraForward = OTS_CAMERA.transform.forward;
+			Vector3 cameraRight = OTS_CAMERA.transform.right;
+			cameraForward.y = 0f;
+			cameraRight.y = 0f;
+			cameraForward.Normalize();
+			cameraRight.Normalize();
+            float inputHorizontal = Input.GetAxisRaw("Horizontal");
+		    float inputVertical = Input.GetAxisRaw("Vertical");
+		    float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
+		    float inputRVertical = Input.GetAxisRaw("RVertical");
+			switch(_view)
+			{
+				case VIEW.OTS:
+					dashForce = cameraForward*inputVertical+cameraRight*inputHorizontal;
+					dashForce = dashForce.normalized;
+					break;
+				case VIEW.TD:
+					dashForce = new Vector3(inputHorizontal, 0, inputVertical);
+					dashForce = dashForce.normalized;
+					break;
+			}
+			_audioSource.Play (); /* Play the dashing audio clip */
+            dashReady = false; // CB: Added this back, as it is used to determine if the player is allowed to dash, not just if the effects have ended
+			StartCoroutine(StopDashEffects());
+			DASH_NOT_READY_ICON.SetActive(true);
+			StartCoroutine(DashCountdown());
+		}
+			
+        /* Interact Button Handler */
+        if (Input.GetButtonDown("Door"))
+        {
+            StartCoroutine(OpenDoors(this.gameObject.transform.position, INTERACT_RADIUS));
+        }
+			
+        /* Drop Button Handler */
+		if (Input.GetButtonDown("Drop"))
+        {
+            //StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f)); // CB: Dropping a memento shouldn't open doors
+			if(_memento != null)
+            {
+				DropMemento(); // CB: Moved memento dropping into one method
+            }
+        }
+        
+        /* Reload Button Handler */
+        if(Input.GetKeyDown("r"))
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+
+        /* Camera Toggle Button Handler */
+		if(Input.GetKeyDown("v"))
+		{
+			if(_view == VIEW.OTS)
+				EnterViewTD();
+			else
+				EnterViewOTS();
+		}
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -134,93 +236,12 @@ public class PlayerController : MonoBehaviour {
 				}
 				break;
 			}
-			
-            if (Input.GetButtonDown("Vision"))
-            {
-                if (_memento != null)
-                {
-                    _memento.OnPlayerAbilityUsed();
-                }
-//				xRayVisionA.SetActive (!xRayVisionA.activeSelf);
-//				xRayVisionB.SetActive (!xRayVisionB.activeSelf);
-//                StartCoroutine(FadeWalls(this.gameObject.transform.position, 5.0f));
-            }
-
-            if (dashReady && Input.GetButtonDown("Dash"))
-            {
-				GameObject trail = Instantiate (RemDashTrail, transform);
-				trail.SetActive (true);
-
-                if (_memento != null)
-                {
-                    _memento.OnPlayerAbilityUsed();
-                    /* This code shoots a raycast from the memento forward, attempting to check preemtively
-                     *  if the player is going to pass through a wall when dashing. This is needed to solve
-                     *  the issue where the memento is already in a collision with the wall when the dash
-                     *  occured, as the memento was not triggering a second collision.
-                     */
-                    RaycastHit hitinfo;
-                    Physics.Raycast(_memento.transform.position, this.transform.forward, out hitinfo, 1f);
-                    if (hitinfo.collider.tag == "Wall")
-                    {
-                        //Debug.Log("Preemptively dropping the memento");
-                        DropMemento();
-                    }
-                }
-				_isDashing = true;
-				switch(_view)
-				{
-					case VIEW.OTS:
-						dashForce = cameraForward*inputVertical+cameraRight*inputHorizontal;
-						dashForce = dashForce.normalized;
-						break;
-					case VIEW.TD:
-						dashForce = new Vector3(inputHorizontal, 0, inputVertical);
-						dashForce = dashForce.normalized;
-						break;
-				}
-				_audioSource.Play (); /* Play the dashing audio clip */
-                dashReady = false; // CB: Added this back, as it is used to determine if the player is allowed to dash, not just if the effects have ended
-				StartCoroutine(StopDashEffects());
-				DASH_NOT_READY_ICON.SetActive(true);
-				StartCoroutine(DashCountdown());
-			}
-			
-            if (Input.GetButtonDown("Door"))
-            {
-                StartCoroutine(OpenDoors(this.gameObject.transform.position, INTERACT_RADIUS));
-            }
-			
-			if (Input.GetButtonDown("Drop"))
-            {
-                //StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f)); // CB: Dropping a memento shouldn't open doors
-				if(_memento != null)
-                {
-					DropMemento(); // CB: Moved memento dropping into one method
-                }
-            }
         }
         else
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), true);
             _rb.AddForce(dashForce * JUMP_THRUST);
         }
-		
-		
-		
-		
-		if(Input.GetKeyDown("r"))
-		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
-		if(Input.GetKeyDown("v"))
-		{
-			if(_view == VIEW.OTS)
-				EnterViewTD();
-			else
-				EnterViewOTS();
-		}
-
     }
 
     public IEnumerator FadeWalls(Vector3 center, float radius)
