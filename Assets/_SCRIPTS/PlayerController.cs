@@ -33,10 +33,6 @@ public class PlayerController : MonoBehaviour {
 	
 	public GameObject OTS_CAMERA;
 	public GameObject TD_CAMERA;
-
-	public GameObject xRayVisionA;
-	public GameObject xRayVisionB;
-
 	public GameObject RemDashTrail;
 	
 	public GameObject REM_MODEL;
