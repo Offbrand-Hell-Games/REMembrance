@@ -26,6 +26,7 @@ public class Memento : MonoBehaviour {
     private GameInfo _gameInfo;
     private MementoUtils _mementoUtils;
     private Transform _transformToFollow; // CB: The target transform to move this memento to
+    private MeshRenderer _meshRenderer; // CB: The meshRenderer that renders through walls
 	
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,7 @@ public class Memento : MonoBehaviour {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         _gameInfo = GameObject.Find("GameManager").GetComponent<GameInfo>();
         _mementoUtils = GameObject.Find("GameManager").GetComponent<MementoUtils>();
+        _meshRenderer = GetComponent<MeshRenderer>();
     }
 	
 	// Update is called once per frame
@@ -74,8 +76,11 @@ public class Memento : MonoBehaviour {
             // Update the UI
             _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
         }
-		
+
+        /* Toggle the rendering through walls depending on visibility of the memento */
+        CheckAndToggleVisibility();
 	}
+
     void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("<color=pink>Memento collided with: " + collision.gameObject.name + "</color>");
@@ -151,6 +156,51 @@ public class Memento : MonoBehaviour {
         _mementoUtils.OnMementoPulse(this.gameObject, true);
         //Update UI
         _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
+    }
+
+    /// <summary>
+    /// Checks if the memento can be seen by the current camera. If so,
+    ///   turns off the meshRenderer component to stop rendering through walls.
+    ///   Otherwise, turns the meshRenderer on.
+    /// </summary>
+    private void CheckAndToggleVisibility()
+    {
+        /* Check if the memento is in the camera's frustrum */
+        Vector3 positionRelativeToViewport = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (positionRelativeToViewport.z > 0 && positionRelativeToViewport.x > 0 && positionRelativeToViewport.x < 1 && positionRelativeToViewport.y > 0 && positionRelativeToViewport.y < 1)
+        {
+            /* Check if the memento is currently obstructed from view */
+            Vector3 direction = this.transform.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
+            RaycastHit hitInfo;
+            float maxDistance = Mathf.Abs(Vector3.Distance(transform.position, Camera.main.transform.position));
+
+            Debug.DrawRay(Camera.main.transform.position, direction);
+
+            RaycastHit[] hits = Physics.RaycastAll(Camera.main.transform.position, direction, maxDistance);
+
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.collider.tag == "Wall" || hit.collider.tag == "Door")
+                    {
+                        _meshRenderer.enabled = true;
+                        return;
+                    }
+                    if (hit.collider.tag == "Memento")
+                    {
+                        _meshRenderer.enabled = false;
+                        return;
+                    }
+                }
+            }
+        }
+        else /* The memento cannot be seen. Make sure it's rendering through walls */
+        {
+            _meshRenderer.enabled = true;
+        }
+
     }
 
 }
