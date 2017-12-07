@@ -4,7 +4,7 @@ Shader "Sprites/Custom/SpriteMasked"
 {
 	Properties
 	{
-		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
+		_MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 	}
@@ -29,9 +29,9 @@ Shader "Sprites/Custom/SpriteMasked"
 		Pass
 	{
 			Stencil{
-			Ref 1
-			Comp NotEqual
-			Pass replace
+			Ref 0
+			Comp Equal
+			Pass IncrSat
 		}
 
 		CGPROGRAM
