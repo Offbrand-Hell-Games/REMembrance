@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 4252118813874256}
   - component: {fileID: 108108101011354126}
   - component: {fileID: 114769873906752184}
+  - component: {fileID: 114931405842344626}
   m_Layer: 12
   m_Name: vision_light
   m_TagString: EnemyVisionLight
@@ -1849,6 +1850,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: cb3ed562-f82c-43f6-a18e-7c59bc37cab5
+--- !u!114 &114931405842344626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404061125586704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd14db59b685b43a9d1b6a000ec04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot_Light: {fileID: 0}
+  minWaitTime: 0.5
+  maxWaitTime: 2.5
 --- !u!114 &114962905925067910
 MonoBehaviour:
   m_ObjectHideFlags: 1
