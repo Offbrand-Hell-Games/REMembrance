@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 290947af38e1b4dc9a6ef605576fdf99
-timeCreated: 1512345537
+timeCreated: 1512764775
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -526,9 +526,44 @@ ModelImporter:
     skeleton:
     - name: REM(Clone)
       parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: imagePlane1
+      parentName: REM(Clone)
+      position: {x: -0, y: -0.11099054, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 12.442773, y: 12.442773, z: 12.442773}
+    - name: imagePlane2
+      parentName: REM(Clone)
+      position: {x: -0, y: 0.0544325, z: 0.03770827}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 12.0187025, y: 12.0187025, z: 12.0187025}
+    - name: REM_blanket:Blanket
+      parentName: REM(Clone)
+      position: {x: -0.006879511, y: 0.6279331, z: -0.013848953}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: REM_blanket:Blanket_Master_Group
+      parentName: REM_blanket:Blanket
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: REM_blanket:Blanket 1
+      parentName: REM_blanket:Blanket_Master_Group
+      position: {x: 3.5489001, y: 7.1161346, z: -19.616747}
+      rotation: {x: -0.6304906, y: 0, z: -0, w: 0.7761969}
+      scale: {x: 93.32649, y: 93.32649, z: 93.32649}
+    - name: REM_blanket:imagePlane1
+      parentName: REM(Clone)
+      position: {x: -0, y: -0.11099054, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 12.442773, y: 12.442773, z: 12.442773}
+    - name: REM_blanket:imagePlane2
+      parentName: REM(Clone)
+      position: {x: -0, y: 0.0544325, z: 0.03770827}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 12.0187025, y: 12.0187025, z: 12.0187025}
     - name: Rem_Master_Group
       parentName: REM(Clone)
       position: {x: -0.0009155062, y: 0.56148636, z: -0.025729924}
@@ -569,15 +604,15 @@ ModelImporter:
       position: {x: -0.004237976, y: 0.09740053, z: 0.0005626011}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: REM 1
+    - name: REM
       parentName: REM_Buffer
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
       parentName: Rem_Master_Group
-      position: {x: 0.0009155062, y: -0.08915564, z: 0.025729924}
-      rotation: {x: 0.089805596, y: 0, z: -0, w: 0.99595934}
+      position: {x: 0.0009155062, y: -0.089155614, z: 0.025729924}
+      rotation: {x: 0.089805596, y: -0, z: -0, w: 0.99595934}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftUpLeg
       parentName: Hips
@@ -592,7 +627,7 @@ ModelImporter:
     - name: LeftFoot
       parentName: LeftLeg
       position: {x: -1.0112155e-15, y: 0.2623458, z: 7.340968e-17}
-      rotation: {x: 0.7464425, y: 0, z: -0, w: 0.6654499}
+      rotation: {x: 0.7464425, y: 0, z: 0, w: 0.6654499}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftFootEnd
       parentName: LeftFoot
@@ -612,7 +647,7 @@ ModelImporter:
     - name: RightFoot
       parentName: RightLeg
       position: {x: -2.552247e-14, y: 0.26328018, z: -1.2354281e-16}
-      rotation: {x: 0.7463066, y: 0, z: -0, w: 0.6656023}
+      rotation: {x: 0.7463066, y: 0, z: 0, w: 0.6656023}
       scale: {x: 1, y: 1, z: 1}
     - name: RightFootEnd
       parentName: RightFoot
@@ -632,22 +667,22 @@ ModelImporter:
     - name: Neck
       parentName: Spine_1
       position: {x: 1.7480995e-17, y: 0.11401754, z: 1.265849e-17}
-      rotation: {x: 0.13273315, y: 0, z: -0, w: 0.9911518}
+      rotation: {x: 0.13273315, y: -0, z: -0, w: 0.9911518}
       scale: {x: 1, y: 1, z: 1}
     - name: RightArm
       parentName: Neck
       position: {x: 0.11, y: -0.03, z: -1.8666569e-16}
-      rotation: {x: 0, y: 0, z: -0.700423, w: 0.713728}
+      rotation: {x: 0, y: -0, z: -0.700423, w: 0.713728}
       scale: {x: 1, y: 1, z: 1}
     - name: RightForeArm
       parentName: RightArm
       position: {x: 4.4408918e-17, y: 0.16946399, z: -8.644358e-18}
-      rotation: {x: 0, y: 0, z: -0.019727401, w: 0.9998054}
+      rotation: {x: 0, y: -0, z: -0.019727401, w: 0.9998054}
       scale: {x: 1, y: 1, z: 1}
     - name: RightHand
       parentName: RightForeArm
       position: {x: 4.9863093e-16, y: 0.16031219, z: 1.441149e-16}
-      rotation: {x: 0, y: 0, z: -0.0029739807, w: 0.9999956}
+      rotation: {x: 0, y: -0, z: -0.0029739807, w: 0.9999956}
       scale: {x: 1, y: 1, z: 1}
     - name: RightHandEnd
       parentName: RightHand
@@ -677,12 +712,12 @@ ModelImporter:
     - name: LeftHand
       parentName: LeftForeArm
       position: {x: 9.7890254e-17, y: 0.16031219, z: 6.4360438e-18}
-      rotation: {x: 0, y: 0, z: -0.03120434, w: 0.99951303}
+      rotation: {x: 0, y: -0, z: -0.03120434, w: 0.99951303}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftHandENd
       parentName: LeftHand
       position: {x: -2.1249678e-17, y: 0.08598125, z: 9.535205e-17}
-      rotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -694,9 +729,9 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: be060eb84235a4cec8096d0710bd7c6e,
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f04f2faac096e714cabf5a93d02fa224,
     type: 3}
   animationType: 3
   humanoidOversampling: 1
