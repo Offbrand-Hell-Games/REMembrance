@@ -6,7 +6,7 @@
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 	}
 	SubShader {
-//		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Opaque" }
 		LOD 200
 		Stencil {
                 Ref 1
