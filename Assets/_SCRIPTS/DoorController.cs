@@ -48,6 +48,7 @@ public class DoorController : MonoBehaviour {
             float currentRotation = door.transform.localEulerAngles.y;
             if (touched)
             {
+                Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), true);
                 if (doorState == DoorStates.closed)
                 {
                     door.transform.RotateAround(pivot.transform.position, Vector3.up, doorOpenSpeed);
@@ -56,6 +57,7 @@ public class DoorController : MonoBehaviour {
                     {
                         touched = false;
                         doorState = DoorStates.open;
+                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), false);
                     }
                     //
                 }
@@ -66,6 +68,7 @@ public class DoorController : MonoBehaviour {
                     {
                         touched = false;
                         doorState = DoorStates.closed;
+                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), false);
                     }
                 }
 

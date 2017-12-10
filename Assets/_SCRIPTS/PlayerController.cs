@@ -189,6 +189,7 @@ public class PlayerController : MonoBehaviour {
         if (_isDashing == false)
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), false);
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), false);
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), false);
 			
 			//Get "forward" and "right" from the perspective of the camera. Used by OTS Camera.
@@ -236,6 +237,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), true);
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), true);
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), true);
             _rb.AddForce(dashForce * JUMP_THRUST);
         }
