@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 124869651656943782}
   - component: {fileID: 81830055303848768}
   - component: {fileID: 114347871201412452}
+  - component: {fileID: 114217729179429242}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -62,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1454515088166068
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ Camera:
   m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4293967871
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -306,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDistance: 0.003
-  followCoefficient: 0.1
+  followCoefficient: 0.16
   target: {fileID: 0}
 --- !u!114 &114091142968672260
 MonoBehaviour:
@@ -320,6 +321,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: af49c256-51c7-4db9-be71-1a05b30c0a58
+--- !u!114 &114217729179429242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203627059797158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 73249492f0e8f6643a6a0b801d8a65ec, type: 2}
 --- !u!114 &114347871201412452
 MonoBehaviour:
   m_ObjectHideFlags: 1
