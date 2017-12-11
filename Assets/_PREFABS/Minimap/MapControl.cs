@@ -34,9 +34,7 @@ public class MapControl : MonoBehaviour {
 				}
 			}
 		}
-
-		Debug.Log (map_position);
-
+		
 		_x = Mathf.Abs(cam.rect.x);
 		if (map_position == 0) {
 			_x = 0f;

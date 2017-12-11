@@ -34,7 +34,6 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
 	void Start(){
 		wrapper = anchor.parent;
-		Debug.Log ("wha");
 	}
 
 	void FixedUpdate()
@@ -46,7 +45,6 @@ public class SmoothFollowOTS_Jim : MonoBehaviour
 			float inputRYAxis = Input.GetAxisRaw ("RVertical");
 		
 			float rotation_step = _cameraTurnRate * Time.deltaTime;
-			Debug.Log (wrapper);
 			wrapper.RotateAround (player.position, Vector3.up, inputRXAxis * rotation_step);
 			wrapper.RotateAround (player.position, wrapper.right, -1f * inputRYAxis * rotation_step);
 //			Debug.LogWarning (wrapper.localRotation);
