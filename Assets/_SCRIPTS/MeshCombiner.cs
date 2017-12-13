@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 /// Author: Corwin Belser
@@ -28,8 +29,8 @@ public class MeshCombiner : MonoBehaviour {
         }
         Debug.Log("Combining meshes for " + room.name);
 
-        /* Group them by Mesh, creating groups of same meshes */
-        IEnumerable<IGrouping<string, GameObject>> meshGroups = meshFilters.GroupBy(mf => mf.sharedMesh.name, mf => mf.gameObject);
+        /* Group them by name, creating groups of same meshes */
+        IEnumerable<IGrouping<string, GameObject>> meshGroups = meshFilters.GroupBy(mf => mf.name, mf => mf.gameObject);
 
         foreach (IGrouping<string, GameObject> meshGroup in meshGroups)
         {
@@ -75,6 +76,8 @@ public class MeshCombiner : MonoBehaviour {
         master.GetComponent<MeshFilter>().mesh = new Mesh();
         master.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         master.GetComponent<MeshRenderer>().material = material;
+        GameObjectUtility.SetStaticEditorFlags(master, StaticEditorFlags.OccluderStatic);
+        GameObjectUtility.SetStaticEditorFlags(master, StaticEditorFlags.BatchingStatic);
         master.transform.SetParent(room.transform);
         master.SetActive(true);
     }
