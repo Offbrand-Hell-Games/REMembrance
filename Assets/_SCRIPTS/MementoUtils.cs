@@ -11,11 +11,10 @@ public class MementoUtils : MonoBehaviour {
 	public GameObject PULSE_EFFECT;
 	public Slider MEMENTO_SLIDER;
 
-	public static float PULSE_TIME = 15.0f;
     public static float PULSE_DELAY_AMOUNT = 1.0f;
     public static float MEMENTO_PULSE_RADIUS = 25.0f;
     public static float PLAYER_PULSE_RADIUS = 7.5f;
-    public float PULSE_SPEED = 20f;
+    public float PULSE_TIME = 20f;
 
 	private GameObject[] _mementos;
 	private PatrolManager _patrolManager;
@@ -25,7 +24,7 @@ public class MementoUtils : MonoBehaviour {
 		_mementos = GameObject.FindGameObjectsWithTag("Memento");
 		_patrolManager = GameObject.Find("GameManager").GetComponent<PatrolManager>();
 
-		PrefsPaneManager.instance.AddLivePreferenceFloat("Pulse Time", 0f, 120f, MementoUtils.PULSE_TIME, OnPulseTimeChanged);
+		PrefsPaneManager.instance.AddLivePreferenceFloat("Pulse Time", 0f, 120f, PULSE_TIME, OnPulseTimeChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Pulse Refill", 0f, 20f, MementoUtils.PULSE_DELAY_AMOUNT, OnPulseDelayChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Pulse Big Radius", 0f, 50f, MementoUtils.MEMENTO_PULSE_RADIUS, OnMementoPulseRadiusChanged);
 		PrefsPaneManager.instance.AddLivePreferenceFloat("Pulse Small Radius", 0f, 50f, MementoUtils.PLAYER_PULSE_RADIUS, OnPlayerPulseRadiusChanged);
@@ -72,7 +71,7 @@ public class MementoUtils : MonoBehaviour {
             /* CB: pulse now has its own script. We can set the max size and speed there */
             ScaleThenDestroy script = pulse.GetComponent<ScaleThenDestroy>();
             script.MAX_DISTANCE = radius;
-            script.EXPANSION_SPEED = PULSE_SPEED;
+            script.EXPANSION_SPEED = PULSE_TIME;
 		}
 		else
 		{
@@ -87,17 +86,16 @@ public class MementoUtils : MonoBehaviour {
 	///		Helper method for updating the UI pulse timer
 	/// </summary>
 	/// <param name="timeLeft"> float: the time remaining before a pulse </param>
-	/// <param name="totalTime"> float: the maximum value of the pulse timer </param>
-	public void UpdateMementoTimer(float timeLeft, float totalTime)
+	public void UpdateMementoTimer(float timeLeft)
 	{
-		MEMENTO_SLIDER.value = timeLeft / totalTime;
+        MEMENTO_SLIDER.value = timeLeft / PULSE_TIME;
 	}
 
 	/// <summary> Parameter Screen OnChange method for changing time before pulse</summary>
 	/// <param name="value"> float: the new value </param>
 	public void OnPulseTimeChanged(float value)
 	{
-		MementoUtils.PULSE_TIME = value;
+		PULSE_TIME = value;
 	}
 
 	/// <summary> Parameter Screen OnChange method for changing the time refunded when the player uses an ability</summary>

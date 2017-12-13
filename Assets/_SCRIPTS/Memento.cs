@@ -71,10 +71,10 @@ public class Memento : MonoBehaviour {
             if (_timeLeftBeforePulse <= 0.0f)
             {
                 _mementoUtils.OnMementoPulse(this.gameObject, false);
-                _timeLeftBeforePulse = MementoUtils.PULSE_TIME;
+                _timeLeftBeforePulse = _mementoUtils.PULSE_TIME;
             }
             // Update the UI
-            _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
+            _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse);
         }
 
         /* Toggle the rendering through walls depending on visibility of the memento */
@@ -150,12 +150,12 @@ public class Memento : MonoBehaviour {
     public void OnPlayerAbilityUsed()
     {
         _timeLeftBeforePulse += MementoUtils.PULSE_DELAY_AMOUNT;
-        if (_timeLeftBeforePulse > MementoUtils.PULSE_TIME)
-            _timeLeftBeforePulse = MementoUtils.PULSE_TIME;
+        if (_timeLeftBeforePulse > _mementoUtils.PULSE_TIME)
+            _timeLeftBeforePulse = _mementoUtils.PULSE_TIME;
 
         _mementoUtils.OnMementoPulse(this.gameObject, true);
         //Update UI
-        _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse, MementoUtils.PULSE_TIME);
+        _mementoUtils.UpdateMementoTimer(_timeLeftBeforePulse);
     }
 
     /// <summary>
