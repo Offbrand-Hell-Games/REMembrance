@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: 5f725c022696bfb4cb34f7e10b4b0205
-  m_OcclusionCullingData: {fileID: 36300000, guid: 2898133cb1d20e847b8642f73c34a7a9,
+    smallestOccluder: 1.75
+    smallestHole: 1
+    backfaceThreshold: 5
+  m_SceneGUID: 7ece9b5a82e91aa478c81cc300c99489
+  m_OcclusionCullingData: {fileID: 36300000, guid: 419a5a2ca7d874b23bc8d77227469ccd,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -244,6 +244,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2023981}
+  - component: {fileID: 2023982}
   m_Layer: 0
   m_Name: room_I
   m_TagString: Untagged
@@ -276,6 +277,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &2023982
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023980}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 8}
+  m_Center: {x: 3, y: 2, z: 4}
+  m_IsViewVolume: 1
 --- !u!1001 &2038350
 Prefab:
   m_ObjectHideFlags: 0
@@ -5892,6 +5903,15 @@ GameObject:
   m_PrefabParentObject: {fileID: 1241948147123894, guid: 1768fb93b5f294eb3933da26dd353952,
     type: 2}
   m_PrefabInternal: {fileID: 1160408456}
+--- !u!41 &246278063
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246278062}
+  m_Open: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1, y: 20, z: 1.1}
 --- !u!1001 &247724941
 Prefab:
   m_ObjectHideFlags: 0
@@ -6896,6 +6916,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 276248092}
+  - component: {fileID: 276248093}
   m_Layer: 0
   m_Name: hallway_B
   m_TagString: Untagged
@@ -6946,6 +6967,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &276248093
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276248091}
+  serializedVersion: 2
+  m_Size: {x: 20, y: 4, z: 6}
+  m_Center: {x: 10, y: 2, z: 3}
+  m_IsViewVolume: 1
 --- !u!1001 &278314407
 Prefab:
   m_ObjectHideFlags: 0
@@ -9633,6 +9664,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 405079698}
+  - component: {fileID: 405079699}
   m_Layer: 0
   m_Name: room_D
   m_TagString: Untagged
@@ -9662,6 +9694,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &405079699
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405079697}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 6}
+  m_Center: {x: 3, y: 2, z: 3}
+  m_IsViewVolume: 1
 --- !u!4 &407491877
 Transform:
   m_ObjectHideFlags: 0
@@ -12201,19 +12243,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.99998915
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.004669769
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
       propertyPath: m_RootOrder
@@ -12246,6 +12288,35 @@ Prefab:
         type: 2}
       propertyPath: near clip plane
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552511993004566, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552511993004566, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552511993004566, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552511993004566, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552511993004566, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20679761075157480, guid: 59500d2c9dae245db8e24b79bc1c9911,
+        type: 2}
+      propertyPath: far clip plane
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498389838397806, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59500d2c9dae245db8e24b79bc1c9911, type: 2}
@@ -12524,11 +12595,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4529144042810366, guid: 5df485d88a30afd4fb36d1a33129bcec,
     type: 2}
   m_PrefabInternal: {fileID: 524715524}
---- !u!1 &526203250 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1205643772490840, guid: 471e62c1f9d58884cba2d7a5c4fbe585,
-    type: 2}
-  m_PrefabInternal: {fileID: 1069098410}
 --- !u!1001 &529435186
 Prefab:
   m_ObjectHideFlags: 0
@@ -12588,6 +12654,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 529933381}
+  - component: {fileID: 529933382}
   m_Layer: 0
   m_Name: room_F
   m_TagString: Untagged
@@ -12624,6 +12691,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &529933382
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529933380}
+  serializedVersion: 2
+  m_Size: {x: 8, y: 4, z: 8}
+  m_Center: {x: 4, y: 2, z: 4}
+  m_IsViewVolume: 1
 --- !u!1001 &530509746
 Prefab:
   m_ObjectHideFlags: 0
@@ -21793,6 +21870,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 824299632}
+  - component: {fileID: 824299633}
   m_Layer: 0
   m_Name: room_H
   m_TagString: Untagged
@@ -21853,6 +21931,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &824299633
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824299631}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 4, z: 16}
+  m_Center: {x: 5, y: 2, z: 8}
+  m_IsViewVolume: 1
 --- !u!1 &824967590
 GameObject:
   m_ObjectHideFlags: 0
@@ -22183,11 +22271,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4529144042810366, guid: 5df485d88a30afd4fb36d1a33129bcec,
     type: 2}
   m_PrefabInternal: {fileID: 836068709}
---- !u!1 &841200220 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1652365537563006, guid: b16ec6bb9729d394ca3f509baa8552d3,
-    type: 2}
-  m_PrefabInternal: {fileID: 91389662}
 --- !u!1001 &841234455
 Prefab:
   m_ObjectHideFlags: 0
@@ -22759,6 +22842,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 858615944}
+  - component: {fileID: 858615945}
   m_Layer: 0
   m_Name: hallway_A
   m_TagString: Untagged
@@ -22800,6 +22884,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &858615945
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858615943}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 14}
+  m_Center: {x: 3, y: 2, z: 7}
+  m_IsViewVolume: 1
 --- !u!1 &860902115
 GameObject:
   m_ObjectHideFlags: 0
@@ -23452,7 +23546,7 @@ Prefab:
         type: 2}
       propertyPath: MESHES_TO_COMBINE.Array.data[0]
       value: 
-      objectReference: {fileID: 841200220}
+      objectReference: {fileID: 0}
     - target: {fileID: 114305312399752968, guid: 54cc092816c754f4a86aaee2fe5b479e,
         type: 2}
       propertyPath: MESHES_TO_COMBINE.Array.data[1]
@@ -23467,7 +23561,7 @@ Prefab:
         type: 2}
       propertyPath: MESHES_TO_COMBINE.Array.data[3]
       value: 
-      objectReference: {fileID: 526203250}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54cc092816c754f4a86aaee2fe5b479e, type: 2}
   m_IsPrefabParent: 0
@@ -32168,6 +32262,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1320583927}
+  - component: {fileID: 1320583928}
   m_Layer: 0
   m_Name: room_B
   m_TagString: Untagged
@@ -32200,6 +32295,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1320583928
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320583926}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 8}
+  m_Center: {x: 3, y: 2, z: 4}
+  m_IsViewVolume: 1
 --- !u!1001 &1322297934
 Prefab:
   m_ObjectHideFlags: 0
@@ -35485,6 +35590,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1487176627}
+  - component: {fileID: 1487176628}
   m_Layer: 0
   m_Name: room_C
   m_TagString: Untagged
@@ -35523,6 +35629,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1487176628
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487176626}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 12}
+  m_Center: {x: 3, y: 2, z: 6}
+  m_IsViewVolume: 1
 --- !u!1 &1487428045
 GameObject:
   m_ObjectHideFlags: 0
@@ -40559,6 +40675,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1807175555}
+  - component: {fileID: 1807175556}
   m_Layer: 0
   m_Name: room_E
   m_TagString: Untagged
@@ -40591,6 +40708,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1807175556
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1807175554}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 8}
+  m_Center: {x: 3, y: 2, z: 4}
+  m_IsViewVolume: 1
 --- !u!1001 &1809320141
 Prefab:
   m_ObjectHideFlags: 0
@@ -41058,6 +41185,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1846366456}
+  - component: {fileID: 1846366457}
   m_Layer: 0
   m_Name: hallway_C
   m_TagString: Untagged
@@ -41111,6 +41239,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1846366457
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1846366455}
+  serializedVersion: 2
+  m_Size: {x: 14, y: 4, z: 14}
+  m_Center: {x: -1, y: 2, z: 7}
+  m_IsViewVolume: 1
 --- !u!1 &1852893317
 GameObject:
   m_ObjectHideFlags: 0
@@ -44179,6 +44317,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1993186653}
+  - component: {fileID: 1993186654}
   m_Layer: 0
   m_Name: room_G
   m_TagString: Untagged
@@ -44211,6 +44350,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1993186654
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993186652}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 8}
+  m_Center: {x: 3, y: 2, z: 4}
+  m_IsViewVolume: 1
 --- !u!1001 &1993499012
 Prefab:
   m_ObjectHideFlags: 0
@@ -45490,6 +45639,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2057372314}
+  - component: {fileID: 2057372315}
   m_Layer: 0
   m_Name: hallway_D
   m_TagString: Untagged
@@ -45533,6 +45683,16 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &2057372315
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057372313}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 20}
+  m_Center: {x: 3, y: 2, z: 10}
+  m_IsViewVolume: 1
 --- !u!1 &2058574228
 GameObject:
   m_ObjectHideFlags: 0
@@ -47283,6 +47443,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2147056579}
+  - component: {fileID: 2147056580}
   m_Layer: 0
   m_Name: room_A
   m_TagString: Untagged
@@ -47312,3 +47473,13 @@ Transform:
   m_Father: {fileID: 1680332797}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &2147056580
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147056578}
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 6}
+  m_Center: {x: 3, y: 2, z: 3}
+  m_IsViewVolume: 1
