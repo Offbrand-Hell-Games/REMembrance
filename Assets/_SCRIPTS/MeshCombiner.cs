@@ -34,7 +34,7 @@ public class MeshCombiner : MonoBehaviour {
 
         foreach (IGrouping<string, GameObject> meshGroup in meshGroups)
         {
-            if (!MESHES_TO_IGNORE.Any(m => m.sharedMesh.name == meshGroup.Key))
+            if (!MESHES_TO_IGNORE.Any(m => m.name == meshGroup.Key))
                 CombineMeshes(meshGroup.ToArray(), room);
             else
                 Debug.Log("Ignoring mesh " + meshGroup.Key + " for mesh combination.");
