@@ -5,25 +5,47 @@ using UnityEngine;
 
 /// Author: Corwin Belser
 /// Combines the meshes of all instances for each gameObject provided
-public class CombineMeshes : MonoBehaviour {
+public class MeshCombiner : MonoBehaviour {
 
-    public GameObject[] MESHES_TO_COMBINE;
+    public GameObject[] ROOMS;
+    public MeshFilter[] MESHES_TO_IGNORE;
 
 	// Use this for initialization
 	void Start () {
-        /* I know...I know...This is not a good function call... */
-        /* Get a list of all game objects in the scene */
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-
-        foreach (GameObject objToMeshCombine in MESHES_TO_COMBINE)
+        foreach (GameObject room in ROOMS)
         {
-            /* Pass all gameObjects with a matching name to CombineMesh() */
-            CombineMesh(allObjects.Where(o => o.name == objToMeshCombine.name).ToArray());
+            LocateAndCombineMeshes(room);
         }
 	}
-	
-    private void CombineMesh( GameObject[] allGameObjectsWithMesh )
+
+    private void LocateAndCombineMeshes(GameObject room)
     {
+        /* Find all meshes in a single room */
+        MeshFilter[] meshFilters = room.GetComponentsInChildren<MeshFilter>(false);
+        if (meshFilters.Length == 0)
+        {
+            Debug.Log(room.name + " Had no MeshFilters to combine!");
+        }
+        Debug.Log("Combining meshes for " + room.name);
+
+        /* Group them by Mesh, creating groups of same meshes */
+        IEnumerable<IGrouping<string, GameObject>> meshGroups = meshFilters.GroupBy(mf => mf.sharedMesh.name, mf => mf.gameObject);
+
+        foreach (IGrouping<string, GameObject> meshGroup in meshGroups)
+        {
+            if (!MESHES_TO_IGNORE.Any(m => m.sharedMesh.name == meshGroup.Key))
+                CombineMeshes(meshGroup.ToArray(), room);
+            else
+                Debug.Log("Ignoring mesh " + meshGroup.Key + " for mesh combination.");
+        } 
+    }
+	
+    private void CombineMeshes( GameObject[] allGameObjectsWithMesh, GameObject room )
+    {
+        if (allGameObjectsWithMesh.Length == 0)
+        {
+            Debug.Log("CombineMeshes() was not given any meshes!");
+        }
         Debug.Log("Combining " + allGameObjectsWithMesh.Length + " meshes of " + allGameObjectsWithMesh[0].name);
 
         /* Get a reference to the material used by these gameObjects */
@@ -46,13 +68,14 @@ public class CombineMeshes : MonoBehaviour {
             meshFilters[i].gameObject.SetActive(false);
         }
 
-        /* Combine all the meshes to a single mesh, assigning it to the an Empty GameObject */
+        /* Combine all the meshes to a single mesh, assigning it to the parent gameObject */
         GameObject master = new GameObject(allGameObjectsWithMesh[0].name + "_MASTER_MESH");
         master.AddComponent<MeshFilter>();
         master.AddComponent<MeshRenderer>();
         master.GetComponent<MeshFilter>().mesh = new Mesh();
         master.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         master.GetComponent<MeshRenderer>().material = material;
+        master.transform.SetParent(room.transform);
         master.SetActive(true);
     }
 }
