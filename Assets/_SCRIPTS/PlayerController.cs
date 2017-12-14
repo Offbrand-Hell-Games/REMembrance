@@ -169,6 +169,19 @@ public class PlayerController : MonoBehaviour {
 			else
 				EnterViewOTS();
 		}
+
+        /* Load Next Level Button Handler */
+        if (Input.GetKeyDown("n"))
+        {
+            int nextBuildIndex = GameObject.Find("LevelLoader").GetComponent<SceneLoadingManager>().GetNextBuildIndex();
+            SceneManager.LoadScene(nextBuildIndex, LoadSceneMode.Single);
+        }
+
+        /* Load Final Level Button Handler */
+        if (Input.GetKeyDown("m"))
+        {
+            SceneManager.LoadScene(8, LoadSceneMode.Single);
+        }
     }
 
     // Update is called once per frame

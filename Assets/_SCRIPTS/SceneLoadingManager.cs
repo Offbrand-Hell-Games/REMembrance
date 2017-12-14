@@ -36,4 +36,9 @@ public class SceneLoadingManager : MonoBehaviour
         yield return new WaitForSeconds(LEVEL_LOAD_DELAY); // CB: Added a delay to allow player victory animation to play
         SceneManager.LoadScene(nextBuildIndex, LoadSceneMode.Single);
 	}
+
+    public int GetNextBuildIndex()
+    {
+        return nextBuildIndex;
+    }
 }
