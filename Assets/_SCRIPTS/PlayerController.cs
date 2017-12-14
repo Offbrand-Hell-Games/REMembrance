@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour {
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), false);
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), false);
-            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), false);
+            //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), false); // CB: Turning this off to stop slowing down the player
 			
 			//Get "forward" and "right" from the perspective of the camera. Used by OTS Camera.
 			Vector3 cameraForward = OTS_CAMERA.transform.forward;
@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour {
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), true);
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Door"), true);
-            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), true);
+            //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MementoCollider"), true); // CB: Turning this off to stop slowing down the player
             _rb.AddForce(dashForce * JUMP_THRUST);
         }
     }
