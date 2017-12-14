@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 /// Author: Corwin Belser
@@ -76,8 +75,6 @@ public class MeshCombiner : MonoBehaviour {
         master.GetComponent<MeshFilter>().mesh = new Mesh();
         master.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
         master.GetComponent<MeshRenderer>().material = material;
-        GameObjectUtility.SetStaticEditorFlags(master, StaticEditorFlags.OccluderStatic);
-        GameObjectUtility.SetStaticEditorFlags(master, StaticEditorFlags.BatchingStatic);
         master.transform.SetParent(room.transform);
         master.SetActive(true);
     }
