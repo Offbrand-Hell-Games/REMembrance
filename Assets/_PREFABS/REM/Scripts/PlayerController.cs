@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Rewired;
 
 [RequireComponent(typeof(CapsuleCollider), typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
+    public int REWIRED_PLAYERID = 0;    //used for controller mapping
+    private Player _player;             //used for controller mapping
     [SerializeField]
     private Rigidbody _rb;
     public float SPEED; 				//Player speed
@@ -39,6 +42,11 @@ public class PlayerController : MonoBehaviour {
 	public Animator REM_ANIMATOR;
 	private Animator FADE_TO_BLACK;
 
+
+    private void Awake()
+    {
+        _player = ReInput.players.GetPlayer(REWIRED_PLAYERID);   //controller mapping
+    }
 
     // Use this for initialization
     void Start()
@@ -77,7 +85,7 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         /* X-Ray Button Handler */
-        if (Input.GetButtonDown("Vision"))
+        if (_player.GetButtonDown("Xray"))
         {
             /* The actual code for spawning an x-ray portal is in XRayPortalControl.cs */
             if (_memento != null)
@@ -87,7 +95,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         /* Dash Button Handler */
-        if (dashReady && Input.GetButtonDown("Dash"))
+        if (dashReady && _player.GetButtonDown("Dash"))
         {
 			GameObject trail = Instantiate (RemDashTrail, transform);
 			trail.SetActive (true);
@@ -117,10 +125,10 @@ public class PlayerController : MonoBehaviour {
 			cameraRight.y = 0f;
 			cameraForward.Normalize();
 			cameraRight.Normalize();
-            float inputHorizontal = Input.GetAxisRaw("Horizontal");
-		    float inputVertical = Input.GetAxisRaw("Vertical");
-		    float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
-		    float inputRVertical = Input.GetAxisRaw("RVertical");
+            float inputHorizontal = _player.GetAxis("MoveHorizontal");
+		    float inputVertical = _player.GetAxis("MoveVertical");
+		    //float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
+		    //float inputRVertical = Input.GetAxisRaw("RVertical");
 			switch(_view)
 			{
 				case VIEW.OTS:
@@ -140,13 +148,13 @@ public class PlayerController : MonoBehaviour {
 		}
 			
         /* Interact Button Handler */
-        if (Input.GetButtonDown("Door"))
+        if (_player.GetButtonDown("Interact"))
         {
             StartCoroutine(OpenDoors(this.gameObject.transform.position, INTERACT_RADIUS));
         }
 			
         /* Drop Button Handler */
-		if (Input.GetButtonDown("Drop"))
+		if (_player.GetButtonDown("Pickup/Drop"))
         {
             //StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f)); // CB: Dropping a memento shouldn't open doors
 			if(_memento != null)
@@ -182,10 +190,10 @@ public class PlayerController : MonoBehaviour {
             return;
         }
 
-		float inputHorizontal = Input.GetAxisRaw("Horizontal");
-		float inputVertical = Input.GetAxisRaw("Vertical");
-		float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
-		float inputRVertical = Input.GetAxisRaw("RVertical");
+        float inputHorizontal = _player.GetAxis("MoveHorizontal");
+        float inputVertical = _player.GetAxis("MoveVertical");
+        //float inputRHorizontal = Input.GetAxisRaw("RHorizontal");
+		//float inputRVertical = Input.GetAxisRaw("RVertical");
         if (_isDashing == false)
         {
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("DashableWall"), false);
@@ -205,8 +213,13 @@ public class PlayerController : MonoBehaviour {
 				// Hotfix, Jimmy:
 				// I commented out "isMoving" becuase unty editory warns me the variable doesn't exist.
 			case VIEW.OTS:
-					//If the player presses W / Left analog up, the player should move forward relative to the camera.
-				Vector3 direction = cameraForward * inputVertical + cameraRight * inputHorizontal;
+                    //If the player presses W / Left analog up, the player should move forward relative to the camera.
+                    Debug.Log("camF" + cameraForward);
+                    Debug.Log("inV" + inputVertical);
+                    Debug.Log("camR" + cameraRight);
+                    Debug.Log("inH" + inputHorizontal);
+
+                    Vector3 direction = cameraForward * inputVertical + cameraRight * inputHorizontal;
 				direction = direction.normalized;
 				_rb.velocity = new Vector3 (SPEED * direction.x, 0, SPEED * direction.z);
 				if (direction != Vector3.zero) {

@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Rewired;
 
 public class OTSCamera3 : MonoBehaviour
 {
-	//	[SerializeField]
-	//	private float _cameraSpeed = 5f;	//The rate at which the camera moves forwards and backwards when following the player.
-	[SerializeField]
-	private float _cameraTurnRate = 10f; // The rate at which the camera rotates by the mouse/right analog stick.
+    //	[SerializeField]
+    //	private float _cameraSpeed = 5f;	//The rate at which the camera moves forwards and backwards when following the player.
+
+    public int REWIRED_PLAYERID = 0;    //used for controller mapping
+    public int REWIRED_PLAYERID_MOUSECAMERA = 1;    //used for controller mapping
+    private Player _player;             //used for controller mapping
+    private Player _player_mousecamera;             //used for controller mapping
+
+    [SerializeField]
+    private float _cameraTurnRate = 10f; // The rate at which the camera rotates by the mouse/right analog stick.
 	//
 	public float cam_speed_coefficient = .5f;
 
@@ -32,8 +39,15 @@ public class OTSCamera3 : MonoBehaviour
 	private float x = 0f;
 	private float y = 0f;
 
-	// Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
-	void Start(){
+
+    private void Awake()
+    {
+        _player = ReInput.players.GetPlayer(REWIRED_PLAYERID);   //controller mapping
+        _player_mousecamera = ReInput.players.GetPlayer(REWIRED_PLAYERID_MOUSECAMERA);   //controller mapping
+    }
+
+    // Move the Camera Holder to the target's position and move the camera to our selected offset from the holder.
+    void Start(){
 		Cursor.visible = false;
 	}
 
@@ -42,11 +56,24 @@ public class OTSCamera3 : MonoBehaviour
 		if (freezeCam) {
 //			Debug.Log ("Camera frozen/paused");
 		} else {
-			float inputRXAxis = Input.GetAxisRaw ("RHorizontal");
-			float inputRYAxis = Input.GetAxisRaw ("RVertical");
 
-			x += (inputRXAxis * _cameraTurnRate * Time.deltaTime);
-			y -= (inputRYAxis * _cameraTurnRate * Time.deltaTime);
+            float inputRXAxis = _player.GetAxis("CameraHorizontal");
+            float inputRYAxis = _player.GetAxis("CameraVertical");
+
+            // no input from joystick camera, look for mouse instead
+            if (inputRXAxis == 0 && inputRYAxis == 0)
+            {
+                inputRXAxis = _player_mousecamera.GetAxis("CameraHorizontal");
+                inputRYAxis = _player_mousecamera.GetAxis("CameraVertical");
+
+                x += (inputRXAxis * _cameraTurnRate * Time.deltaTime);
+                y -= (inputRYAxis * _cameraTurnRate * Time.deltaTime);
+            }
+            // joystick
+            else {
+                x += (inputRXAxis * _cameraTurnRate * 15.0f * Time.deltaTime);
+                y -= (inputRYAxis * _cameraTurnRate * 15.0f * Time.deltaTime);
+            }
 
 			if (y > _cameraVerticalMaxRotation) {
 				y = _cameraVerticalMaxRotation;

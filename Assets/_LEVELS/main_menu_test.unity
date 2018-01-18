@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -274,6 +274,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114924408322747586, guid: a7580286e47701247aa57f145ed7f1db,
+        type: 2}
+      propertyPath: options
+      value: 
+      objectReference: {fileID: 2027866651}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7580286e47701247aa57f145ed7f1db, type: 2}
   m_IsPrefabParent: 0
@@ -481,6 +486,7 @@ GameObject:
   - component: {fileID: 694577442}
   - component: {fileID: 694577441}
   - component: {fileID: 694577440}
+  - component: {fileID: 694577443}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -494,7 +500,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694577439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -517,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2050610513}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &694577442
@@ -533,6 +539,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694577443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694577439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAllRewiredGamePlayers: 0
+  useRewiredSystemPlayer: 0
+  rewiredPlayerIds: 00000000
+  usePlayingPlayersOnly: 0
+  moveOneElementPerAxisPress: 0
+  m_HorizontalAxis: UIHorizontal
+  m_VerticalAxis: UIVertical
+  m_SubmitButton: UISubmit
+  m_CancelButton: UICancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0
+  m_allowMouseInput: 1
+  m_allowMouseInputIfTouchSupported: 1
+  m_ForceModuleActive: 0
 --- !u!1 &769160545
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +882,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965141776}
+--- !u!1001 &994157724
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016379910797990, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8d05771ee2ea17143a57bcdf4fb870d3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1023240558
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +998,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1023240558}
+--- !u!114 &1043878072 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114457226833688084, guid: a7580286e47701247aa57f145ed7f1db,
+    type: 2}
+  m_PrefabInternal: {fileID: 57346718}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1165631821
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +1063,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -999,7 +1078,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1165631824}
+  m_TargetGraphic: {fileID: 1023240560}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1061,7 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 9
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1071,6 +1150,23 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 1165631821}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1865599393}
+          m_MethodName: MouseTriggerHovered
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1165631823}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1090,7 +1186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c39d9fc228cb44fa7a9454141691ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectsHighlight: 0
+  options: {fileID: 2027866651}
+  bgm: {fileID: 1043878072}
+  highlight: {fileID: 1865599389}
 --- !u!1 &1242194707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,7 +1553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c39d9fc228cb44fa7a9454141691ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectsHighlight: 1
+  options: {fileID: 0}
+  bgm: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!1 &2015579667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c39d9fc228cb44fa7a9454141691ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectsHighlight: 0
+  options: {fileID: 2027866651}
+  bgm: {fileID: 1043878072}
+  highlight: {fileID: 1865599389}
 --- !u!114 &2027866650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 9
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1565,6 +1667,23 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 2027866647}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1865599393}
+          m_MethodName: MouseTriggerHovered
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2027866651}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1593,7 +1712,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1608,7 +1727,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2027866652}
+  m_TargetGraphic: {fileID: 965141778}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1717,7 +1836,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1732,7 +1851,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2050610516}
+  m_TargetGraphic: {fileID: 162205198}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1794,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 9
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1804,6 +1923,23 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 2050610513}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1865599393}
+          m_MethodName: MouseTriggerHovered
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2050610515}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1823,7 +1959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c39d9fc228cb44fa7a9454141691ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectsHighlight: 0
+  options: {fileID: 2027866651}
+  bgm: {fileID: 1043878072}
+  highlight: {fileID: 1865599389}
 --- !u!1 &2114814761
 GameObject:
   m_ObjectHideFlags: 0
