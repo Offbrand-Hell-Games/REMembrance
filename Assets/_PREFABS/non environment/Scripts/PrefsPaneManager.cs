@@ -36,8 +36,9 @@ public class PrefsPaneManager : MonoBehaviour {
 				Cursor.visible = true;
 			}
 		}
-
-		OTS_camera.GetComponent<OTSCamera3> ().freezeCam = pause_menu.activeSelf;
+		//Commented out because we are using Cinemachine now
+		//We'll have to do this through Cinemachine now.
+		//OTS_camera.GetComponent<OTSCamera3> ().freezeCam = pause_menu.activeSelf;
 
 //		if (Input.GetKeyDown (KeyCode.I) && false) {
 //			GameObject newslider = Instantiate (slider_prefab);

@@ -214,10 +214,6 @@ public class PlayerController : MonoBehaviour {
 				// I commented out "isMoving" becuase unty editory warns me the variable doesn't exist.
 			case VIEW.OTS:
                     //If the player presses W / Left analog up, the player should move forward relative to the camera.
-                    Debug.Log("camF" + cameraForward);
-                    Debug.Log("inV" + inputVertical);
-                    Debug.Log("camR" + cameraRight);
-                    Debug.Log("inH" + inputHorizontal);
 
                     Vector3 direction = cameraForward * inputVertical + cameraRight * inputHorizontal;
 				direction = direction.normalized;
