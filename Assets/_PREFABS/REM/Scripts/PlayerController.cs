@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public float JUMP_DURATION;			//Player jump duration
     public float INTERACT_RADIUS = 2.5f; /* radius from the player to interact with doors */ // CB: Moved door interaction radius to a public variable
     public bool _isDashing = false;
+    public bool _held;
     public Transform SAFEROOM_TRANSFORM;
 	
 	public GameObject DASH_NOT_READY_ICON;
@@ -159,7 +160,17 @@ public class PlayerController : MonoBehaviour {
             //StartCoroutine(OpenDoors(this.gameObject.transform.position, 5.0f)); // CB: Dropping a memento shouldn't open doors
 			if(_memento != null)
             {
-				DropMemento(); // CB: Moved memento dropping into one method
+                if (_held == false)
+                {
+                    _memento.Bind(this.gameObject);
+                    _held = true;
+                }
+                else
+                {
+                    DropMemento(); // CB: Moved memento dropping into one method
+                    _held = false;
+                }
+                
             }
         }
         
@@ -374,10 +385,21 @@ public class PlayerController : MonoBehaviour {
         if (parent != null && parent.tag == "Memento" && Time.time - _timeReleasedMemento >= MEMENTO_PICKUP_COOLDOWN)
         {
             _memento = parent.gameObject.GetComponent<Memento>();
-            _memento.Bind(this.gameObject);
+            
         }
     }
 
+    
+
+    public void OnTriggerExit(Collider collision)
+    {
+        Transform parent = collision.gameObject.transform.parent;
+        if (parent != null && parent.tag == "Memento")
+        {
+            _memento = parent.gameObject.GetComponent<Memento>();
+
+        }
+    }
     public void OnMementoCollisionWithWall(Memento memento)
     {
         if (_memento == memento)
