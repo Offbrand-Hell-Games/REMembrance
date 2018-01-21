@@ -9,7 +9,7 @@ using UnityEditor;
 public class CreateFolderMenu {
 
     /* List of folders to create for the asset */
-    private static string[] _folders = { "Scripts", "Materials", "Imports", "Animations" };
+    private static string[] _folders = { "Scripts", "Materials", "Imports", "Animations", "Components" };
     
     /// <summary>
     /// Right-click in project view where asset should be created
@@ -32,8 +32,14 @@ public class CreateFolderMenu {
                     AssetDatabase.CreateFolder(assetFilePath, folder);
                 }
 
+                /* Create Textures folder under Materials */
+                AssetDatabase.CreateFolder(assetFilePath + "/Materials", "Textures");
+
                 /* Create a Readme file for the asset */
                 System.IO.File.CreateText(assetFilePath + "/Readme.txt");
+
+                /* Refresh the asset database to show the Readme file */
+                AssetDatabase.Refresh();
             }
         }
     }
