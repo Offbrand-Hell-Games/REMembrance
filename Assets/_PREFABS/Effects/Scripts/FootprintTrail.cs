@@ -48,6 +48,7 @@ public class FootprintTrail : MonoBehaviour {
         _spawnList[_spawnIndex].transform.rotation = this.transform.rotation;
 
         /* Make the footprint active */
+		_spawnList[_spawnIndex].SetActive(false);
         _spawnList[_spawnIndex].SetActive(true);
 
         /* Increment the index */
