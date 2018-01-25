@@ -72,6 +72,8 @@ Shader "FX/Ghosty Hologram Effect2" {
 //		float glitchPosClamped = step(0, glitchPos) * step(glitchPos, 0.2);// clamped segment of model
         _CurrHeight = -cos (6.28 * _GlitchTime * (o.vertex.z) + _Time.w * _TimeMod) * _WaveSize * step(o.vertex.z, .03);
         _CurrHeight += -cos (6.28 * _GlitchTime * (o.vertex.y) + _Time.w * _TimeMod) * _WaveSize * step(.03, o.vertex.z) * .2 * smoothstep(-.2, 0, o.vertex.y);
+        _CurrHeight *= step(o.vertex.z, .15)+ .1;
+        o.vertex.y -= .02 * step(.15, o.vertex.z);
 		o.vertex.x += _CurrHeight;// moving the vertices when glitchtime returns 1;
 //		o.debugline.y = step(-.1, o.vertex.y + sin(_Time.y) + _OptTime) * step(o.vertex.y+sin(_Time.y) +_OptTime, .1); 
 		o.texcoord = TRANSFORM_TEX(v.texcoord,_MainTex);

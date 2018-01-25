@@ -3,6 +3,7 @@ Properties
 {
 	_Color ("_Color", Color) = (0.5,0.5,0.5,0.5)
 	_Distortion("DistortionTexture", 2D) = "white" {}
+	_MainTexture("MainTexture", 2D) = "white" {}
 	_Depth ("Depth Fade Distance", Range(0.01,100.0)) = 1.0
 	_FadeLength("Fade Length", Float) = 1.0
 }
@@ -28,6 +29,7 @@ SubShader
 		float _Depth;
 		float _FadeLength;
 		sampler2D _Distortion;
+		sampler2D _MainTexture;
 		sampler2D _CameraDepthTexture;
 		float4 _CameraDepthTexture_ST;
 		 
@@ -60,7 +62,8 @@ SubShader
 		fixed4 frag(v2f i) : SV_TARGET
 		{
 //			fixed4 col = _Color;
-			float4 col = tex2D(_Distortion, i.uv + _Time.x) * .7 + _Color;// texture
+			float distortTex = tex2D(_Distortion, i.uv).a * .1;
+			float4 col = tex2D(_MainTexture, fixed2(i.uv.x - distortTex-_Time.x, i.uv.y - distortTex - _Time.x)) * _Color;// texture
 			 
 			float sceneZ = LinearEyeDepth (SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)));
 			float partZ = i.projPos.z + length(i.dist);
